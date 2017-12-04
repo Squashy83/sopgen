@@ -3581,7 +3581,7 @@ function toInt(argumentForCoercion) {
 
 // TODO: config: activeClass - Class to apply to the checked buttons
 var CHECKBOX_CONTROL_VALUE_ACCESSOR = {
-    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NG_VALUE_ACCESSOR */],
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* forwardRef */])(function () { return ButtonCheckboxDirective; }),
     multi: true
 };
@@ -3679,7 +3679,7 @@ var ButtonCheckboxDirective = (function () {
 
 
 var RADIO_CONTROL_VALUE_ACCESSOR = {
-    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NG_VALUE_ACCESSOR */],
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* forwardRef */])(function () { return ButtonRadioDirective; }),
     multi: true
 };
@@ -4814,7 +4814,7 @@ var BsDatepickerAbstractComponent = (function () {
 
 
 var BS_DATEPICKER_VALUE_ACCESSOR = {
-    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NG_VALUE_ACCESSOR */],
     // tslint:disable-next-line
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* forwardRef */])(function () { return BsDatepickerInputDirective; }),
     multi: true
@@ -5276,7 +5276,7 @@ var BsDatepickerModule = (function () {
 
 
 var BS_DATERANGEPICKER_VALUE_ACCESSOR = {
-    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NG_VALUE_ACCESSOR */],
     // tslint:disable-next-line
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* forwardRef */])(function () { return BsDaterangepickerInputDirective; }),
     multi: true
@@ -5904,7 +5904,7 @@ var DatePickerInnerComponent = (function () {
 
 
 var DATEPICKER_CONTROL_VALUE_ACCESSOR = {
-    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NG_VALUE_ACCESSOR */],
     // tslint:disable-next-line
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* forwardRef */])(function () { return DatePickerComponent; }),
     multi: true
@@ -6083,7 +6083,7 @@ var DatepickerModule = (function () {
     };
     DatepickerModule.decorators = [
         { type: __WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */], args: [{
-                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */]],
+                    imports: [__WEBPACK_IMPORTED_MODULE_0__angular_common__["b" /* CommonModule */], __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */]],
                     declarations: [
                         __WEBPACK_IMPORTED_MODULE_4__datepicker_component__["a" /* DatePickerComponent */],
                         __WEBPACK_IMPORTED_MODULE_3__datepicker_inner_component__["a" /* DatePickerInnerComponent */],
@@ -9909,7 +9909,7 @@ var ModalModule = (function () {
 
 
 var PAGER_CONTROL_VALUE_ACCESSOR = {
-    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NG_VALUE_ACCESSOR */],
     // tslint:disable-next-line
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* forwardRef */])(function () { return PagerComponent; }),
     multi: true
@@ -10164,7 +10164,7 @@ var PagerComponent = (function () {
 
 
 var PAGINATION_CONTROL_VALUE_ACCESSOR = {
-    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NG_VALUE_ACCESSOR */],
     // tslint:disable-next-line
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* forwardRef */])(function () { return PaginationComponent; }),
     multi: true
@@ -11381,7 +11381,7 @@ var ProgressbarModule = (function () {
 
 
 var RATING_CONTROL_VALUE_ACCESSOR = {
-    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NG_VALUE_ACCESSOR */],
     // tslint:disable-next-line
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* forwardRef */])(function () { return RatingComponent; }),
     multi: true
@@ -11749,7 +11749,7 @@ var SortableComponent = (function () {
                     template: "\n<div\n    [ngClass]=\"wrapperClass\"\n    [ngStyle]=\"wrapperStyle\"\n    [ngStyle]=\"wrapperStyle\"\n    (dragover)=\"cancelEvent($event)\"\n    (dragenter)=\"cancelEvent($event)\"\n    (drop)=\"resetActiveItem($event)\"\n    (mouseleave)=\"resetActiveItem($event)\">\n  <div\n        *ngIf=\"showPlaceholder\"\n        [ngClass]=\"placeholderClass\"\n        [ngStyle]=\"placeholderStyle\"\n        (dragover)=\"onItemDragover($event, 0)\"\n        (dragenter)=\"cancelEvent($event)\"\n    >{{placeholderItem}}</div>\n    <div\n        *ngFor=\"let item of items; let i=index;\"\n        [ngClass]=\"[ itemClass, i === activeItem ? itemActiveClass : '' ]\"\n        [ngStyle]=\"getItemStyle(i === activeItem)\"\n        draggable=\"true\"\n        (dragstart)=\"onItemDragstart($event, item, i)\"\n        (dragend)=\"resetActiveItem($event)\"\n        (dragover)=\"onItemDragover($event, i)\"\n        (dragenter)=\"cancelEvent($event)\"\n    ><ng-template [ngTemplateOutlet]=\"itemTemplate || defItemTemplate\"\n  [ngTemplateOutletContext]=\"{item:item, index: i}\"></ng-template></div>\n</div>\n\n<ng-template #defItemTemplate let-item=\"item\">{{item.value}}</ng-template>  \n",
                     providers: [
                         {
-                            provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+                            provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NG_VALUE_ACCESSOR */],
                             useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* forwardRef */])(function () { return SortableComponent; }),
                             multi: true
                         }
@@ -12619,7 +12619,7 @@ function timepickerControls(value, state) {
 
 
 var TIMEPICKER_CONTROL_VALUE_ACCESSOR = {
-    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NG_VALUE_ACCESSOR */],
+    provide: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NG_VALUE_ACCESSOR */],
     // tslint:disable-next-line
     useExisting: Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_17" /* forwardRef */])(function () { return TimepickerComponent; }),
     multi: true
@@ -15067,7 +15067,7 @@ var TypeaheadDirective = (function () {
     ];
     /** @nocollapse */
     TypeaheadDirective.ctorParameters = function () { return [
-        { type: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* NgControl */], },
+        { type: __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgControl */], },
         { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */], },
         { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* ViewContainerRef */], },
         { type: __WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Renderer2 */], },
@@ -83994,10 +83994,10 @@ function transition$$1(stateChangeExpr, steps) {
 /* unused harmony export AbstractFormGroupDirective */
 /* unused harmony export CheckboxControlValueAccessor */
 /* unused harmony export ControlContainer */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return NG_VALUE_ACCESSOR; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return NG_VALUE_ACCESSOR; });
 /* unused harmony export COMPOSITION_BUFFER_MODE */
 /* unused harmony export DefaultValueAccessor */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return NgControl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return NgControl; });
 /* unused harmony export NgControlStatus */
 /* unused harmony export NgControlStatusGroup */
 /* unused harmony export NgForm */
@@ -84018,17 +84018,17 @@ function transition$$1(stateChangeExpr, steps) {
 /* unused harmony export MinLengthValidator */
 /* unused harmony export PatternValidator */
 /* unused harmony export RequiredValidator */
-/* unused harmony export FormBuilder */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormBuilder; });
 /* unused harmony export AbstractControl */
 /* unused harmony export FormArray */
 /* unused harmony export FormControl */
 /* unused harmony export FormGroup */
 /* unused harmony export NG_ASYNC_VALIDATORS */
 /* unused harmony export NG_VALIDATORS */
-/* unused harmony export Validators */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return Validators; });
 /* unused harmony export VERSION */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FormsModule; });
-/* unused harmony export ReactiveFormsModule */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return FormsModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return ReactiveFormsModule; });
 /* unused harmony export ɵba */
 /* unused harmony export ɵz */
 /* unused harmony export ɵx */

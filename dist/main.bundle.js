@@ -82,14 +82,16 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sop_sop_component__ = __webpack_require__("../../../../../src/app/sop/sop.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sop_detail_sop_detail_component__ = __webpack_require__("../../../../../src/app/sop-detail/sop-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sop_create_sop_create_component__ = __webpack_require__("../../../../../src/app/sop-create/sop-create.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__sop_edit_sop_edit_component__ = __webpack_require__("../../../../../src/app/sop-edit/sop-edit.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__sop_pdf_manager_sop_pdf_manager_component__ = __webpack_require__("../../../../../src/app/sop-pdf-manager/sop-pdf-manager.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__sop_sop_component__ = __webpack_require__("../../../../../src/app/sop/sop.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sop_detail_sop_detail_component__ = __webpack_require__("../../../../../src/app/sop-detail/sop-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__sop_create_sop_create_component__ = __webpack_require__("../../../../../src/app/sop-create/sop-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__sop_edit_sop_edit_component__ = __webpack_require__("../../../../../src/app/sop-edit/sop-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__sop_pdf_manager_sop_pdf_manager_component__ = __webpack_require__("../../../../../src/app/sop-pdf-manager/sop-pdf-manager.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -108,30 +110,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
 var appRoutes = [
+    // {
+    //   path: 'sops',
+    //   component: SopComponent,
+    //   data: { title: 'Sop List' }
+    // },
+    // {
+    //   path: 'sop-details/:id',
+    //   component: SopDetailComponent,
+    //   data: { title: 'Sop Details' }
+    // },
+    // {
+    //   path: 'sop-create',
+    //   component: SopCreateComponent,
+    //   data: { title: 'Create Sop' }
+    // },
+    // {
+    //   path: 'sop-edit/:id',
+    //   component: SopEditComponent,
+    //   data: { title: 'Edit Sop' }
+    // },
     {
-        path: 'sops',
-        component: __WEBPACK_IMPORTED_MODULE_5__sop_sop_component__["a" /* SopComponent */],
-        data: { title: 'Sop List' }
-    },
-    {
-        path: 'sop-details/:id',
-        component: __WEBPACK_IMPORTED_MODULE_8__sop_detail_sop_detail_component__["a" /* SopDetailComponent */],
-        data: { title: 'Sop Details' }
-    },
-    {
-        path: 'sop-create',
-        component: __WEBPACK_IMPORTED_MODULE_9__sop_create_sop_create_component__["a" /* SopCreateComponent */],
-        data: { title: 'Create Sop' }
-    },
-    {
-        path: 'sop-edit/:id',
-        component: __WEBPACK_IMPORTED_MODULE_10__sop_edit_sop_edit_component__["a" /* SopEditComponent */],
-        data: { title: 'Edit Sop' }
+        path: 'login',
+        component: __WEBPACK_IMPORTED_MODULE_13__login_login_component__["a" /* LoginComponent */],
+        data: { title: 'Please Login' }
     },
     {
         path: '',
-        redirectTo: '/sops',
+        redirectTo: '/login',
         pathMatch: 'full'
     }
 ];
@@ -141,26 +150,105 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__sop_sop_component__["a" /* SopComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__user_user_component__["a" /* UserComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__sop_detail_sop_detail_component__["a" /* SopDetailComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__sop_create_sop_create_component__["a" /* SopCreateComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__sop_edit_sop_edit_component__["a" /* SopEditComponent */],
-                __WEBPACK_IMPORTED_MODULE_11__sop_pdf_manager_sop_pdf_manager_component__["a" /* SopPdfManagerComponent */]
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__sop_sop_component__["a" /* SopComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__user_user_component__["a" /* UserComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__sop_detail_sop_detail_component__["a" /* SopDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__sop_create_sop_create_component__["a" /* SopCreateComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__sop_edit_sop_edit_component__["a" /* SopEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_12__sop_pdf_manager_sop_pdf_manager_component__["a" /* SopPdfManagerComponent */],
+                __WEBPACK_IMPORTED_MODULE_13__login_login_component__["a" /* LoginComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
+                __WEBPACK_IMPORTED_MODULE_4_ngx_bootstrap__["a" /* AlertModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["e" /* ReactiveFormsModule */],
+                __WEBPACK_IMPORTED_MODULE_8__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
                 )
             ],
             providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".form-container {\n  display: block;\n  width: 90%;\n  padding: 2em;\n  margin: 2em auto;\n  background: #fff;\n}\n\n.alert {\n  background: #f2edda;\n  padding: 7px;\n  font-size: .9em;\n  margin-bottom: 20px;\n  display: inline-block;\n  -webkit-animation: 2s alertAnim forwards;\n          animation: 2s alertAnim forwards;\n}\n\n.button {\n  margin-top: 3rem;\n}\n\nh1 {\n  margin-bottom: 2rem;\n  font-weight: bold;\n  font-family: 'Muli';\n  font-size: 2em;\n}\n\n@-webkit-keyframes alertAnim {\n  from {\n    opacity: 0;\n    -webkit-transform: translateY(-20px);\n            transform: translateY(-20px);\n  }\n  to {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n  }\n}\n\n@keyframes alertAnim {\n  from {\n    opacity: 0;\n    -webkit-transform: translateY(-20px);\n            transform: translateY(-20px);\n  }\n  to {\n    opacity: 1;\n    -webkit-transform: translateY(0);\n            transform: translateY(0);\n  }\n}\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div *ngIf=\"!name; else forminfo\">\n  <form [formGroup]=\"rForm\" (ngSubmit)=\"addPost(rForm.value)\">\n    <div class=\"form-container\">\n      <div class=\"row columns\">\n        <h1>My Reactive Form</h1>\n        <label>Name\n          <div class=\"alert\" *ngIf=\"!rForm.controls['name'].valid && rForm.controls['name'].touched\">{{ titleAlert }}</div>\n\n          <input type=\"text\" formControlName=\"name\">\n        </label>\n\n        <label>Description\n          <div class=\"alert\" *ngIf=\"!rForm.controls['description'].valid && rForm.controls['description'].touched\">You must specify a description that's between 30 and 500 characters.</div>\n          <textarea formControlName=\"description\"></textarea>\n        </label>\n\n        <label for=\"validate\">Minimum of 3 Characters</label>\n        <input type=\"checkbox\" name=\"validate\" formControlName=\"validate\" value=\"1\"> On\n\n        <input type=\"submit\" class=\"button expanded\" value=\"Submit Form\" [disabled]=\"!rForm.valid\">\n      </div>\n    </div>\n  </form>\n</div>\n\n<ng-template #forminfo>\n  <div class=\"form-container\">\n    <div class=\"row columns\">\n      <h1>{{ name }}</h1>\n\n      <p>{{ description }}</p>\n    </div>\n  </div>\n</ng-template>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/login/login.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LoginComponent = (function () {
+    function LoginComponent(fb) {
+        this.fb = fb;
+        this.description = '';
+        this.name = '';
+        this.titleAlert = 'This field is required';
+        this.rForm = fb.group({
+            'name': [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
+            'description': [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].minLength(30), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].maxLength(500)])],
+            'validate': ''
+        });
+    }
+    LoginComponent.prototype.ngOnInit = function () {
+    };
+    LoginComponent.prototype.addPost = function (post) {
+        this.description = post.description;
+        this.name = post.name;
+    };
+    LoginComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-login',
+            template: __webpack_require__("../../../../../src/app/login/login.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/login/login.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]])
+    ], LoginComponent);
+    return LoginComponent;
 }());
 
 
@@ -238,7 +326,7 @@ var SopCreateComponent = (function () {
             selector: 'app-sop-create',
             template: __webpack_require__("../../../../../src/app/sop-create/sop-create.component.html"),
             styles: [__webpack_require__("../../../../../src/app/sop-create/sop-create.component.css")],
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewEncapsulation */].None
+            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewEncapsulation */].None
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], SopCreateComponent);
@@ -324,7 +412,7 @@ var SopDetailComponent = (function () {
             selector: 'app-sop-detail',
             template: __webpack_require__("../../../../../src/app/sop-detail/sop-detail.component.html"),
             styles: [__webpack_require__("../../../../../src/app/sop-detail/sop-detail.component.css")],
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewEncapsulation */].None
+            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewEncapsulation */].None
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], SopDetailComponent);
@@ -411,7 +499,7 @@ var SopEditComponent = (function () {
             selector: 'app-sop-edit',
             template: __webpack_require__("../../../../../src/app/sop-edit/sop-edit.component.html"),
             styles: [__webpack_require__("../../../../../src/app/sop-edit/sop-edit.component.css")],
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewEncapsulation */].None
+            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewEncapsulation */].None
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], SopEditComponent);
@@ -645,7 +733,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });
