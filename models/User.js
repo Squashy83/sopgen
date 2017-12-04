@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 
 var UserSchema = new mongoose.Schema({
-  isbn: String,
-  title: String,
-  author: String,
-  description: String,
-  published_year: String,
-  publisher: String,
+  name: String,
+  surname: String,
+  position: String,
+  userid: String,
+  password: String,
+  telcode: String,
+  mailcode: String,
   updated_date: {
     type: Date,
     default: Date.now

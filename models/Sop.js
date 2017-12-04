@@ -1,12 +1,28 @@
 var mongoose = require('mongoose');
 
-var SopSchema = new mongoose.Schema({
-  isbn: String,
+var StepSchema = new mongoose.Schema({
+  number: Number,
   title: String,
-  author: String,
   description: String,
-  published_year: String,
-  publisher: String,
+  balloon: String
+});
+
+
+
+var SopSchema = new mongoose.Schema({
+  title: String,
+  code: String,
+  description: String,
+  steps: [StepSchema],
+  action: String,
+  start: String,
+  expected_closure: String,
+  closure: String,
+  notes: String,
+  testedon: String,
+  implemented: String,
+  reviewed: String,
+  comments: String,
   updated_date: {
     type: Date,
     default: Date.now

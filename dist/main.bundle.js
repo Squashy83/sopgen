@@ -82,13 +82,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__sop_sop_component__ = __webpack_require__("../../../../../src/app/sop/sop.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sop_detail_sop_detail_component__ = __webpack_require__("../../../../../src/app/sop-detail/sop-detail.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sop_create_sop_create_component__ = __webpack_require__("../../../../../src/app/sop-create/sop-create.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__sop_edit_sop_edit_component__ = __webpack_require__("../../../../../src/app/sop-edit/sop-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ngx_bootstrap__ = __webpack_require__("../../../../ngx-bootstrap/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__sop_sop_component__ = __webpack_require__("../../../../../src/app/sop/sop.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sop_detail_sop_detail_component__ = __webpack_require__("../../../../../src/app/sop-detail/sop-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__sop_create_sop_create_component__ = __webpack_require__("../../../../../src/app/sop-create/sop-create.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__sop_edit_sop_edit_component__ = __webpack_require__("../../../../../src/app/sop-edit/sop-edit.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -106,25 +107,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var appRoutes = [
     {
         path: 'sops',
-        component: __WEBPACK_IMPORTED_MODULE_5__sop_sop_component__["a" /* SopComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_6__sop_sop_component__["a" /* SopComponent */],
         data: { title: 'Sop List' }
     },
     {
         path: 'sop-details/:id',
-        component: __WEBPACK_IMPORTED_MODULE_8__sop_detail_sop_detail_component__["a" /* SopDetailComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_9__sop_detail_sop_detail_component__["a" /* SopDetailComponent */],
         data: { title: 'Sop Details' }
     },
     {
         path: 'sop-create',
-        component: __WEBPACK_IMPORTED_MODULE_9__sop_create_sop_create_component__["a" /* SopCreateComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_10__sop_create_sop_create_component__["a" /* SopCreateComponent */],
         data: { title: 'Create Sop' }
     },
     {
         path: 'sop-edit/:id',
-        component: __WEBPACK_IMPORTED_MODULE_10__sop_edit_sop_edit_component__["a" /* SopEditComponent */],
+        component: __WEBPACK_IMPORTED_MODULE_11__sop_edit_sop_edit_component__["a" /* SopEditComponent */],
         data: { title: 'Edit Sop' }
     },
     {
@@ -139,22 +141,23 @@ var AppModule = (function () {
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_5__sop_sop_component__["a" /* SopComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__user_user_component__["a" /* UserComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__sop_detail_sop_detail_component__["a" /* SopDetailComponent */],
-                __WEBPACK_IMPORTED_MODULE_9__sop_create_sop_create_component__["a" /* SopCreateComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__sop_edit_sop_edit_component__["a" /* SopEditComponent */]
+                __WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */],
+                __WEBPACK_IMPORTED_MODULE_6__sop_sop_component__["a" /* SopComponent */],
+                __WEBPACK_IMPORTED_MODULE_7__user_user_component__["a" /* UserComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__sop_detail_sop_detail_component__["a" /* SopDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_10__sop_create_sop_create_component__["a" /* SopCreateComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__sop_edit_sop_edit_component__["a" /* SopEditComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_7__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
+                __WEBPACK_IMPORTED_MODULE_4_ngx_bootstrap__["a" /* AlertModule */],
+                __WEBPACK_IMPORTED_MODULE_8__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
                 )
             ],
             providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -232,7 +235,7 @@ var SopCreateComponent = (function () {
             selector: 'app-sop-create',
             template: __webpack_require__("../../../../../src/app/sop-create/sop-create.component.html"),
             styles: [__webpack_require__("../../../../../src/app/sop-create/sop-create.component.css")],
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewEncapsulation */].None
+            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewEncapsulation */].None
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], SopCreateComponent);
@@ -318,7 +321,7 @@ var SopDetailComponent = (function () {
             selector: 'app-sop-detail',
             template: __webpack_require__("../../../../../src/app/sop-detail/sop-detail.component.html"),
             styles: [__webpack_require__("../../../../../src/app/sop-detail/sop-detail.component.css")],
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewEncapsulation */].None
+            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewEncapsulation */].None
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], SopDetailComponent);
@@ -405,7 +408,7 @@ var SopEditComponent = (function () {
             selector: 'app-sop-edit',
             template: __webpack_require__("../../../../../src/app/sop-edit/sop-edit.component.html"),
             styles: [__webpack_require__("../../../../../src/app/sop-edit/sop-edit.component.css")],
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewEncapsulation */].None
+            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewEncapsulation */].None
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], SopEditComponent);
@@ -578,7 +581,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_16" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });
