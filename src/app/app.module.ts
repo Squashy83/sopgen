@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SopDetailComponent } from './sop-detail/sop-detail.component';
 import { SopCreateComponent } from './sop-create/sop-create.component';
 import { SopEditComponent } from './sop-edit/sop-edit.component';
+import { SopPdfManagerComponent } from './sop-pdf-manager/sop-pdf-manager.component';
 
 const appRoutes: Routes = [
   {
@@ -46,7 +47,8 @@ const appRoutes: Routes = [
     UserComponent,
     SopDetailComponent,
     SopCreateComponent,
-    SopEditComponent
+    SopEditComponent,
+    SopPdfManagerComponent
   ],
   imports: [
     BrowserModule,

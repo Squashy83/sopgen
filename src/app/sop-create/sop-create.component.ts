@@ -28,4 +28,7 @@ export class SopCreateComponent implements OnInit {
       );
   }
 
+  onClickCreatePdf() {
+      console.log('create pdf');
+  }
 }

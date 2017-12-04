@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+<style>
+
+h1 {
+	color:red;
+    text-align:center
+}
+
+p {
+	color:#ffffff;
+   	text-align: center;
+    position: relative;
+	top: 50%;
+	transform: translateY(-50%); 
+   }
+   
+.descriptionStep {
+	color:#000000;
+    font-size:13px;
+}
+   
+.hero { 	
+  background-color: #e15915;
+  position: relative;
+  height: 70px;
+  width: 300px;
+  align-content:center;
+}
+
+
+.hero:after {
+  border-right: solid 50px transparent;
+  border-left: solid 50px transparent;
+  border-top: solid 50px #e15915;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: -1;
+  content: '';
+  top: 50%;
+  left: 50%;
+  height: 0;
+  width: 0;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th {
+	  width:30px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<h1> SOP GENERATOR </h1>
+
+<table>
+  <tr>
+    <td><div class="hero"><p>STEP 1, test test test test, test, tes, test, test, <p></div></td>
+    <td><p class="descriptionStep">free text related to STEP 1, test, test, test, test, test, test, test, test, test, test, test, test, test, test, test, test, test,test,test,test,test, test, test</p></td>
+  </tr>
+    <tr>
+    <td><div class="hero"><p>STEP 2<p></div></td>
+    <td><p class="descriptionStep">free text related to STEP 2<p></td>
+  </tr>
+    <tr>
+    <td><div class="hero"><p>STEP 3<p></div></td>
+    <td><p class="descriptionStep">free text related to STEP 3<p></td>
+  </tr>
+    <tr>
+    <td><div class="hero"><p>TEST<p></div></td>
+    <td><p class="descriptionStep">free text related to STEP 3<p></td>
+  </tr>
+</table>
+</body>
+</html>

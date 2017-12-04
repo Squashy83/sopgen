@@ -89,12 +89,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__sop_detail_sop_detail_component__ = __webpack_require__("../../../../../src/app/sop-detail/sop-detail.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__sop_create_sop_create_component__ = __webpack_require__("../../../../../src/app/sop-create/sop-create.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__sop_edit_sop_edit_component__ = __webpack_require__("../../../../../src/app/sop-edit/sop-edit.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__sop_pdf_manager_sop_pdf_manager_component__ = __webpack_require__("../../../../../src/app/sop-pdf-manager/sop-pdf-manager.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -144,7 +146,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_6__user_user_component__["a" /* UserComponent */],
                 __WEBPACK_IMPORTED_MODULE_8__sop_detail_sop_detail_component__["a" /* SopDetailComponent */],
                 __WEBPACK_IMPORTED_MODULE_9__sop_create_sop_create_component__["a" /* SopCreateComponent */],
-                __WEBPACK_IMPORTED_MODULE_10__sop_edit_sop_edit_component__["a" /* SopEditComponent */]
+                __WEBPACK_IMPORTED_MODULE_10__sop_edit_sop_edit_component__["a" /* SopEditComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__sop_pdf_manager_sop_pdf_manager_component__["a" /* SopPdfManagerComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -185,7 +188,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/sop-create/sop-create.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n  <h1>Add New Sop</h1>\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <form (ngSubmit)=\"saveSop()\" #sopForm=\"ngForm\">\n        <div class=\"form-group\">\n          <label for=\"name\">ISBN</label>\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"sop.isbn\" name=\"isbn\" required>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"name\">Title</label>\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"sop.title\" name=\"title\" required>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"name\">Author</label>\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"sop.author\" name=\"author\" required>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"name\">Published Year</label>\n          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"sop.published_year\" name=\"published_year\" required>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"name\">Publisher</label>\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"sop.publisher\" name=\"publisher\" required>\n        </div>\n        <div class=\"form-group\">\n          <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!sopForm.form.valid\">Save</button>\n        </div>\n      </form>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"container\">\n  <h1>Add New Sop</h1>\n  <div class=\"row\">\n    <div class=\"col-md-6\">\n      <form (ngSubmit)=\"saveSop()\" #sopForm=\"ngForm\">\n        <div class=\"form-group\">\n          <label for=\"name\">ISBN</label>\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"sop.isbn\" name=\"isbn\" required>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"name\">Title</label>\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"sop.title\" name=\"title\" required>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"name\">Author</label>\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"sop.author\" name=\"author\" required>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"name\">Published Year</label>\n          <input type=\"number\" class=\"form-control\" [(ngModel)]=\"sop.published_year\" name=\"published_year\" required>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"name\">Publisher</label>\n          <input type=\"text\" class=\"form-control\" [(ngModel)]=\"sop.publisher\" name=\"publisher\" required>\n        </div>\n        <div class=\"form-group\">\n          <button type=\"submit\" class=\"btn btn-success\" [disabled]=\"!sopForm.form.valid\">Save</button>\n        </div>\n\n        <div class=\"form-group\">\n          <button class=\"btn btn-success\" (click)=\"onClickCreatePdf()\">Create PDF</button>\n        </div>\n\n      </form>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -226,6 +229,9 @@ var SopCreateComponent = (function () {
         }, function (err) {
             console.log(err);
         });
+    };
+    SopCreateComponent.prototype.onClickCreatePdf = function () {
+        console.log('create pdf');
     };
     SopCreateComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -410,6 +416,67 @@ var SopEditComponent = (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
     ], SopEditComponent);
     return SopEditComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/sop-pdf-manager/sop-pdf-manager.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/sop-pdf-manager/sop-pdf-manager.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  sop-pdf-manager works!\n</p>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/sop-pdf-manager/sop-pdf-manager.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SopPdfManagerComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SopPdfManagerComponent = (function () {
+    function SopPdfManagerComponent() {
+    }
+    SopPdfManagerComponent.prototype.ngOnInit = function () {
+    };
+    SopPdfManagerComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-sop-pdf-manager',
+            template: __webpack_require__("../../../../../src/app/sop-pdf-manager/sop-pdf-manager.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/sop-pdf-manager/sop-pdf-manager.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], SopPdfManagerComponent);
+    return SopPdfManagerComponent;
 }());
 
 
