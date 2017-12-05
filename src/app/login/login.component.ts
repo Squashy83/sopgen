@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { LoginService } from '../_services/login.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
   rForm: FormGroup;
@@ -13,7 +17,7 @@ export class LoginComponent implements OnInit {
   userid: string = '';
   requiredAlert: string = 'This field is required';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private _loginService: LoginService, private router: Router) {
     this.rForm = fb.group({
       'userid': [null, Validators.required],
       'password': [null, Validators.required],
@@ -24,9 +28,27 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  addPost(post) {
-    this.password = post.password;
-    this.userid = post.userid;
+  login(user) {
+    this._loginService.login(user.userid, user.password).subscribe(user => {
+      if (user)
+        this.router.navigate(['/sops']);
+    });
+
   }
 
+  // login() {
+  //   this.loading = true;
+  //   this.authenticationService.login(this.model.username, this.model.password)
+  //     .subscribe(
+  //     data => {
+  //       this.router.navigate([this.returnUrl]);
+  //     },
+  //     error => {
+  //       this.alertService.error(error);
+  //       this.loading = false;
+  //     });
+  // }
+
 }
+
+

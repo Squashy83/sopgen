@@ -34,6 +34,8 @@ app.use('/user', user);
 app.use('/createPdf', express.static(path.join(__dirname, 'dist')));
 app.use('/createPdf', createPdf);
 
+
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('Not Found');

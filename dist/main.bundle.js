@@ -17,6 +17,42 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 
 /***/ }),
 
+/***/ "../../../../../src/app/_services/login.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("../../../common/esm5/http.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var LoginService = (function () {
+    function LoginService(http) {
+        this.http = http;
+    }
+    LoginService.prototype.login = function (userid, password) {
+        return this.http.get('/user/' + userid + '/' + password);
+    };
+    LoginService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], LoginService);
+    return LoginService;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/app.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -113,11 +149,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var appRoutes = [
-    // {
-    //   path: 'sops',
-    //   component: SopComponent,
-    //   data: { title: 'Sop List' }
-    // },
+    {
+        path: 'sops',
+        component: __WEBPACK_IMPORTED_MODULE_6__sop_sop_component__["a" /* SopComponent */],
+        data: { title: 'Sop List' }
+    },
     // {
     //   path: 'sop-details/:id',
     //   component: SopDetailComponent,
@@ -200,7 +236,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"!name; else forminfo\">\n  <form [formGroup]=\"rForm\" (ngSubmit)=\"addPost(rForm.value)\">\n    <div class=\"form-container\">\n      <div class=\"row columns\">\n        <h1>My Reactive Form</h1>\n        <label>Name\n          <div class=\"alert\" *ngIf=\"!rForm.controls['name'].valid && rForm.controls['name'].touched\">{{ titleAlert }}</div>\n\n          <input type=\"text\" formControlName=\"name\">\n        </label>\n\n        <label>Description\n          <div class=\"alert\" *ngIf=\"!rForm.controls['description'].valid && rForm.controls['description'].touched\">You must specify a description that's between 30 and 500 characters.</div>\n          <textarea formControlName=\"description\"></textarea>\n        </label>\n\n        <label for=\"validate\">Minimum of 3 Characters</label>\n        <input type=\"checkbox\" name=\"validate\" formControlName=\"validate\" value=\"1\"> On\n\n        <input type=\"submit\" class=\"button expanded\" value=\"Submit Form\" [disabled]=\"!rForm.valid\">\n      </div>\n    </div>\n  </form>\n</div>\n\n<ng-template #forminfo>\n  <div class=\"form-container\">\n    <div class=\"row columns\">\n      <h1>{{ name }}</h1>\n\n      <p>{{ description }}</p>\n    </div>\n  </div>\n</ng-template>\n"
+module.exports = "<div *ngIf=\"!name; else forminfo\">\n  <form [formGroup]=\"rForm\" (ngSubmit)=\"login(rForm.value)\">\n    <div class=\"form-container\">\n      <div class=\"row columns\">\n        <h1>Please Login</h1>\n        <label>UserID\n          <div class=\"alert\" *ngIf=\"!rForm.controls['userid'].valid && rForm.controls['userid'].touched\">{{ requiredAlert }}</div>\n          <input type=\"text\" formControlName=\"userid\">\n        </label>\n\n        <label>Password\n          <!--<div class=\"alert\" *ngIf=\"!rForm.controls['description'].valid && rForm.controls['description'].touched\">You must specify a description that's between 30 and 500 characters.</div>-->\n          <div class=\"alert\" *ngIf=\"!rForm.controls['password'].valid && rForm.controls['password'].touched\">{{ requiredAlert }}</div>\n          <input type=\"password\" formControlName=\"password\">\n          <!-- <textarea formControlName=\"description\"></textarea>-->\n        </label>\n\n        <!--<label for=\"validate\">Minimum of 3 Characters</label>\n        <input type=\"checkbox\" name=\"validate\" formControlName=\"validate\" value=\"1\"> On\n        -->\n        <input type=\"submit\" class=\"button expanded\" value=\"Submit Form\" [disabled]=\"!rForm.valid\">\n      </div>\n    </div>\n  </form>\n</div>\n\n<!--<ng-template #forminfo>\n  <div class=\"form-container\">\n    <div class=\"row columns\">\n      <h1>{{ name }}</h1>\n\n      <p>{{ description }}</p>\n    </div>\n  </div>\n</ng-template>-->\n"
 
 /***/ }),
 
@@ -211,6 +247,8 @@ module.exports = "<div *ngIf=\"!name; else forminfo\">\n  <form [formGroup]=\"rF
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_login_service__ = __webpack_require__("../../../../../src/app/_services/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -222,31 +260,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var LoginComponent = (function () {
-    function LoginComponent(fb) {
+    function LoginComponent(fb, _loginService, router) {
         this.fb = fb;
-        this.description = '';
-        this.name = '';
-        this.titleAlert = 'This field is required';
+        this._loginService = _loginService;
+        this.router = router;
+        this.password = '';
+        this.userid = '';
+        this.requiredAlert = 'This field is required';
         this.rForm = fb.group({
-            'name': [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
-            'description': [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].compose([__WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].minLength(30), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].maxLength(500)])],
+            'userid': [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
+            'password': [null, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["f" /* Validators */].required],
             'validate': ''
         });
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
-    LoginComponent.prototype.addPost = function (post) {
-        this.description = post.description;
-        this.name = post.name;
+    LoginComponent.prototype.login = function (user) {
+        var _this = this;
+        this._loginService.login(user.userid, user.password).subscribe(function (user) {
+            if (user)
+                _this.router.navigate(['/sops']);
+        });
     };
     LoginComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-login',
             template: __webpack_require__("../../../../../src/app/login/login.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/login/login.component.css")]
+            styles: [__webpack_require__("../../../../../src/app/login/login.component.css")],
+            providers: [__WEBPACK_IMPORTED_MODULE_2__services_login_service__["a" /* LoginService */]]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__services_login_service__["a" /* LoginService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], LoginComponent);
     return LoginComponent;
 }());

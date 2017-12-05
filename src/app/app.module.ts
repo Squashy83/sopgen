@@ -16,11 +16,11 @@ import { LoginComponent } from './login/login.component';
 
 
 const appRoutes: Routes = [
-  // {
-  //   path: 'sops',
-  //   component: SopComponent,
-  //   data: { title: 'Sop List' }
-  // },
+  {
+    path: 'sops',
+    component: SopComponent,
+    data: { title: 'Sop List' }
+  },
   // {
   //   path: 'sop-details/:id',
   //   component: SopDetailComponent,

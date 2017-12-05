@@ -1,5 +1,5 @@
 <div *ngIf="!name; else forminfo">
-  <form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+  <form [formGroup]="rForm" (ngSubmit)="login(rForm.value)">
     <div class="form-container">
       <div class="row columns">
         <h1>Please Login</h1>
@@ -11,7 +11,7 @@
         <label>Password
           <!--<div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">You must specify a description that's between 30 and 500 characters.</div>-->
           <div class="alert" *ngIf="!rForm.controls['password'].valid && rForm.controls['password'].touched">{{ requiredAlert }}</div>
-          <input type="text" formControlName="password">
+          <input type="password" formControlName="password">
           <!-- <textarea formControlName="description"></textarea>-->
         </label>
 
