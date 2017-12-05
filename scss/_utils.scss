@@ -1,0 +1,22 @@
+.text-darkblue {
+    color: $dark-blue;
+}
+
+.my-shadow {
+    @include my-box-shadow(0, 2px, 4px, rgba(0,0,0,0.5));
+}
+
+.rounded-2 {
+    border-radius: 2px;
+}
+
+.alert-position {
+    position: fixed; 
+    top: 40px;
+    right: 40px;
+    z-index: $z-index-alert;
+}
+
+.bg-white {
+    background-color: $white;
+}

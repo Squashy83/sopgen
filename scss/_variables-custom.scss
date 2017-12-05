@@ -1,0 +1,82 @@
+/**
+ * Z-INDEX
+ */
+ $z-index-alert: 1020;
+ $z-index-loader: 1090;
+ 
+ /**
+  * NAVBAR
+  */
+ $navbar-height: 70px !default;
+ 
+ /**
+  * BODY
+  */
+ $body-bg:  #F5F5F5 !default;
+ 
+ 
+ /**
+  * COLORS
+  */
+ 
+ $dark-blue: #143C78;
+ $main-button: #143C78;
+ $login-background: #ffffff;
+ $navBar-background: #ffffff;
+ $light-red: #FF3300;
+ $light-green: #32CD32;
+ $light-orange: #ff8c00;
+ $light-yellow: #ffd700;
+ 
+ /**
+  * DOCKBAR
+  */
+ 
+ $dockbar-color: $dark-blue;
+ $dokbar-width: 62px;
+ 
+ /**
+  * BUTTON
+  */
+ 
+ $btn-darkblue-color: #ffffff;
+ $btn-darkblue-bg: $dark-blue;
+ $btn-darkblue-border: $dark-blue;
+ $btn-lightred-color: #ffffff;
+ $btn-lightred-bg: $light-red;
+ $btn-lightred-border: $light-red;
+ $btn-lightgreen-color: #ffffff;
+ $btn-lightgreen-bg: $light-green;
+ $btn-lightgreen-border: $light-green;
+ $btn-lightorange-color: #ffffff;
+ $btn-lightorange-bg: $light-orange;
+ $btn-lightorange-border: $light-orange;
+ $btn-lightyellow-color: #ffffff;
+ $btn-lightyellow-bg: $light-yellow;
+ $btn-lightyellow-border: $light-yellow;
+ $btn-grey-lighter-color: #000000;
+ $btn-grey-lighter-bg: #eceeef; // Bootstrap  Gray lighter
+ $btn-grey-lighter-border: #eceeef; // Bootstrap  Gray lighter
+ $btn-link-gray-color: #464a4c;
+ $btn-link-gray-bg: transparent;
+ $btn-link-gray-border: #ffffff;
+ 
+ /**
+  * LOADER
+  */
+ 
+ $loader-border: #ffffff;
+ $general-loader-blue: $light-red;
+ $general-loader-green: $dark-blue;
+ $loader-container-bg: #DDDDDD;
+ $loader-container-opacity: 0.9;
+ $loader-container-zindex: 9999;
+ 
+ /**
+  * Default font
+  */
+ 
+ 
+ 
+ $font-family-sans-serif: 'Open Sans',
+ sans-serif;

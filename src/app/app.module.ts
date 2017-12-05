@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertModule } from 'ngx-bootstrap';
 
@@ -56,6 +56,8 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     AlertModule,
+    ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

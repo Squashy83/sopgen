@@ -5,7 +5,7 @@
     <style>
     
     h1 {
-        color:red;
+        color:black;
         text-align:center;
     }
     
@@ -15,31 +15,32 @@
         position: relative;
         top: 50%;
         transform: translateY(-50%); 
+        font-size:10px;
        }
        
     .descriptionStep {
         color:#000000;
-        font-size:13px;
+        font-size:10px;
     }
        
     .hero { 	
       background-color: #e15915;
       position: relative;
-      height: 70px;
+      height: 30px;
       width: 300px;
       align-content:center;
     }
     
     
     .hero:after {
-      border-right: solid 50px transparent;
-      border-left: solid 50px transparent;
-      border-top: solid 50px #e15915;
+      border-right: solid 40px transparent;
+      border-left: solid 40px transparent;
+      border-top: solid 40px #e15915;
       transform: translateX(-50%);
       position: absolute;
       z-index: -1;
       content: '';
-      top: 50%;
+      top: 2%;
       left: 50%;
       height: 0;
       width: 0;
@@ -48,15 +49,139 @@
     table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
-        width: 80%;
+        width: 100%;
     }
     
     td, th {
-          width:30px;
+        width: 50%;
         border: 1px solid #dddddd;
         text-align: center;
-        padding: 20px;
+        padding: 10px;
+    }
+    
+    .generalInfo {
+        color:#000000;
+        font-size:10px;
+        text-align: left;
     }
     
     </style>
-    </head><h1>SOP 1</h1><table><tr><td><div class="hero"><p>undefined<p></div></td><td><p class="descriptionStep">undefined</p></td></tr><tr><td><div class="hero"><p>undefined<p></div></td><td><p class="descriptionStep">undefined</p></td></tr><tr><td><div class="hero"><p>undefined<p></div></td><td><p class="descriptionStep">undefined</p></td></tr></table></body></html><h1>SOP 1</h1><table><tr><td><div class="hero"><p>undefined<p></div></td><td><p class="descriptionStep">undefined</p></td></tr><tr><td><div class="hero"><p>undefined<p></div></td><td><p class="descriptionStep">undefined</p></td></tr><tr><td><div class="hero"><p>undefined<p></div></td><td><p class="descriptionStep">undefined</p></td></tr></table></body></html><h1>SOP 1</h1><table><tr><td><div class="hero"><p>undefined<p></div></td><td><p class="descriptionStep">undefined</p></td></tr><tr><td><div class="hero"><p>undefined<p></div></td><td><p class="descriptionStep">undefined</p></td></tr><tr><td><div class="hero"><p>undefined<p></div></td><td><p class="descriptionStep">undefined</p></td></tr></table></body></html>
+
+<h1>SOP_TITLE</h1>
+
+<table>
+ <tr>
+  <td><p class="generalInfo"><b>Code:</b>#SOP_CODE</p></td>
+  </tr>  	
+    <tr>
+    <td><p class="generalInfo"><b>Background:</b> SOP_BACKGROUND</p></td>
+  </tr>
+  
+  <tr>
+    <td><p class="generalInfo"><b>Purpose:</b> SOP_PURPOSE</p></td>
+  </tr>
+  
+      <tr>
+    <td><p class="generalInfo"><b>Responsability:</b> SOP_RESPONSABILITY</p></td>
+  </tr>
+</table>
+
+SOP_FLOW
+
+<!-- responsible tableView -->
+
+<br>
+<table>
+ <tr>
+  <td><p class="generalInfo"><b>Responsible Person(s):</b></p></td>
+  </tr>
+</table>
+
+<!-- Responsible Person -->
+<table>
+ <tr>
+  <td><p class="generalInfo"><b>Name</b></p></td>
+  <td><p class="generalInfo"><b>Position</b></p></td>
+  <td><p class="generalInfo"><b>Tel code</b></p></td>
+  <td><p class="generalInfo"><b>email code</b></p></td>
+  </tr>
+  
+  SOP_RESPONSIBLES
+  <!-- <tr>
+  	<td><p class="generalInfo">Dr. Mahmoud Kayed</p></td>
+    <td><p class="generalInfo">CMU director</p></td>
+    <td><p class="generalInfo">34343</p></td>
+    <td><p class="generalInfo">945353</p></td>
+  </tr> -->
+</table>
+
+
+<!-- Concerned Person -->
+
+<table>
+    <tr>
+      <td><p class="generalInfo"><b>Concerned Person(s)</b></p></td>
+    </tr> 
+    <table>
+        <!-- SOP_CONCERNED -->
+        <tr>
+            <td><p class="generalInfo"> </td>
+            <td><p class="generalInfo"> </td>
+            <td><p class="generalInfo"> </td>
+            <td><p class="generalInfo"> </td>
+        </tr>
+    </table>  
+
+
+    <!-- Action / Start / Expected closure / Closure -->
+
+<table>
+        <tr>
+          <td><p class="generalInfo"><b>Action</b></p></td>
+          <td><p class="generalInfo"><b>Start</b></p></td>
+          <td><p class="generalInfo"><b>Expected closure</b></p></td>
+          <td><p class="generalInfo"><b>Closure</b></p></td>
+        </tr> 
+        
+            <tr>
+              <td><p class="generalInfo"> </td>
+              <td><p class="generalInfo"> </td>
+              <td><p class="generalInfo"> </td>
+              <td><p class="generalInfo"> </td>
+            </tr>
+      </table>
+
+
+      <!-- Notes (pre-information) -->
+    <table>
+        <tr>
+          <td><p class="generalInfo"><b>Notes (pre-information)</b></p></td>
+        </tr> 
+        <tr>
+          <td><p class="generalInfo">SOP_NOTES</p></td>
+        </tr> 
+      </table>
+
+
+
+      <!-- SOP Monitoring -->
+    <table>
+    <tr>
+        <td><p class="generalInfo"><b>SOP monitoring</b></p></td>
+    </tr> 
+    </table>
+
+    <table>
+          <tr>
+            <td><p class="generalInfo"><b>Tested on</b></p></td>
+            <td><p class="generalInfo"><b>Implemented</b></p></td>
+            <td><p class="generalInfo"><b>Reviewed</b></p></td>
+            </tr> 
+           <tr>
+            <td><p class="generalInfo"><b> </b></p></td>
+            <td><p class="generalInfo"><b> </b></p></td>
+            <td><p class="generalInfo"><b> </b></p></td>
+            </tr> 
+      </table>
+    </body>
+</html

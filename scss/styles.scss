@@ -1,0 +1,90 @@
+/**
+ *  You can add global styles to this file, and also import other style files
+ *
+ * I file scss vengono poi compilati da angular cli in file css: Guida Sass: http://sass-lang.com/documentation/file.SASS_REFERENCE.html
+ * L'scss di bootstrap viene utilizato da ng2-bootsrap e come style di default per la nostra applicazione,
+ * IMPORTANTE: Non modificare mai i file scss originali di bootstrap ma aggiungere sempre un nuovo file sotto scss/bootstrap_custom
+ *
+ * Guida Bootstrap: http://getbootstrap.com/
+ *
+ * Guida ng2-bootstrap: https://valor-software.com/ng2-bootstrap/#/
+ *
+ **/
+
+ @import "variables-custom";
+ @import "mixins-custom/transform";
+ @import "bootstrap-src/bootstrap";
+ @import "bootstrap-custom/buttons";
+ @import "bootstrap-custom/tabs";
+ @import "bootstrap-custom/forms";
+ 
+ @import "ng2-select";
+ 
+ @import "utils";
+ @import "loader";
+ 
+ @import "datatable";
+/* @import "settings";
+ @import "dockbar";
+ @import "app-card";
+ @import "app-cell";
+ @import "screen-slider"; 
+ 
+ @import "dashboard";
+ @import "login";
+ @import "home";
+ @import "app-detail-view"; */
+ @import '~@swimlane/ngx-datatable/release/index.css';
+ @import '~@swimlane/ngx-datatable/release/themes/material.css';
+ @import '~@swimlane/ngx-datatable/release/assets/icons.css';
+ 
+ 
+ .my-drop-zone {
+     width: 100%;
+     display: inline-block;
+     border: dotted 3px lightgray; 
+     text-align: center;
+     white-space: pre-line;
+     > label {
+         display: block;
+         margin: 0;
+         min-width: 165px;
+         white-space: nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         > span {
+             font-size: 1rem;
+             line-height: 1.25;
+             color: $gray;
+         }
+     }
+     > button {
+         border-radius: 0;
+     } 
+    
+ }
+ .nv-file-over { border: dotted 3px red; } /* Default class applied to drop zones on over */
+ .file-droped { border: dotted 3px green; }
+ 
+ p.card-text {
+     word-wrap: break-word;
+ }
+ 
+ .elipssis {
+     min-width: 120px;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
+ }
+ 
+ .footer {
+     position: fixed;
+     bottom: 0;
+     left:0;
+     right: 0;
+ }
+ 
+ .small-text {
+     font-size: $font-size-xs;
+ }
+ 
