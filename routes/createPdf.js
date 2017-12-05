@@ -7,16 +7,14 @@ var express = require('express');
 var router = express.Router();
 
 router.post('/', function(req, res, next) {
-
-    console.log('dirName: ', __dirname);
-
-
-    //__dirname + '/../pdf-configuration/pdf-conf'
+    
     fs.readFile(path.join(__dirname, '../assets/pdf-conf.html'), 'utf8', function (err,data) {
         if (err) {
           return console.log('error read file: ', err);
         }
-        
+
+        console.log('data read: ', data);
+
         var options = { format: 'A4' };
 
             pdf.create(data, options).toFile('./businesscard.pdf', function(err, resultPdf) {
@@ -28,8 +26,6 @@ router.post('/', function(req, res, next) {
 
             res.json({success: true, message:'saved feedback type ok'});
             });
-        
-        console.log('data read: ', data);
       });
 });
 
