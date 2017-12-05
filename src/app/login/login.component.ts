@@ -4,12 +4,14 @@ import { LoginService } from '../_services/login.service';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [LoginService]
+  styleUrls: ['./login.component.css']
 })
+
+
 export class LoginComponent implements OnInit {
   rForm: FormGroup;
   post: any;                     // A property for our submitted form
