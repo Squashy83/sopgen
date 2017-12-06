@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-sop-create',
-  templateUrl: './sop-create.component.html',
-  styleUrls: ['./sop-create.component.css'],
+  selector: 'app-sop-info',
+  templateUrl: './sop-info.component.html',
+  styleUrls: ['./sop-info.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class SopCreateComponent implements OnInit {
+export class SopInfoComponent implements OnInit {
 
   sop = {};
 
@@ -98,5 +98,6 @@ validationMessages = {
   }
 
   onSubmit() {
+    this.router.navigate(['/sop-steps']);
   }
 }

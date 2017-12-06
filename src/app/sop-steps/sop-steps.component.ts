@@ -23,8 +23,7 @@ export class SopStepsComponent implements OnInit {
     });
   }
 
-
-  onSubmit() {
-    console.log("CLICCATO");
+  onNextResponsibles() {
+    this.router.navigate(['/sop-responsibles']);
   }
 }

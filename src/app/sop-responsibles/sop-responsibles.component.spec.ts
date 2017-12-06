@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SopCreateComponent } from './sop-create.component';
+import { SopResponsiblesComponent } from './sop-responsibles.component';
 
-describe('SopCreateComponent', () => {
-  let component: SopCreateComponent;
-  let fixture: ComponentFixture<SopCreateComponent>;
+describe('SopResponsiblesComponent', () => {
+  let component: SopResponsiblesComponent;
+  let fixture: ComponentFixture<SopResponsiblesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SopCreateComponent ]
+      declarations: [ SopResponsiblesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SopCreateComponent);
+    fixture = TestBed.createComponent(SopResponsiblesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

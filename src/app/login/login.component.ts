@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   login(user) {
     this._loginService.login(user.userid, user.password).subscribe(user => {
-      this.router.navigate(['/sop-steps']);
+      this.router.navigate(['/sop-info']);
 
     });
 

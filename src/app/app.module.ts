@@ -1,3 +1,4 @@
+import { SopInfoComponent } from './sop-info/sop-info.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -9,13 +10,14 @@ import { SopComponent } from './sop/sop.component';
 import { UserComponent } from './user/user.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SopDetailComponent } from './sop-detail/sop-detail.component';
-import { SopCreateComponent } from './sop-create/sop-create.component';
 import { SopEditComponent } from './sop-edit/sop-edit.component';
 import { SopPdfManagerComponent } from './sop-pdf-manager/sop-pdf-manager.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './_services/login.service';
 import { LoginGuardService } from './_services/login_guard.service';
 import { SopStepsComponent } from './sop-steps/sop-steps.component';
+import { SopResponsiblesComponent } from './sop-responsibles/sop-responsibles.component';
+import { SopFooterComponent } from './sop-footer/sop-footer.component';
 // import { Injectable } from '@angular/core';
 // import { CanActivate } from '@angular/router';
 
@@ -30,26 +32,29 @@ import { SopStepsComponent } from './sop-steps/sop-steps.component';
 
 const appRoutes: Routes = [
   {
+    path: 'sop-info',
+    component: SopInfoComponent,
+    canActivate: [LoginGuardService],
+    data: { title: 'Sop Generic Info' }
+  },
+  {
     path: 'sop-steps',
     component: SopStepsComponent,
     canActivate: [LoginGuardService],
     data: { title: 'Sop Steps' }
   },
-  // {
-  //   path: 'sop-details/:id',
-  //   component: SopDetailComponent,
-  //   data: { title: 'Sop Details' }
-  // },
-  // {
-  //   path: 'sop-create',
-  //   component: SopCreateComponent,
-  //   data: { title: 'Create Sop' }
-  // },
-  // {
-  //   path: 'sop-edit/:id',
-  //   component: SopEditComponent,
-  //   data: { title: 'Edit Sop' }
-  // },
+  {
+    path: 'sop-responsibles',
+    component: SopResponsiblesComponent,
+    canActivate: [LoginGuardService],
+    data: { title: 'Sop Responsibles Info' }
+  },
+  {
+    path: 'sop-footer',
+    component: SopFooterComponent,
+    canActivate: [LoginGuardService],
+    data: { title: 'Sop Footer' }
+  },
   {
     path: 'login',
     component: LoginComponent,
@@ -69,11 +74,13 @@ const appRoutes: Routes = [
     SopComponent,
     UserComponent,
     SopDetailComponent,
-    SopCreateComponent,
+    SopInfoComponent,
     SopEditComponent,
     SopPdfManagerComponent,
     LoginComponent,
-    SopStepsComponent
+    SopStepsComponent,
+    SopResponsiblesComponent,
+    SopFooterComponent
 
   ],
   imports: [
