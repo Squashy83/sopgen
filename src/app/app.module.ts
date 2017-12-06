@@ -15,6 +15,7 @@ import { SopPdfManagerComponent } from './sop-pdf-manager/sop-pdf-manager.compon
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './_services/login.service';
 import { LoginGuardService } from './_services/login_guard.service';
+import { SopStepsComponent } from './sop-steps/sop-steps.component';
 // import { Injectable } from '@angular/core';
 // import { CanActivate } from '@angular/router';
 
@@ -29,10 +30,10 @@ import { LoginGuardService } from './_services/login_guard.service';
 
 const appRoutes: Routes = [
   {
-    path: 'sops',
-    component: SopComponent,
+    path: 'sop-steps',
+    component: SopStepsComponent,
     canActivate: [LoginGuardService],
-    data: { title: 'Sop List' }
+    data: { title: 'Sop Steps' }
   },
   // {
   //   path: 'sop-details/:id',
@@ -71,7 +72,8 @@ const appRoutes: Routes = [
     SopCreateComponent,
     SopEditComponent,
     SopPdfManagerComponent,
-    LoginComponent
+    LoginComponent,
+    SopStepsComponent
 
   ],
   imports: [
