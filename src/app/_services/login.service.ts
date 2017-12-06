@@ -14,16 +14,24 @@ export class LoginService {
   }
 
   login(userid, password): Observable<User> {
-    var result;
-    this.http.get<User>('/user/' + userid + '/' + password).subscribe(data => {
-      this.loggedInUser = data;
-      result = data;
+    // var result;
+    return this.http.get<User>('/user/' + userid + '/' + password).map(data => {
+      if (data) {
+        this.loggedInUser = data;
+        this.islogged = true;
+      }
+      return data;
     });
 
-    if (result) {
-      this.islogged = true;
-    }
-    return result;
+    // .subscribe(data => {
+    //   this.loggedInUser = data;
+    //   result = data;
+    // });
+
+    // if (result) {
+    //   this.islogged = true;
+    // }
+    // return result;
   }
 
   isLoggedIn() {

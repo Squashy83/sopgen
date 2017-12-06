@@ -42,15 +42,22 @@ var LoginService = (function () {
     }
     LoginService.prototype.login = function (userid, password) {
         var _this = this;
-        var result;
-        this.http.get('/user/' + userid + '/' + password).subscribe(function (data) {
-            _this.loggedInUser = data;
-            result = data;
+        // var result;
+        return this.http.get('/user/' + userid + '/' + password).map(function (data) {
+            if (data) {
+                _this.loggedInUser = data;
+                _this.islogged = true;
+            }
+            return data;
         });
-        if (result) {
-            this.islogged = true;
-        }
-        return result;
+        // .subscribe(data => {
+        //   this.loggedInUser = data;
+        //   result = data;
+        // });
+        // if (result) {
+        //   this.islogged = true;
+        // }
+        // return result;
     };
     LoginService.prototype.isLoggedIn = function () {
         return this.islogged;
@@ -361,8 +368,7 @@ var LoginComponent = (function () {
     LoginComponent.prototype.login = function (user) {
         var _this = this;
         this._loginService.login(user.userid, user.password).subscribe(function (user) {
-            if (user)
-                _this.router.navigate(['/sops']);
+            _this.router.navigate(['/sops']);
         });
     };
     LoginComponent = __decorate([

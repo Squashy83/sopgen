@@ -32,8 +32,8 @@ export class LoginComponent implements OnInit {
 
   login(user) {
     this._loginService.login(user.userid, user.password).subscribe(user => {
-      if (user)
-        this.router.navigate(['/sops']);
+      this.router.navigate(['/sops']);
+
     });
 
   }
