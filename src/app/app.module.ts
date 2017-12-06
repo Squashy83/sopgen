@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AlertModule } from 'ngx-bootstrap';
+import { AlertModule, ButtonsModule } from 'ngx-bootstrap';
 
 import { AppComponent } from './app.component';
 import { SopComponent } from './sop/sop.component';
@@ -86,7 +86,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
-    )
+    ),
+    ButtonsModule.forRoot()
   ],
   providers: [LoginService, LoginGuardService],
   bootstrap: [AppComponent]

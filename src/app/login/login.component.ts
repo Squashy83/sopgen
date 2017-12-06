@@ -4,7 +4,6 @@ import { LoginService } from '../_services/login.service';
 import { Router } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -32,7 +31,7 @@ export class LoginComponent implements OnInit {
 
   login(user) {
     this._loginService.login(user.userid, user.password).subscribe(user => {
-      this.router.navigate(['/sops']);
+      this.router.navigate(['/sop-steps']);
 
     });
 
