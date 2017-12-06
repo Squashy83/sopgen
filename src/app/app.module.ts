@@ -14,23 +14,24 @@ import { SopEditComponent } from './sop-edit/sop-edit.component';
 import { SopPdfManagerComponent } from './sop-pdf-manager/sop-pdf-manager.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './_services/login.service';
-import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { LoginGuardService } from './_services/login_guard.service';
+// import { Injectable } from '@angular/core';
+// import { CanActivate } from '@angular/router';
 
-@Injectable()
-class LoginGuard implements CanActivate {
-  constructor(private _loginService: LoginService) { }
+// @Injectable()
+// class LoginGuard implements CanActivate {
+//   constructor(private _loginService: LoginService) { }
 
-  canActivate() {
-    return this._loginService.isLoggedIn();
-  }
-}
+//   canActivate() {
+//     return this._loginService.isLoggedIn();
+//   }
+// }
 
 const appRoutes: Routes = [
   {
     path: 'sops',
     component: SopComponent,
-    canActivate: [LoginGuard],
+    canActivate: [LoginGuardService],
     data: { title: 'Sop List' }
   },
   // {
@@ -84,7 +85,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [LoginService, LoginGuard],
+  providers: [LoginService, LoginGuardService],
   bootstrap: [AppComponent]
 })
 

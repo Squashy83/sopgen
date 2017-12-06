@@ -38,15 +38,81 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var LoginService = (function () {
     function LoginService(http) {
         this.http = http;
+        this.islogged = false;
     }
     LoginService.prototype.login = function (userid, password) {
-        return this.http.get('/user/' + userid + '/' + password);
+        var _this = this;
+        var result;
+        this.http.get('/user/' + userid + '/' + password).subscribe(function (data) {
+            _this.loggedInUser = data;
+            result = data;
+        });
+        if (result) {
+            this.islogged = true;
+        }
+        return result;
+    };
+    LoginService.prototype.isLoggedIn = function () {
+        return this.islogged;
+    };
+    LoginService.prototype.logoutUser = function () {
+        this.islogged = false;
+        this.loggedInUser = undefined;
+    };
+    LoginService.prototype.getLoggedInUser = function () {
+        return this.loggedInUser;
     };
     LoginService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
     ], LoginService);
     return LoginService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/_services/login_guard.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginGuardService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_service__ = __webpack_require__("../../../../../src/app/_services/login.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var LoginGuardService = (function () {
+    function LoginGuardService(loginService, router) {
+        this.loginService = loginService;
+        this.router = router;
+    }
+    LoginGuardService.prototype.canActivate = function (route, state) {
+        // let url: string = state.url;
+        // console.log('Url:' + url);
+        if (this.loginService.isLoggedIn()) {
+            return true;
+        }
+        // this.loginService.setRedirectUrl(url);
+        // this.router.navigate([this.loginService.getLoginUrl()]);
+        // return false;
+    };
+    LoginGuardService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__login_service__["a" /* LoginService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
+    ], LoginGuardService);
+    return LoginGuardService;
 }());
 
 
@@ -128,6 +194,8 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__sop_edit_sop_edit_component__ = __webpack_require__("../../../../../src/app/sop-edit/sop-edit.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__sop_pdf_manager_sop_pdf_manager_component__ = __webpack_require__("../../../../../src/app/sop-pdf-manager/sop-pdf-manager.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__services_login_service__ = __webpack_require__("../../../../../src/app/_services/login.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_login_guard_service__ = __webpack_require__("../../../../../src/app/_services/login_guard.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -148,10 +216,22 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+// import { Injectable } from '@angular/core';
+// import { CanActivate } from '@angular/router';
+// @Injectable()
+// class LoginGuard implements CanActivate {
+//   constructor(private _loginService: LoginService) { }
+//   canActivate() {
+//     return this._loginService.isLoggedIn();
+//   }
+// }
 var appRoutes = [
     {
         path: 'sops',
         component: __WEBPACK_IMPORTED_MODULE_6__sop_sop_component__["a" /* SopComponent */],
+        canActivate: [__WEBPACK_IMPORTED_MODULE_15__services_login_guard_service__["a" /* LoginGuardService */]],
         data: { title: 'Sop List' }
     },
     // {
@@ -204,7 +284,7 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_8__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { enableTracing: true } // <-- debugging purposes only
                 )
             ],
-            providers: [],
+            providers: [__WEBPACK_IMPORTED_MODULE_14__services_login_service__["a" /* LoginService */], __WEBPACK_IMPORTED_MODULE_15__services_login_guard_service__["a" /* LoginGuardService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -289,8 +369,7 @@ var LoginComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-login',
             template: __webpack_require__("../../../../../src/app/login/login.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/login/login.component.css")],
-            providers: [__WEBPACK_IMPORTED_MODULE_2__services_login_service__["a" /* LoginService */]]
+            styles: [__webpack_require__("../../../../../src/app/login/login.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_2__services_login_service__["a" /* LoginService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], LoginComponent);
