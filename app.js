@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var sop = require('./routes/sop');
 var user = require('./routes/user');
 var createPdf = require('./routes/createPdf');
+var createSop = require('./routes/createSop');
 
 var app = express();
 
@@ -20,10 +21,23 @@ mongoose.connect('mongodb://localhost/sopgen', {
   .catch((err) => console.error(err));
 
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
+
+//app.use(bodyParser.json());
+/*app.use(bodyParser.urlencoded({
   'extended': 'false'
-}));
+})); */
+
+var rawBodySaver = function (req, res, buf, encoding) {
+  if (buf && buf.length) {
+      req.rawBody = buf.toString(encoding || 'utf8');
+  }
+};
+
+app.use(bodyParser.json({ verify: rawBodySaver}));
+app.use(bodyParser.urlencoded({ verify: rawBodySaver, extended: true }));
+app.use(bodyParser.raw({ verify: rawBodySaver, type: 'application/json'}));
+
+
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/sops', express.static(path.join(__dirname, 'dist')));
 app.use('/sop', sop);
@@ -34,7 +48,8 @@ app.use('/user', user);
 app.use('/createPdf', express.static(path.join(__dirname, 'dist')));
 app.use('/createPdf', createPdf);
 
-
+app.use('/createSop', express.static(path.join(__dirname, 'dist')));
+app.use('/createSop', createSop);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -51,7 +66,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  //res.render('error');
 });
 
 module.exports = app;

@@ -1,0 +1,30 @@
+.ngx-datatable.material {
+    @include my-box-shadow(0, 2px, 4px, rgba(0,0,0,0.5));
+    border-radius: 2px;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active,
+.ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.material.multi-selection .datatable-body-row.active,
+.ngx-datatable.material.multi-selection .datatable-body-row.active .datatable-row-group,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group {
+    background-color: $dark-blue;
+    color: $white;
+}
+
+.ngx-datatable.material.single-selection:hover .datatable-body-row.active:hover,
+.ngx-datatable.material.single-selection:hover .datatable-body-row.active .datatable-row-group:hover,
+.ngx-datatable.material.multi-selection:hover .datatable-body-row.active:hover,
+.ngx-datatable.material.multi-selection:hover .datatable-body-row.active .datatable-row-group:hover,
+.ngx-datatable.material.multi-click-selection:hover .datatable-body-row.active:hover,
+.ngx-datatable.material.multi-click-selection:hover .datatable-body-row.active .datatable-row-group:hover {
+    background-color: $dark-blue;
+    color: $white;
+}
+
+.datatable-footer-inner {
+ &> div.page-count {
+            font-size: $font-size-xs;
+    }
+}

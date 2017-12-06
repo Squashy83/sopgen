@@ -1,0 +1,53 @@
+
+.btn-darkblue {
+    @include button-variant($btn-darkblue-color, $btn-darkblue-bg, $btn-darkblue-border);
+}
+
+.btn-lightred {
+    @include button-variant($btn-lightred-color, $btn-lightred-bg, $btn-lightred-border);
+}
+
+.btn-lightgreen {
+    @include button-variant($btn-lightgreen-color, $btn-lightgreen-bg, $btn-lightgreen-border);
+}
+
+.btn-lightorange {
+    @include button-variant($btn-lightorange-color, $btn-lightorange-bg, $btn-lightorange-border);
+}
+
+.btn-lightyellow {
+    @include button-variant($btn-lightyellow-color, $btn-lightyellow-bg, $btn-lightyellow-border);
+}
+
+.btn-lighter {
+    @include button-variant($btn-grey-lighter-color, $btn-grey-lighter-bg, $btn-grey-lighter-border);
+}
+
+.btn-link-gray {
+    @include button-variant($btn-link-gray-color, $btn-link-gray-bg, $btn-link-gray-border);
+}
+
+.btn-link.btn-link-gray {
+    text-decoration: none;
+}
+
+.btn-forms-users {
+    @media (min-width: 1200px) { 
+        margin-top: 32px;
+    }
+}
+
+.btn-forms-channel {
+    
+    @media (min-width: 768px) and (max-width: 1199px) { 
+        margin-top: 32px;
+    }
+}
+
+.btn-width {
+    width: 160px;
+}
+
+.btn-padding {
+    padding: 0.5rem 0.5rem;
+}

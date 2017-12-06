@@ -7,25 +7,28 @@ var StepSchema = new mongoose.Schema({
   balloon: String
 });
 
-
+var HtmlSchema = new mongoose.Schema({
+  body: String
+});
 
 var SopSchema = new mongoose.Schema({
   title: String,
   code: String,
   description: String,
   steps: [StepSchema],
-  action: String,
-  start: String,
-  expected_closure: String,
-  closure: String,
-  notes: String,
-  testedon: String,
-  implemented: String,
-  reviewed: String,
-  comments: String,
+  action: {type: String, required: false},
+  start: {type: String, required: false},
+  expected_closure: {type: String, required: false},
+  closure: {type: String, required: false},
+  notes: {type: String, required: false},
+  testedon: {type: String, required: false},
+  implemented: {type: String, required: false},
+  reviewed: {type: String, required: false},
+  comments: {type: String, required: false},
   updated_date: {
     type: Date,
-    default: Date.now
+    default: Date.now,
+    required: false
   },
 });
 
