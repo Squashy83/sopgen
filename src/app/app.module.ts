@@ -80,6 +80,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     AlertModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

@@ -1,0 +1,17 @@
+.container-home {
+    position: relative;
+    @media (max-width: 767px) { 
+         padding-left: 0;
+     }
+    @media (min-width: 768px) { 
+        padding-left: $dokbar-width;
+    }
+}
+
+.container-offset {
+    padding-top: 100px;
+}
+
+nav.bg-faded {
+    background-color: $navBar-background; 
+}

@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng build && node ./bin/www",
-    "runprod": "ng build && pm2 start ./bin/www",
+    "start-node": "node ./bin/www",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -17,11 +17,12 @@
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
     "@angular/core": "^5.0.0",
-    "@angular/forms": "^5.0.0",
+    "@angular/forms": "^5.0.5",
     "@angular/http": "^5.0.0",
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
+    "@swimlane/ngx-datatable": "^11.1.5",
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
     "bootstrap": "^3.3.7",
@@ -56,6 +57,7 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "~2.4.2"
+    "typescript": "~2.4.2",
+    "webpack-config": "^7.5.0"
   }
 }

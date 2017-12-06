@@ -1,0 +1,19 @@
+@mixin my-box-shadow($top, $left, $blur, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow: inset $top $left $blur $color;
+        -moz-box-shadow: inset $top $left $blur $color;
+        box-shadow: inset $top $left $blur $color;
+    }
+    @else {
+        -webkit-box-shadow: $top $left $blur $color;
+        -moz-box-shadow: $top $left $blur $color;
+        box-shadow: $top $left $blur $color;
+    }
+}
+
+@mixin translate($x,$y) {
+    -ms-transform: translate($x,$y); /* IE 9 */
+    -webkit-transform: translate($x,$y); /* Safari */
+    -moz-transform: translate($x,$y); /* Mozilla Firefox */
+    transform: translate($x,$y); /* Standard syntax */
+  }
