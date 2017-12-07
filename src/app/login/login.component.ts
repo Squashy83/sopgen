@@ -12,14 +12,24 @@ import { Router } from '@angular/router';
 
 
 export class LoginComponent implements OnInit {
-  rForm: FormGroup;
+  loginForm: FormGroup;
   post: any;                     // A property for our submitted form
   password: string = '';
   userid: string = '';
   requiredAlert: string = 'This field is required';
 
+  formErrors = {
+    'userid': '',
+    'password': ''
+  };
+
+  validationMessages = {
+    'userid': {},
+    'password': {}
+  };
+
   constructor(private fb: FormBuilder, private _loginService: LoginService, private router: Router) {
-    this.rForm = fb.group({
+    this.loginForm = fb.group({
       'userid': [null, Validators.required],
       'password': [null, Validators.required],
       'validate': ''
@@ -27,6 +37,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.setupValidationMessages();
+    this.loginForm.valueChanges.subscribe(data => this.onValueChanged(data));
   }
 
   login(user) {
@@ -34,6 +46,33 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/sop-info']);
 
     });
+
+  }
+
+  onValueChanged(data?: any) {
+    if (!this.loginForm) { return; }
+
+    const form = this.loginForm;
+    for (const field in this.formErrors) {
+      if (this.formErrors.hasOwnProperty(field)) {
+        this.formErrors[field] = '';
+        const control = form.get(field);
+
+        if (control && control.dirty && !control.valid) {
+          const messages = this.validationMessages[field];
+          for (const chiave in control.errors) {
+            if (control.errors.hasOwnProperty(chiave)) {
+              this.formErrors[field] += messages[chiave] + ' ';
+            }
+          }
+        }
+      }
+    }
+  }
+
+  setupValidationMessages() {
+    this.validationMessages.userid = 'Please insert a userid';
+    this.validationMessages.password = 'Please insert a password';
 
   }
 

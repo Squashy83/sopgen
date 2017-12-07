@@ -25,8 +25,7 @@ export class SopStepsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.steps = [{ 'title': 'Hi I\'m step 1', 'description': 'this is a description of a step 1!!' }, { 'title': 'Hi I\'m step 2', 'description': 'this is a description of a step 2!!' }, { 'title': 'Hi I\'m step 3', 'description': 'this is a description of a step 3!!' }];
-
+    this.steps = [{ 'title': '', 'description': '' }];
     this.setupValidationMessages();
     this.stepsForm = this.fb.group({
       'title': [null, Validators.required],
@@ -70,5 +69,13 @@ export class SopStepsComponent implements OnInit {
 
   onBackInfo() {
     this.router.navigate(['/sop-info']);
+  }
+
+  onAddStep() {
+    this.steps.push({ 'title': '', 'description': '' });
+  }
+
+  onRemoveStep(index) {
+    this.steps.splice(index, 1);
   }
 }
