@@ -27,8 +27,9 @@
           <!-- <label class="text-uppercase" for="description" translate>LABELS.STEPS.description</label> -->
           <label class="text-uppercase" for="password" translate>Password</label>
 
-          <textarea class="form-control" formControlName="password" [class.form-control-danger]="formErrors.password" id=password placeholder="Description"></textarea>
-
+          <input type="password" class="form-control" formControlName="password" [class.form-control-danger]="formErrors.password"
+            id=password placeholder="Password">
+          <div class="form-control-feedback">{{formErrors.password}}</div>
           <!-- <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors.description" id="description"
                   placeholder="{{'PLACEHOLDERS.description' | translate}}" value={{step.description}}></textarea>
                 <div class="form-control-feedback">{{formErrors.description}}</div> -->

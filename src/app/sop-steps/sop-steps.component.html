@@ -34,7 +34,7 @@
 
             <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors.description" id=desc{{i}}
               placeholder="Description" value={{step.description}}></textarea>
-
+            <div class="form-control-feedback">{{formErrors.description}}</div>
             <!-- <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors.description" id="description"
               placeholder="{{'PLACEHOLDERS.description' | translate}}" value={{step.description}}></textarea>
             <div class="form-control-feedback">{{formErrors.description}}</div> -->
