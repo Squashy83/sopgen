@@ -1,3 +1,158 @@
+<div class="container-fluid">
+
+  <span style="text-align:center" class="navbar-text mx-3">
+    <img [src]="ASSETS_BASE + 'images/seminario-logo.png'" />
+  </span>
+
+  <br>
+  <h6 translate>TITLES.INSERT</h6>
+  <br>
+  <form [formGroup]="priestForm">
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.name">
+          <label class="text-uppercase" for="name" translate>LABELS.NAME</label>
+          <input type="text" class="form-control" formControlName="name" [class.form-control-danger]="formErrors.name" id="name" placeholder="{{'PLACEHOLDERS.NAME' | translate}}">
+          <div class="form-control-feedback">{{formErrors.name}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.surname">
+          <label class="text-uppercase" for="surname" translate>LABELS.SURNAME</label>
+          <input type="text" class="form-control" formControlName="surname" [class.form-control-danger]="formErrors.surname" id="surname"
+            placeholder="{{'PLACEHOLDERS.SURNAME' | translate}}">
+          <div class="form-control-feedback">{{formErrors.surname}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.email">
+          <label class="text-uppercase" for="email" translate>LABELS.EMAIL</label>
+          <input type="email" class="form-control" formControlName="email" [class.form-control-danger]="formErrors.email" id="email"
+            placeholder="{{'PLACEHOLDERS.EMAIL' | translate}}">
+          <div class="form-control-feedback">{{formErrors.email}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.parrocchia">
+          <label class="text-uppercase" for="parrocchia" translate>LABELS.PARROCCHIA</label>
+          <input type="text" class="form-control" formControlName="parrocchia" [class.form-control-danger]="formErrors.parrocchia"
+            id="parrocchia" placeholder="{{'PLACEHOLDERS.PARROCCHIA' | translate}}">
+          <div class="form-control-feedback">{{formErrors.parrocchia}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.address">
+          <label class="text-uppercase" for="address" translate>LABELS.ADDRESS</label>
+          <input type="text" class="form-control" formControlName="address" [class.form-control-danger]="formErrors.address" id="address"
+            placeholder="{{'PLACEHOLDERS.ADDRESS' | translate}}">
+          <div class="form-control-feedback">{{formErrors.address}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.country">
+          <label class="text-uppercase" for="country" translate>LABELS.COUNTRY</label>
+          <ng-select [allowClear]="true" formControlName="country" [items]="countryItems" placeholder="{{'PLACEHOLDERS.COUNTRY' | translate}}">
+          </ng-select>
+          <div class="form-control-feedback">{{formErrors.country}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.nomination">
+          <label class="text-uppercase" for="nomination" translate>LABELS.NOMINATION</label>
+          <ng-select [allowClear]="true" formControlName="nomination" [items]="nominationItems" placeholder="{{'PLACEHOLDERS.NOMINATION' | translate}}">
+          </ng-select>
+          <div class="form-control-feedback">{{formErrors.nomination}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.bishopric">
+          <label class="text-uppercase" for="bishopric" translate>LABELS.BISHOPRIC</label>
+          <ng-select [allowClear]="true" formControlName="bishopric" [items]="bishopricItems" placeholder="{{'PLACEHOLDERS.BISHOPRIC' | translate}}">
+          </ng-select>
+          <div class="form-control-feedback">{{formErrors.bishopric}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.otherBishopric">
+          <label class="text-uppercase" for="address" translate>LABELS.OTHER_BISHOPRIC</label>
+          <input type="text" class="form-control" formControlName="otherBishopric" [class.form-control-danger]="formErrors.otherBishopric"
+            id="otherBishopric" placeholder="{{'PLACEHOLDERS.OTHER_BISHOPRIC' | translate}}">
+          <div class="form-control-feedback">{{formErrors.otherBishopric}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.mobilePhone">
+          <label class="text-uppercase" for="mobilePhone" translate>LABELS.MOBILE_PHONE</label>
+          <input type="text" class="form-control" formControlName="mobilePhone" [class.form-control-danger]="formErrors.mobilePhone"
+            id="mobilePhone" placeholder="{{'PLACEHOLDERS.MOBILE_PHONE' | translate}}">
+          <div class="form-control-feedback">{{formErrors.mobilePhone}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.homePhone">
+          <label class="text-uppercase" for="homePhone" translate>LABELS.HOME_PHONE</label>
+          <input type="text" class="form-control" formControlName="homePhone" [class.form-control-danger]="formErrors.homePhone" id="homePhone"
+            placeholder="{{'PLACEHOLDERS.HOME_PHONE' | translate}}">
+          <div class="form-control-feedback">{{formErrors.homePhone}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.cap">
+          <label class="text-uppercase" for="cap" translate>LABELS.CAP</label>
+          <ng-select [allowClear]="true" formControlName="cap" [items]="capItems" placeholder="{{'PLACEHOLDERS.CAP' | translate}}">
+          </ng-select>
+          <div class="form-control-feedback">{{formErrors.cap}}</div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <div class="form-group" [class.has-danger]="formErrors.localita">
+          <label class="text-uppercase" for="localita" translate>LABELS.LOCALITA</label>
+          <ng-select [allowClear]="true" formControlName="localita" [items]="localitaItems" placeholder="{{'PLACEHOLDERS.LOCALITA' | translate}}">
+          </ng-select>
+          <div class="form-control-feedback">{{formErrors.localita}}</div>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()" [disabled]="!rForm.valid"
+          type="submit" class="btn btn-primary">
+          Next
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="footer">
+  <p>ARISTOMED copyright</p>
+</div>
+
+
+
+
+
+
+
+
+
+
 <div *ngIf="!name; else forminfo">
   <form [formGroup]="rForm" (ngSubmit)="login(rForm.value)">
     <div class="form-container">
@@ -25,10 +180,11 @@
 
     </div>
 
-    <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()" [disabled]="!rForm.valid" type="submit" class="btn btn-primary">
+    <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()" [disabled]="!rForm.valid"
+      type="submit" class="btn btn-primary">
       Next
     </button>
-    
+
     <!-- <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid"> -->
   </form>
 </div>
