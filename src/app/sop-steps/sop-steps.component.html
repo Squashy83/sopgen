@@ -1,137 +1,51 @@
 <div class="container-fluid">
 
-  <span style="text-align:center" class="navbar-text mx-3">
+  <!-- <span style="text-align:center" class="navbar-text mx-3">
     <img [src]="ASSETS_BASE + 'images/seminario-logo.png'" />
-  </span>
+  </span> -->
 
   <br>
   <h6 translate>TITLES.INSERT</h6>
   <br>
-  <form [formGroup]="priestForm">
-    <div class="row">
+  <form [formGroup]="stepsForm">
 
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.name">
-          <label class="text-uppercase" for="name" translate>LABELS.NAME</label>
-          <input type="text" class="form-control" formControlName="name" [class.form-control-danger]="formErrors.name" id="name" placeholder="{{'PLACEHOLDERS.NAME' | translate}}">
-          <div class="form-control-feedback">{{formErrors.name}}</div>
+    <div *ngFor="let step of steps;let i=index">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+          <div class="form-group" [class.has-danger]="formErrors.title">
+            <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
+            <label class="text-uppercase" for="title" translate>Title</label>
+            <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id=title{{i}}
+              placeholder="Title" value={{step.title}}>
+            <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
+              placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
+            <div class="form-control-feedback">{{formErrors.title}}</div>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+          <div class="form-group" [class.has-danger]="formErrors.description">
+            <!-- <label class="text-uppercase" for="description" translate>LABELS.STEPS.description</label> -->
+            <label class="text-uppercase" for="description" translate>Description</label>
+
+            <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors.description" id=desc{{i}}
+              placeholder="Description" value={{step.description}}></textarea>
+
+            <!-- <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors.description" id="description"
+              placeholder="{{'PLACEHOLDERS.description' | translate}}" value={{step.description}}></textarea>
+            <div class="form-control-feedback">{{formErrors.description}}</div> -->
+          </div>
         </div>
       </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.surname">
-          <label class="text-uppercase" for="surname" translate>LABELS.SURNAME</label>
-          <input type="text" class="form-control" formControlName="surname" [class.form-control-danger]="formErrors.surname" id="surname"
-            placeholder="{{'PLACEHOLDERS.SURNAME' | translate}}">
-          <div class="form-control-feedback">{{formErrors.surname}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.email">
-          <label class="text-uppercase" for="email" translate>LABELS.EMAIL</label>
-          <input type="email" class="form-control" formControlName="email" [class.form-control-danger]="formErrors.email" id="email"
-            placeholder="{{'PLACEHOLDERS.EMAIL' | translate}}">
-          <div class="form-control-feedback">{{formErrors.email}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.parrocchia">
-          <label class="text-uppercase" for="parrocchia" translate>LABELS.PARROCCHIA</label>
-          <input type="text" class="form-control" formControlName="parrocchia" [class.form-control-danger]="formErrors.parrocchia"
-            id="parrocchia" placeholder="{{'PLACEHOLDERS.PARROCCHIA' | translate}}">
-          <div class="form-control-feedback">{{formErrors.parrocchia}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.address">
-          <label class="text-uppercase" for="address" translate>LABELS.ADDRESS</label>
-          <input type="text" class="form-control" formControlName="address" [class.form-control-danger]="formErrors.address" id="address"
-            placeholder="{{'PLACEHOLDERS.ADDRESS' | translate}}">
-          <div class="form-control-feedback">{{formErrors.address}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.country">
-          <label class="text-uppercase" for="country" translate>LABELS.COUNTRY</label>
-          <ng-select [allowClear]="true" formControlName="country" [items]="countryItems" placeholder="{{'PLACEHOLDERS.COUNTRY' | translate}}">
-          </ng-select>
-          <div class="form-control-feedback">{{formErrors.country}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.nomination">
-          <label class="text-uppercase" for="nomination" translate>LABELS.NOMINATION</label>
-          <ng-select [allowClear]="true" formControlName="nomination" [items]="nominationItems" placeholder="{{'PLACEHOLDERS.NOMINATION' | translate}}">
-          </ng-select>
-          <div class="form-control-feedback">{{formErrors.nomination}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.bishopric">
-          <label class="text-uppercase" for="bishopric" translate>LABELS.BISHOPRIC</label>
-          <ng-select [allowClear]="true" formControlName="bishopric" [items]="bishopricItems" placeholder="{{'PLACEHOLDERS.BISHOPRIC' | translate}}">
-          </ng-select>
-          <div class="form-control-feedback">{{formErrors.bishopric}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.otherBishopric">
-          <label class="text-uppercase" for="address" translate>LABELS.OTHER_BISHOPRIC</label>
-          <input type="text" class="form-control" formControlName="otherBishopric" [class.form-control-danger]="formErrors.otherBishopric"
-            id="otherBishopric" placeholder="{{'PLACEHOLDERS.OTHER_BISHOPRIC' | translate}}">
-          <div class="form-control-feedback">{{formErrors.otherBishopric}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.mobilePhone">
-          <label class="text-uppercase" for="mobilePhone" translate>LABELS.MOBILE_PHONE</label>
-          <input type="text" class="form-control" formControlName="mobilePhone" [class.form-control-danger]="formErrors.mobilePhone"
-            id="mobilePhone" placeholder="{{'PLACEHOLDERS.MOBILE_PHONE' | translate}}">
-          <div class="form-control-feedback">{{formErrors.mobilePhone}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.homePhone">
-          <label class="text-uppercase" for="homePhone" translate>LABELS.HOME_PHONE</label>
-          <input type="text" class="form-control" formControlName="homePhone" [class.form-control-danger]="formErrors.homePhone" id="homePhone"
-            placeholder="{{'PLACEHOLDERS.HOME_PHONE' | translate}}">
-          <div class="form-control-feedback">{{formErrors.homePhone}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.cap">
-          <label class="text-uppercase" for="cap" translate>LABELS.CAP</label>
-          <ng-select [allowClear]="true" formControlName="cap" [items]="capItems" placeholder="{{'PLACEHOLDERS.CAP' | translate}}">
-          </ng-select>
-          <div class="form-control-feedback">{{formErrors.cap}}</div>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-        <div class="form-group" [class.has-danger]="formErrors.localita">
-          <label class="text-uppercase" for="localita" translate>LABELS.LOCALITA</label>
-          <ng-select [allowClear]="true" formControlName="localita" [items]="localitaItems" placeholder="{{'PLACEHOLDERS.LOCALITA' | translate}}">
-          </ng-select>
-          <div class="form-control-feedback">{{formErrors.localita}}</div>
-        </div>
-      </div>
-
-
-
     </div>
+
     <div class="row">
       <div class="col-12 d-flex justify-content-end">
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()" [disabled]="!rForm.valid"
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackInfo()" type="submit" class="btn btn-primary">
+          Back
+        </button>
+
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()" [disabled]="!stepsForm.valid"
           type="submit" class="btn btn-primary">
           Next
         </button>
@@ -143,96 +57,3 @@
 <div class="footer">
   <p>ARISTOMED copyright</p>
 </div>
-
-
-
-
-
-
-
-
-
-
-<div *ngIf="!name; else forminfo">
-  <form [formGroup]="rForm" (ngSubmit)="login(rForm.value)">
-    <div class="form-container">
-      <h1>Please fill in the SOP Steps</h1>
-      <div *ngFor="let step of steps" class="row columns">
-
-        <label>Title
-          <div class="alert" *ngIf="!rForm.controls['title'].valid && rForm.controls['title'].touched">{{ requiredAlert }}</div>
-          <!-- <input type="text" [(ngModel)]="step.title" formControlName="title"> -->
-          <input type="text" value={{step.title}} formControlName="title">
-        </label>
-
-        <label>Description
-          <!--<div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">You must specify a description that's between 30 and 500 characters.</div>-->
-          <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">{{ requiredAlert }}</div>
-          <!-- <input type="text" [(ngModel)]="step.description" formControlName="description"> -->
-          <!-- <input type="text" value={{step.description}} formControlName="description"> -->
-          <textarea value={{step.description}} formControlName="description"></textarea>
-        </label>
-
-      </div>
-      <!--<label for="validate">Minimum of 3 Characters</label>
-        <input type="checkbox" name="validate" formControlName="validate" value="1"> On
-        -->
-
-    </div>
-
-    <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()" [disabled]="!rForm.valid"
-      type="submit" class="btn btn-primary">
-      Next
-    </button>
-
-    <!-- <input type="submit" class="button expanded" value="Submit Form" [disabled]="!rForm.valid"> -->
-  </form>
-</div>
-
-<!--<ng-template #forminfo>
-  <div class="form-container">
-    <div class="row columns">
-      <h1>{{ name }}</h1>
-
-      <p>{{ description }}</p>
-    </div>
-  </div>
-</ng-template>-->
-
-
-<!-- <div class="container">
-  <h1>Add New Sop</h1>
-  <div class="row">
-    <div class="col-md-6">
-      <form (ngSubmit)="saveSop()" #sopForm="ngForm">
-        <div class="form-group">
-          <label for="name">ISBN</label>
-          <input type="text" class="form-control" [(ngModel)]="sop.isbn" name="isbn" required>
-        </div>
-        <div class="form-group">
-          <label for="name">Title</label>
-          <input type="text" class="form-control" [(ngModel)]="sop.title" name="title" required>
-        </div>
-        <div class="form-group">
-          <label for="name">Author</label>
-          <input type="text" class="form-control" [(ngModel)]="sop.author" name="author" required>
-        </div>
-        <div class="form-group">
-          <label for="name">Published Year</label>
-          <input type="number" class="form-control" [(ngModel)]="sop.published_year" name="published_year" required>
-        </div>
-        <div class="form-group">
-          <label for="name">Publisher</label>
-          <input type="text" class="form-control" [(ngModel)]="sop.publisher" name="publisher" required>
-        </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success" [disabled]="!sopForm.form.valid">Save</button>
-        </div>
-
-        <div class="form-group">
-          <button class="btn btn-success" (click)="onClickCreatePdf()">Create PDF</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</div> -->

@@ -1,0 +1,90 @@
+{
+  // "TITLES": {
+  //     "INSERT": "Benvenuto, aggiorna di seguito i tuoi dati"
+  // },
+
+  "BUTTONS": {
+    "BACK": "Back",
+    "NEXT": "Next"
+  },
+  // "VALIDATION_MESSAGES": {
+  //   "NAME": {
+  //     "REQUIRED": "Il nome è obbligatorio."
+  //   },
+  //   "SURNAME": {
+  //     "REQUIRED": "Il cognome è obbligatorio."
+  //   },
+  //   "EMAIL": {
+  //     "REQUIRED": "email obbligatoria",
+  //     "PATTERN": "L'email inserita non ha un formato valido"
+  //   },
+  //   "PARROCCHIA": {
+  //     "REQUIRED": "La parrocchia è obbligatoria"
+  //   },
+  //   "ADDRESS": {
+  //     "REQUIRED": "L'indirizzo è obbligatorio"
+  //   },
+  //   "COUNTRY": {
+  //     "REQUIRED": "Il paese è obbligatorio"
+  //   },
+  //   "NOMINATION": {
+  //     "REQUIRED": "L'incarico è obbligatorio"
+  //   },
+  //   "BISHOPRIC": {
+  //     "REQUIRED": "La diocesi è obbligatoria"
+  //   },
+  //   "MOBILE_PHONE": {
+  //     "REQUIRED": "Il numero di cellulare è obbligatorio",
+  //     "PATTERN": "Inserisci un valore numerico"
+  //   },
+  //   "HOME_PHONE": {
+  //     "REQUIRED": "Il numero fisso è obbligatorio",
+  //     "PATTERN": "Inserisci un valore numerico"
+  //   },
+  //   "CAP": {
+  //     "REQUIRED": "Il cap è obbligatorio"
+  //   },
+  //   "LOCALITA": {
+  //     "REQUIRED": "La località è obbligatoria"
+  //   }
+  // },
+  "PLACEHOLDERS": {
+    "TITLE": "Step title"
+  },
+  // "LABELS": {
+  //   "USERID": "Nome",
+  //   "PASSWORD": "Cognome",
+  //   "COUNTRY": "Paese",
+  //   "NOMINATION": "Incarico",
+  //   "BISHOPRIC": "Diocesi",
+  //   "EMAIL": "Email",
+  //   "PARROCCHIA": "Parrocchia",
+  //   "ADDRESS": "Indirizzo",
+  //   "MOBILE_PHONE": "Cellulare",
+  //   "HOME_PHONE": "Numero fisso",
+  //   "CAP": "CAP",
+  //   "LOCALITA": "Località",
+  //   "OTHER_BISHOPRIC": "Altra diocesi"
+  // },
+  "ALERT": {
+    "TITLE_SUCCESS": "Successo!",
+    "TITLE_ERROR": "Errore!",
+    "SUCCESS_CREATE": "Creazione avenuta!",
+    "SUCCESS_UPDATE": "Modifica eseguita!"
+  },
+  "DIALOG": {
+    "CONFIRM": {
+      "CONFIRM_BUTTON": "SI",
+      "CANCEL_BUTTON": "NO"
+    },
+    "ALERT": {
+      "CONFIRM_BUTTON": "OK"
+    },
+    "MESSAGES": {
+      "TEMP_PWD": {
+        "TITLE": "Password temporanea",
+        "BODY_MSG": "Invia la password: "
+      }
+    }
+  }
+}
