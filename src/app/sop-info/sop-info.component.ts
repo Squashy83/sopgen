@@ -1,7 +1,9 @@
+import { PdfManagerService } from './../_services/pdf-manager.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sop-info',
@@ -34,32 +36,40 @@ validationMessages = {
 
   constructor(private http: HttpClient,
               private router: Router,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder,
+              private translate: TranslateService,
+              private pdfManager: PdfManagerService) {
+                this.translate.setDefaultLang('en');
+                this.translate.use('en');
+               }
 
   ngOnInit() {
-    //this.setupValidationMessages();
+    this.setupValidationMessages();
     this.buildForm();
   }
 
   buildForm() {
     this.sopForm = this.fb.group({
-        'name': ['', [Validators.required]],
-        'channel': ['', [Validators.required]],
-        'group': [{ value: '', disabled: true }, [Validators.required]],
-        'description': ['', [Validators.required, Validators.minLength(20)]]
+        'code': ['', [Validators.required]],
+        'title': ['', [Validators.required]],
+        'background': ['', [Validators.required]],
+        // 'group': [{ value: '', disabled: true }, [Validators.required]],
+        'purpose': ['', [Validators.required, Validators.minLength(20)]],
+        'responsability': ['', [Validators.required]]
     });
     this.sopForm.valueChanges.subscribe(data => this.onValueChanged(data));
 }
 
-/*setupValidationMessages() {
+setupValidationMessages() {
   this.translate.get('VALIDATION_MESSAGES').subscribe((mes: string) => {
-      this.validationMessages.name['required'] = mes['NAME']['REQUIRED'];
-      this.validationMessages.channel['required'] = mes['CHANNEL']['REQUIRED'];
-      this.validationMessages.group['required'] = mes['GROUP']['REQUIRED'];
-      this.validationMessages.description['required'] = mes['DESCRIPTION']['REQUIRED'];
-      this.validationMessages.description['minlength'] = mes['DESCRIPTION']['MIN_LENGTH'];
-  });
-} */
+      this.validationMessages.code['required'] = mes['CODE']['REQUIRED'];
+      this.validationMessages.title['required'] = mes['TITLE']['REQUIRED'];
+      this.validationMessages.background['required'] = mes['BACKGROUND']['REQUIRED'];
+      this.validationMessages.purpose['minlength'] = mes['PURPOSE']['MIN_LENGTH'];
+      this.validationMessages.purpose['required'] = mes['PURPOSE']['REQUIRED'];
+      this.validationMessages.responsability['required'] = mes['RESPONSABILITY']['REQUIRED'];
+  }); 
+}
 
   onValueChanged(data?: any) {
     if (!this.sopForm) { return; }
@@ -82,22 +92,65 @@ validationMessages = {
     }
   }
 
-  saveSop() {
-    this.http.post('/sop', this.sop)
+  onCheckForm(): string {
+    let fieldMessageErrors = null;
+    if (!this.sopForm) { return; }
+
+    const form = this.sopForm;
+    for (const field in this.formErrors) {
+        if (this.formErrors.hasOwnProperty(field)) {
+            this.formErrors[field] = '';
+            const control = form.get(field);
+
+            if (control && !control.valid) {
+                const messages = this.validationMessages[field];
+                for (const chiave in control.errors) {
+                    if (control.errors.hasOwnProperty(chiave)) {
+                        this.formErrors[field] += messages[chiave] + ' ';
+                    }
+                }
+                // ASSIGN FIRST ERROR
+                if (!fieldMessageErrors) {
+                    fieldMessageErrors = this.formErrors[field];
+                }
+            }
+        }
+    }
+    return fieldMessageErrors;
+}
+
+  saveGeneralInfo() {
+
+    if (this.sopForm.valid) {
+
+      const dataToSave = this.sopForm.value;
+
+      const pdf = {
+        'code': dataToSave.code,
+        'title': dataToSave.title,
+        'background': dataToSave.background,
+        'description': dataToSave.description,
+        'purpose': dataToSave.purpose,
+        'responsability': dataToSave.responsability
+    };
+
+      this.pdfManager.pdfStructure = pdf;
+
+      this.router.navigate(['/sop-steps']);
+
+      /*this.http.post('/sop', this.sop)
       .subscribe(res => {
-        let id = res['_id'];
-        this.router.navigate(['/sop-details', id]);
+        const id = res['_id'];
       }, (err) => {
         console.log(err);
       }
-      );
-  }
-
-  onClickCreatePdf() {
-      console.log('create pdf');
+      ); */
+    }else {
+      this.onCheckForm();
+    }
   }
 
   onSubmit() {
-    this.router.navigate(['/sop-steps']);
+    this.saveGeneralInfo();
   }
 }
