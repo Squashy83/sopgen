@@ -1,4 +1,26 @@
 {
+  "LABELS": {
+    "CODE": {
+      "TITLE":"CODE",
+      "SUBTITLE":"(Code is not important oh yeah!)"
+    },
+    "TITLE": {
+      "TITLE":"TITLE",
+      "SUBTITLE":"(hello i'm a title!!)"
+    },
+    "BACKGROUND": {
+      "TITLE":"BACKGROUND",
+      "SUBTITLE":"(hello i'm a background!!)"
+    },
+    "PURPOSE": {
+      "TITLE":"PURPOSE",
+      "SUBTITLE":"(hello i'm a purpose!!)"
+    },
+    "RESPONSIBILITY": {
+      "TITLE":"RESPONSIBILITY",
+      "SUBTITLE":"(hello i'm a responsibility!!)"
+    }
+  },
   "BUTTONS": {
     "BACK": "Back",
     "NEXT": "Next"

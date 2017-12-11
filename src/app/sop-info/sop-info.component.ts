@@ -50,7 +50,7 @@ validationMessages = {
 
   buildForm() {
     this.sopForm = this.fb.group({
-        'code': ['', [Validators.required]],
+        'code': [''],
         'title': ['', [Validators.required]],
         'background': ['', [Validators.required]],
         // 'group': [{ value: '', disabled: true }, [Validators.required]],

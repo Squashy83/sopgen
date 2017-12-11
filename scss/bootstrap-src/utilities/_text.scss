@@ -25,12 +25,14 @@
 .text-lowercase  { text-transform: lowercase !important; }
 .text-uppercase  { text-transform: uppercase !important; }
 .text-capitalize { text-transform: capitalize !important; }
+.text-uppercase-bold  { text-transform: uppercase !important; font-weight: bold;}
 
 // Weight and italics
 
 .font-weight-normal { font-weight: $font-weight-normal; }
 .font-weight-bold   { font-weight: $font-weight-bold; }
 .font-italic        { font-style: italic; }
+.font-weight-subtitle { font-size: 12px; }
 
 // Contextual colors
 

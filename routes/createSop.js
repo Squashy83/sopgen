@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
       var dynamicBody = '<table>';
 
       for(let i=0;i<steps.length;i++){
-        let row = '<tr><td><div class=\"hero\"><p>'+ steps[i].title +'<p></div></td>' + '<td><p class=\"descriptionStep\">' + steps[i].description +'</p></td></tr>';
+        let row = '<tr><td class=\"tdBallon\"><div class=\"hero\"><p>'+ steps[i].title +'<p></div></td>' + '<td><p class=\"descriptionStep\">' + steps[i].description +'</p></td></tr>';
         dynamicBody = dynamicBody + row;
       }
 
@@ -30,7 +30,7 @@ router.post('/', function(req, res, next) {
 
       var dinamicResponsable = '';
       for(let j=0;j<responsables.length;j++){
-        let row =  '<tr><td><p class="generalInfo">' + responsables[j].name + '</p></td>' + '<td><p class="generalInfo">' + responsables[j].position + '</p></td>' + '<td><p class="generalInfo">' + responsables[j].telCode + '</p></td>' + '<td><p class="generalInfo">' + responsables[j].emailCode + '</p></td></tr>';
+        let row =  '<tr><td class=\"trInfo\"><p class="generalInfo">' + responsables[j].name + '</p></td>' + '<td><p class="generalInfo">' + responsables[j].position + '</p></td>' + '<td><p class="generalInfo">' + responsables[j].telCode + '</p></td>' + '<td><p class="generalInfo">' + responsables[j].emailCode + '</p></td></tr>';
         dinamicResponsable = dinamicResponsable + row;
       }
 
@@ -54,6 +54,8 @@ router.post('/', function(req, res, next) {
         dataSkeleton = dataSkeleton.replace('SOP_NOTES', notes);
 
         var options = { format: 'A4' };
+
+        console.log('html created: ', dataSkeleton);
 
             pdf.create(dataSkeleton, options).toFile('./sop-flow.pdf', function(err, resultPdf) {
                 
