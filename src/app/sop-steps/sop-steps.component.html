@@ -5,7 +5,7 @@
   </span> -->
 
   <br>
-  <h6 translate>TITLES.INSERT</h6>
+  <h6 translate>Insert the Sop Steps</h6>
   <br>
   <form [formGroup]="stepsForm">
 
@@ -43,7 +43,7 @@
 
         <div class="dockbar-container-btn">
           <button class="btn buttonRemove" (click)="onRemoveStep(i)" type="submit">
-            <i class="fa fa-minus-circle" aria-hidden="true"></i>
+            <i class="fa fa-times" aria-hidden="true"></i>
           </button>
         </div>
 
@@ -53,13 +53,21 @@
     </div>
     <div class="row">
 
-      <button class="btn buttonAdd" (click)="onAddStep()" type="submit"> 
-        <i class="fa fa-plus-circle fa-2x"></i>
+      <button class="btn buttonAdd" (click)="onAddStep()" type="submit">
+        <i class="fa fa-plus" aria-hidden="true"></i>
       </button>
     </div>
 
     <div class="row">
       <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackInfo()">
+          <span translate>BACK</span>
+        </button>
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()" [disabled]="!stepsForm.valid">
+          <span translate>NEXT</span>
+        </button>
+      </div>
+      <!-- <div class="col-12 d-flex justify-content-end">
         <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackInfo()" type="submit" class="btn btn-primary">
           Back
         </button>
@@ -68,7 +76,7 @@
           type="submit" class="btn btn-primary">
           Next
         </button>
-      </div>
+      </div> -->
     </div>
   </form>
 </div>

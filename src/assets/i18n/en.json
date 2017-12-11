@@ -19,6 +19,9 @@
     },
     "RESPONSABILITY": {
       "REQUIRED": "Responsability is mandatory"
+    },
+    "DESCRIPTION": {
+      "REQUIRED": "Description is mandatory"
     }
   },
   "PLACEHOLDERS": {
