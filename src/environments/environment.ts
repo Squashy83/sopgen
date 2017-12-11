@@ -6,5 +6,5 @@
 export const environment = {
   production: false,
   ASSETS: '/assets/',
-  TRANSLATE_FILE: '/assets/i18n/'
+  TRANSLATE_FILE: './assets/i18n/'
 };
