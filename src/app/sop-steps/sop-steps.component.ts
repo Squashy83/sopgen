@@ -71,6 +71,7 @@ export class SopStepsComponent implements OnInit {
     this.translate.get('VALIDATION_MESSAGES').subscribe((mes: string) => {
       this.validationMessages.title['required'] = mes['TITLE']['REQUIRED'];
       this.validationMessages.description['required'] = mes['DESCRIPTION']['REQUIRED'];
+      this.validationMessages.description['minlength'] = mes['DESCRIPTION']['MIN_LENGTH'];
     });
   }
 

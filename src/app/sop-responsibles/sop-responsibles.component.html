@@ -6,14 +6,15 @@
 
 
   <form [formGroup]="respsForm">
-
+    <br>
+    <h6 translate>Responsible Person(s)</h6>
+    <br>
     <div *ngFor="let resp of resps;let i=index">
       <div class="row">
-        <br>
-        <h6 translate>Responsible Person(s)</h6>
-        <br>
+
         <h1>
           <span class="label label-default">RESP {{i+1}}</span>
+          <br>
         </h1>
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
@@ -79,13 +80,15 @@
       </button>
     </div>
 
+    <br>
+    <h6 translate>Concerned Person(s)</h6>
+    <br>
     <div *ngFor="let conc of concs;let i=index">
       <div class="row">
-        <br>
-        <h6 translate>Concerned Person(s)</h6>
-        <br>
+
         <h1>
           <span class="label label-default">CONC {{i+1}}</span>
+          <br>
         </h1>
 
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">

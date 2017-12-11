@@ -21,7 +21,8 @@
       "REQUIRED": "Responsability is mandatory"
     },
     "DESCRIPTION": {
-      "REQUIRED": "Description is mandatory"
+      "REQUIRED": "Description is mandatory",
+      "MIN_LENGTH": "Insert al least 20 characters"
     }
   },
   "PLACEHOLDERS": {
