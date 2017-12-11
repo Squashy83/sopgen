@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PdfManagerService } from './../_services/pdf-manager.service';
 
 @Component({
   selector: 'app-sop-footer',

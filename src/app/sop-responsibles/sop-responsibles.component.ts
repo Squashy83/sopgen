@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PdfManagerService } from './../_services/pdf-manager.service';
 
 @Component({
   selector: 'app-sop-responsibles',
@@ -98,11 +99,11 @@ export class SopResponsiblesComponent implements OnInit {
   }
 
   onAddConc() {
-    this.resps.push({ 'title': '', 'description': '' });
+    this.concs.push({ 'title': '', 'description': '' });
   }
 
   onRemoveConc(index) {
-    this.resps.splice(index, 1);
+    this.concs.splice(index, 1);
   }
 }
 
