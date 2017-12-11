@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PdfManagerService } from '../_services/pdf-manager.service';
 
 @Component({
   selector: 'app-sop-steps',
@@ -20,7 +21,9 @@ export class SopStepsComponent implements OnInit {
     'description': {}
   };
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              private pdfManager: PdfManagerService) {
 
   }
 
@@ -34,6 +37,8 @@ export class SopStepsComponent implements OnInit {
     });
 
     this.stepsForm.valueChanges.subscribe(data => this.onValueChanged(data));
+
+    console.log('pdf manager structure in cache: ', this.pdfManager.pdfStructure);
   }
 
   onValueChanged(data?: any) {
