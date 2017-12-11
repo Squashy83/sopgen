@@ -1,3 +1,4 @@
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { PdfManagerService } from './_services/pdf-manager.service';
 import { environment } from './../environments/environment';
 import { SopInfoComponent } from './sop-info/sop-info.component';
@@ -22,7 +23,6 @@ import { LoginGuardService } from './_services/login_guard.service';
 import { SopStepsComponent } from './sop-steps/sop-steps.component';
 import { SopResponsiblesComponent } from './sop-responsibles/sop-responsibles.component';
 import { SopFooterComponent } from './sop-footer/sop-footer.component';
-
 
 // import { Injectable } from '@angular/core';
 // import { CanActivate } from '@angular/router';
@@ -105,6 +105,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     AlertModule,
     ReactiveFormsModule,
+    AngularFontAwesomeModule,
     TranslateModule.forRoot({
       loader: {
           provide: TranslateLoader,

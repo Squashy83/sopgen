@@ -40,15 +40,24 @@
             <div class="form-control-feedback">{{formErrors.description}}</div> -->
           </div>
         </div>
-        <button class="btn btn-danger btn-lg glyphicon glyphicon-remove btn btn-primary" (click)="onRemoveStep(i)" type="submit">
-        </button>
+
+        <div class="dockbar-container-btn">
+          <button class="btn buttonRemove" (click)="onRemoveStep(i)" type="submit">
+            <i class="fa fa-minus-circle" aria-hidden="true"></i>
+          </button>
+        </div>
+
+
 
       </div>
     </div>
     <div class="row">
 
-      <button class="btn btn-success btn-lg glyphicon glyphicon-plus btn btn-primary" (click)="onAddStep()" type="submit"> </button>
+      <button class="btn buttonAdd" (click)="onAddStep()" type="submit"> 
+        <i class="fa fa-plus-circle fa-2x"></i>
+      </button>
     </div>
+
     <div class="row">
       <div class="col-12 d-flex justify-content-end">
         <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackInfo()" type="submit" class="btn btn-primary">
@@ -65,5 +74,5 @@
 </div>
 
 <div class="footer">
-  <p>ARISTOMED copyright</p>
+  <p>ARISTOMED 2017 copyright</p>
 </div>
