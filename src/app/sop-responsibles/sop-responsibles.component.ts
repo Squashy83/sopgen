@@ -79,10 +79,10 @@ export class SopResponsiblesComponent implements OnInit {
     this.validationMessages.position = 'Please insert a position';
     this.validationMessages.tel_code = 'Please insert a Tel Code';
     this.validationMessages.email_code = 'Please insert an Email Code';
-
   }
 
   onNextFooter() {
+    console.log('onNextFooteeer!');
     this.router.navigate(['/sop-footer']);
   }
 
@@ -91,7 +91,11 @@ export class SopResponsiblesComponent implements OnInit {
   }
 
   onAddResp() {
-    this.resps.push({ 'title': '', 'description': '' });
+    const dataToSave = this.respsForm.value;
+    this.resps.push({ 'name': dataToSave.name,
+                      'position': dataToSave.position,
+                      'telCode': dataToSave.tel_code,
+                      'emailCode': dataToSave.email_code });
   }
 
   onRemoveResp(index) {

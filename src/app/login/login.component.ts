@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../_services/login.service';
@@ -28,7 +29,10 @@ export class LoginComponent implements OnInit {
     'password': {}
   };
 
-  constructor(private fb: FormBuilder, private _loginService: LoginService, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private _loginService: LoginService,
+              private router: Router,
+              private translate: TranslateService) {
     this.loginForm = fb.group({
       'userid': [null, Validators.required],
       'password': [null, Validators.required],
@@ -71,9 +75,10 @@ export class LoginComponent implements OnInit {
   }
 
   setupValidationMessages() {
-    this.validationMessages.userid = 'Please insert a userid';
-    this.validationMessages.password = 'Please insert a password';
-
+    this.translate.get('VALIDATION_MESSAGES').subscribe((mes: string) => {
+      this.validationMessages.userid['required'] = mes['USERID']['REQUIRED'];
+      this.validationMessages.password['required'] = mes['PASSWORD']['REQUIRED'];
+    });
   }
 
   // login() {

@@ -11,11 +11,12 @@
 
     <div *ngFor="let step of steps;let i=index">
       <div class="row">
-        <h1>
-          <span class="label label-default">STEP {{i+1}}</span>
-        </h1>
+        <h4>
+          <label class="label label-default">STEP {{i+1}}</label>
+        </h4>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+        <br><br>
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
           <div class="form-group" [class.has-danger]="formErrors.title">
             <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
             <label class="text-uppercase" for="title" translate>Title</label>
@@ -63,24 +64,14 @@
         <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackInfo()">
           <span translate>BACK</span>
         </button>
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()" [disabled]="!stepsForm.valid">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()">
           <span translate>NEXT</span>
         </button>
       </div>
-      <!-- <div class="col-12 d-flex justify-content-end">
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackInfo()" type="submit" class="btn btn-primary">
-          Back
-        </button>
-
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()" [disabled]="!stepsForm.valid"
-          type="submit" class="btn btn-primary">
-          Next
-        </button>
-      </div> -->
     </div>
   </form>
 </div>
 
-<div class="footer">
+<!-- <div class="footer">
   <p>ARISTOMED 2017 copyright</p>
-</div>
+</div> -->

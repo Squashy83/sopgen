@@ -13,6 +13,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class SopStepsComponent implements OnInit {
   stepsForm: FormGroup;
   steps: any;
+  countStep = 1;
   formErrors = {
     'title': '',
     'description': ''
@@ -102,7 +103,7 @@ export class SopStepsComponent implements OnInit {
     return fieldMessageErrors;
   }
 
-  saveGeneralInfo() {
+  saveAllSteps() {
 
     if (this.stepsForm.valid) {
 
@@ -117,19 +118,30 @@ export class SopStepsComponent implements OnInit {
     }
   }
 
-  onNextResponsibles() {
-    this.saveGeneralInfo();
-  }
-
   onBackInfo() {
     this.router.navigate(['/sop-info']);
   }
 
   onAddStep() {
-    this.steps.push({ 'title': '', 'description': '' });
+
+    console.log('step forms: ', this.stepsForm.value);
+
+    const dataToSave = this.stepsForm.value;
+    /*this.steps.push({'number': this.countStep,
+                      'title': dataToSave.title,
+                      'description': dataToSave.description,
+                      'baloon': 'Hello baloon' }); */
+    this.countStep++;
+
+    this.steps.push({'number': '', 'title': '', 'description': '', 'baloon': '' });
   }
 
   onRemoveStep(index) {
     this.steps.splice(index, 1);
+    this.countStep--;
+  }
+
+  onNextResponsibles() {
+    this.saveAllSteps();
   }
 }

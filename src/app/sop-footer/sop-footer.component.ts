@@ -10,12 +10,14 @@ import { PdfManagerService } from './../_services/pdf-manager.service';
 })
 export class SopFooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pdfManager: PdfManagerService) { }
 
   ngOnInit() {
   }
 
   onCreatePdf() {
     // call service Node
+    console.log('pdfStructure: ', this.pdfManager.pdfStructure);
+    this.pdfManager.createPdf();
   }
 }

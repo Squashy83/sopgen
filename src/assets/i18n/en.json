@@ -4,6 +4,12 @@
     "NEXT": "Next"
   },
   "VALIDATION_MESSAGES": {
+    "USERID": {
+      "REQUIRED": "Please insert a userid"
+    },
+    "PASSWORD": {
+      "REQUIRED": "Please insert a password"
+    },
     "CODE": {
       "REQUIRED": "Code is mandatory"
     },

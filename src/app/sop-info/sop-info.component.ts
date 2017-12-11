@@ -68,7 +68,7 @@ setupValidationMessages() {
       this.validationMessages.purpose['minlength'] = mes['PURPOSE']['MIN_LENGTH'];
       this.validationMessages.purpose['required'] = mes['PURPOSE']['REQUIRED'];
       this.validationMessages.responsability['required'] = mes['RESPONSABILITY']['REQUIRED'];
-  }); 
+  });
 }
 
   onValueChanged(data?: any) {
