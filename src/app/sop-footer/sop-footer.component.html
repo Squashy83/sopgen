@@ -1,4 +1,118 @@
-<button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onCreatePdf()"
-  type="submit" class="btn btn-primary">
-  Create PDF
-</button>
+<div class="container-fluid mt-4">
+
+  <form [formGroup]="footerForm">
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+        <div class="form-group" [class.has-danger]="formErrors.action">
+          <label class="text-uppercase-bold" for="code" translate>LABELS.ACTION.TITLE</label>
+          <!-- <label class="font-weight-subtitle" translate>LABELS.CODE.SUBTITLE</label> -->
+          <input type="text" class="form-control" formControlName="action" [class.form-control-danger]="formErrors.action" id="action"
+            placeholder="Insert action">
+          <div class="form-control-feedback">{{formErrors.action}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+        <div class="form-group" [class.has-danger]="formErrors.start">
+          <label class="text-uppercase-bold" for="title" translate>LABELS.START.TITLE</label>
+          <!-- <label class="font-weight-subtitle" translate>LABELS.TITLE.SUBTITLE</label> -->
+          <input type="text" class="form-control" formControlName="start" [class.form-control-danger]="formErrors.start" id="start"
+            placeholder="Start">
+          <div class="form-control-feedback">{{formErrors.start}}</div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+        <div class="form-group" [class.has-danger]="formErrors.expclo">
+          <label class="text-uppercase-bold" for="background" translate>LABELS.EXPCLO.TITLE</label>
+          <!-- <label class="font-weight-subtitle" translate>LABELS.BACKGROUND.SUBTITLE</label> -->
+          <input type="text" class="form-control" formControlName="expclo" [class.form-control-danger]="formErrors.expclo" id="background"
+            placeholder="Expected Closure">
+          <div class="form-control-feedback">{{formErrors.expclo}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+        <div class="form-group" [class.has-danger]="formErrors.closure">
+          <label class="text-uppercase-bold" for="closure" translate>LABELS.CLOSURE.TITLE</label>
+          <!-- <label class="font-weight-subtitle" translate>LABELS.PURPOSE.SUBTITLE</label> -->
+          <input type="text" class="form-control" formControlName="closure" [class.form-control-danger]="formErrors.closure" id="closure"
+            placeholder="Closure">
+          <div class="form-control-feedback">{{formErrors.closure}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+        <div class="form-group" [class.has-danger]="formErrors.notes">
+          <label class="text-uppercase-bold" for="notes" translate>LABELS.NOTES.TITLE</label>
+          <textarea class="form-control" formControlName="notes" [class.form-control-danger]="formErrors.notes" id=desc{{i}} placeholder="Notes"
+            value={{step.notes}}></textarea>
+          <div class="form-control-feedback">
+            {{formErrors.notes}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row small-title">
+      <h6 translate>Sop Monitoring</h6>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+        <div class="form-group" [class.has-danger]="formErrors.testedon">
+          <label class="text-uppercase-bold" for="testedon" translate>LABELS.TESTEDON.TITLE</label>
+          <!-- <label class="font-weight-subtitle" translate>LABELS.PURPOSE.SUBTITLE</label> -->
+          <input type="text" class="form-control" formControlName="testedon" [class.form-control-danger]="formErrors.testedon" id="testedon"
+            placeholder="Tested On">
+          <div class="form-control-feedback">{{formErrors.testedon}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+        <div class="form-group" [class.has-danger]="formErrors.implemented">
+          <label class="text-uppercase-bold" for="implemented" translate>LABELS.IMPLEMENTED.TITLE</label>
+          <!-- <label class="font-weight-subtitle" translate>LABELS.PURPOSE.SUBTITLE</label> -->
+          <input type="text" class="form-control" formControlName="implemented" [class.form-control-danger]="formErrors.implemented"
+            id="implemented" placeholder="Implemented">
+          <div class="form-control-feedback">{{formErrors.implemented}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+        <div class="form-group" [class.has-danger]="formErrors.reviewed">
+          <label class="text-uppercase-bold" for="reviewed" translate>LABELS.REVIEWED.TITLE</label>
+          <!-- <label class="font-weight-subtitle" translate>LABELS.PURPOSE.SUBTITLE</label> -->
+          <input type="text" class="form-control" formControlName="reviewed" [class.form-control-danger]="formErrors.reviewed" id="reviewed"
+            placeholder="Reviewed">
+          <div class="form-control-feedback">{{formErrors.reviewed}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackResponsibles()">
+          <span translate>BACK</span>
+        </button>
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" [disabled]="!footerForm.valid" (click)="onNextFooter()">
+          <span translate>NEXT</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PdfManagerService } from './../_services/pdf-manager.service';
 
 @Component({
   selector: 'app-sop-generatepdf',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SopGeneratepdfComponent implements OnInit {
 
-  constructor() { }
+  constructor(private pdfManager: PdfManagerService) { }
 
   ngOnInit() {
   }
 
+  onCreatePdf() {
+    // call service Node
+    console.log('pdfStructure: ', this.pdfManager.pdfStructure);
+    this.pdfManager.createPdf();
+  }
 }

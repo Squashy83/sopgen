@@ -16,7 +16,6 @@ import { UserComponent } from './user/user.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SopDetailComponent } from './sop-detail/sop-detail.component';
 import { SopEditComponent } from './sop-edit/sop-edit.component';
-import { SopPdfManagerComponent } from './sop-pdf-manager/sop-pdf-manager.component';
 import { LoginComponent } from './login/login.component';
 import { LoginService } from './_services/login.service';
 import { LoginGuardService } from './_services/login_guard.service';
@@ -49,6 +48,11 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 const appRoutes: Routes = [
   {
+    path: 'sop-generatepdf',
+    component: SopGeneratepdfComponent,
+    canActivate: [LoginGuardService],
+    data: { title: 'Sop Create PDF' }
+  }, {
     path: 'sop-info',
     component: SopInfoComponent,
     canActivate: [LoginGuardService],
@@ -93,7 +97,6 @@ const appRoutes: Routes = [
     SopDetailComponent,
     SopInfoComponent,
     SopEditComponent,
-    SopPdfManagerComponent,
     LoginComponent,
     SopStepsComponent,
     SopResponsiblesComponent,
@@ -110,11 +113,11 @@ const appRoutes: Routes = [
     AngularFontAwesomeModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
       }
-  }),
+    }),
     FormsModule,
     RouterModule.forRoot(
       appRoutes,
