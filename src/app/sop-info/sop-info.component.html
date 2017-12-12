@@ -1,68 +1,70 @@
 <div class="container-fluid mt-4">
-  <form>
+
+  <form [formGroup]="sopForm">
+
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-        <div class="form-group">
+        <div class="form-group" [class.has-danger]="formErrors.code">
           <label class="text-uppercase-bold" for="code" translate>LABELS.CODE.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.CODE.SUBTITLE</label> -->
-          <input class="form-control" id="code" placeholder="Insert code" type="text">
-          <div class="form-control-feedback">
-            {{formErrors.code}}
-          </div>
+          <input type="text" class="form-control" formControlName="code" [class.form-control-danger]="formErrors.code" id="code" placeholder="Insert code">
+          <div class="form-control-feedback">{{formErrors.code}}</div>
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-        <div class="form-group">
+        <div class="form-group" [class.has-danger]="formErrors.title">
           <label class="text-uppercase-bold" for="title" translate>LABELS.TITLE.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.TITLE.SUBTITLE</label> -->
-          <input class="form-control" id="title" placeholder="Insert title" type="text">
-          <div class="form-control-feedback">
-            {{formErrors.title}}
-          </div>
+          <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
+            placeholder="Insert title">
+          <div class="form-control-feedback">{{formErrors.title}}</div>
         </div>
       </div>
     </div>
+
+
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-        <div class="form-group">
+        <div class="form-group" [class.has-danger]="formErrors.background">
           <label class="text-uppercase-bold" for="background" translate>LABELS.BACKGROUND.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.BACKGROUND.SUBTITLE</label> -->
-          <input class="form-control" id="background" placeholder="Insert background" type="text">
-          <div class="form-control-feedback">
-            {{formErrors.background}}
-          </div>
+          <input type="text" class="form-control" formControlName="background" [class.form-control-danger]="formErrors.background"
+            id="background" placeholder="Insert background">
+          <div class="form-control-feedback">{{formErrors.background}}</div>
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-        <div class="form-group">
+        <div class="form-group" [class.has-danger]="formErrors.purpose">
           <label class="text-uppercase-bold" for="background" translate>LABELS.PURPOSE.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.PURPOSE.SUBTITLE</label> -->
-          <input class="form-control" id="purpose" placeholder="Insert purpose" type="text">
-          <div class="form-control-feedback">
-            {{formErrors.purpose}}
-          </div>
+          <input type="text" class="form-control" formControlName="purpose" [class.form-control-danger]="formErrors.purpose" id="purpose"
+            placeholder="Insert purpose">
+          <div class="form-control-feedback">{{formErrors.purpose}}</div>
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-        <div class="form-group">
+        <div class="form-group" [class.has-danger]="formErrors.responsability">
           <label class="text-uppercase-bold" for="responsability" translate>LABELS.RESPONSIBILITY.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.RESPONSIBILITY.SUBTITLE</label> -->
-          <input class="form-control" id="responsability" placeholder="Insert responsability" type="text">
-          <div class="form-control-feedback">
-            {{formErrors.responsability}}
-          </div>
+          <input type="text" class="form-control" formControlName="responsability" [class.form-control-danger]="formErrors.responsability"
+            id="responsability" placeholder="Insert responsability">
+          <div class="form-control-feedback">{{formErrors.responsability}}</div>
         </div>
       </div>
     </div>
+
     <div class="row">
       <div class="col-12 d-flex justify-content-end">
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onSubmit()">
           <span translate>NEXT</span>
         </button>
       </div>
