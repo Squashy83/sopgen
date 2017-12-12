@@ -9,10 +9,10 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-          <div class="form-group">
+          <div class="form-group" [class.has-danger]="formErrors.title">
             <label class="text-uppercase-bold" for="title" translate>LABELS.STEPS-TITLE.TITLE</label>
-            <input class="form-control" id="title{{i}}" placeholder="Title" type="text"
-              value="{{step.title}}">
+            <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id=title{{i}}
+              placeholder="Title" value={{step.title}}>
             <div class="form-control-feedback">
               {{formErrors.title}}
             </div>
@@ -21,30 +21,31 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-          <div class="form-group">
+          <div class="form-group" [class.has-danger]="formErrors.description">
             <label class="text-uppercase-bold" for="description" translate>LABELS.STEPS-DESCRIPTION.TITLE</label>
-            <textarea class="form-control" id="desc{{i}}" placeholder="Description"></textarea>
+            <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id=title{{i}}
+              placeholder="Title" value={{step.title}}>
             <div class="form-control-feedback">
               {{formErrors.description}}
             </div>
           </div>
         </div>
-        <button class="btn buttonRemove" type="submit">
-          <i aria-hidden="true" class="fa fa-times"></i>
+        <button class="btn buttonRemove" (click)="onRemoveStep(i)" type="submit">
+          <i class="fa fa-times" aria-hidden="true"></i>
         </button>
       </div>
     </div>
     <div class="row">
-      <button class="btn buttonAdd" type="submit">
-        <i aria-hidden="true" class="fa fa-plus"></i>
+      <button class="btn buttonAdd" (click)="onAddStep()" type="submit">
+        <i class="fa fa-plus" aria-hidden="true"></i>
       </button>
     </div>
     <div class="row">
       <div class="col-12 d-flex justify-content-end">
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackInfo()">
           <span translate>BACK</span>
         </button>
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()">
           <span translate>NEXT</span>
         </button>
       </div>
