@@ -6,9 +6,9 @@
 
 
   <form [formGroup]="respsForm">
-    <br>
-    <h6 translate>Responsible Person(s)</h6>
-    <br>
+    <div class="row">
+      <h6 translate>Responsible Person(s)</h6>
+    </div>
     <div *ngFor="let resp of resps;let i=index">
       <div class="row">
 
@@ -58,7 +58,7 @@
             <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
             <label class="text-uppercase" for="email_code" translate>Email Code</label>
             <input type="text" class="form-control" formControlName="email_code" [class.form-control-danger]="formErrors.email_code"
-              id=email_code{{i}} placeholder="Tel Code" value={{resp.email_code}}>
+              id=email_code{{i}} placeholder="Email Code" value={{resp.email_code}}>
             <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
                 placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
             <div class="form-control-feedback">{{formErrors.email_code}}</div>
@@ -161,7 +161,8 @@
           <span translate>BACK</span>
         </button>
 
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextFooter()">  <!-- [disabled]="!respsForm.valid" -->
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextFooter()">
+          <!-- [disabled]="!respsForm.valid" -->
           <span translate>NEXT</span>
         </button>
       </div>
