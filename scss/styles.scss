@@ -100,3 +100,38 @@ p.card-text {
 .buttonRemove {
   background: #c90000;
 }
+
+body {
+  color: #2B7354;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -142px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+}
+
+.site-footer,
+.page-wrap:after {
+  height: 142px;
+}
+
+.site-footer {
+  background: rgba(46, 49, 48, 0.87);
+  text-align: center;
+  color: white;
+}

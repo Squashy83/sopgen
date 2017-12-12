@@ -1,77 +1,53 @@
-<div class="container-fluid globalContainer">
-
-  <!-- <span style="text-align:center" class="navbar-text mx-3">
-    <img [src]="ASSETS_BASE + 'images/seminario-logo.png'" />
-  </span> -->
-
-  <br>
-  <h6 translate>Insert the Sop Steps</h6>
-  <br>
-  <form [formGroup]="stepsForm">
-
-    <div *ngFor="let step of steps;let i=index">
+<div class="container-fluid mt-4">
+  <div class="row">
+    <h6 translate>Insert the Sop Steps</h6>
+  </div>
+  <form>
+    <div>
       <div class="row">
-        <h4>
-          <label class="label label-default">STEP {{i+1}}</label>
-        </h4>
-
-        <br><br>
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-          <div class="form-group" [class.has-danger]="formErrors.title">
-            <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
-            <label class="text-uppercase" for="title" translate>Title</label>
-            <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id=title{{i}}
-              placeholder="Title" value={{step.title}}>
-            <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
-              placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
-            <div class="form-control-feedback">{{formErrors.title}}</div>
+        <label class="label label-default">STEP {{i+1}}</label>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+          <div class="form-group">
+            <label class="text-uppercase-bold" for="title" translate>LABELS.STEPS-TITLE.TITLE</label>
+            <input class="form-control" id="title{{i}}" placeholder="Title" type="text"
+              value="{{step.title}}">
+            <div class="form-control-feedback">
+              {{formErrors.title}}
+            </div>
           </div>
         </div>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
-          <div class="form-group" [class.has-danger]="formErrors.description">
-            <!-- <label class="text-uppercase" for="description" translate>LABELS.STEPS.description</label> -->
-            <label class="text-uppercase" for="description" translate>Description</label>
-
-            <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors.description" id=desc{{i}}
-              placeholder="Description" value={{step.description}}></textarea>
-            <div class="form-control-feedback">{{formErrors.description}}</div>
-            <!-- <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors.description" id="description"
-              placeholder="{{'PLACEHOLDERS.description' | translate}}" value={{step.description}}></textarea>
-            <div class="form-control-feedback">{{formErrors.description}}</div> -->
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+          <div class="form-group">
+            <label class="text-uppercase-bold" for="description" translate>LABELS.STEPS-DESCRIPTION.TITLE</label>
+            <textarea class="form-control" id="desc{{i}}" placeholder="Description"></textarea>
+            <div class="form-control-feedback">
+              {{formErrors.description}}
+            </div>
           </div>
         </div>
-
-        <div class="dockbar-container-btn">
-          <button class="btn buttonRemove" (click)="onRemoveStep(i)" type="submit">
-            <i class="fa fa-times" aria-hidden="true"></i>
-          </button>
-        </div>
-
-
-
+        <button class="btn buttonRemove" type="submit">
+          <i aria-hidden="true" class="fa fa-times"></i>
+        </button>
       </div>
     </div>
     <div class="row">
-
-      <button class="btn buttonAdd" (click)="onAddStep()" type="submit">
-        <i class="fa fa-plus" aria-hidden="true"></i>
+      <button class="btn buttonAdd" type="submit">
+        <i aria-hidden="true" class="fa fa-plus"></i>
       </button>
     </div>
-
     <div class="row">
       <div class="col-12 d-flex justify-content-end">
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackInfo()">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width">
           <span translate>BACK</span>
         </button>
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width">
           <span translate>NEXT</span>
         </button>
       </div>
     </div>
   </form>
 </div>
-
-<!-- <div class="footer">
-  <p>ARISTOMED 2017 copyright</p>
-</div> -->

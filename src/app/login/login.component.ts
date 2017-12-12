@@ -5,6 +5,8 @@ import { LoginService } from '../_services/login.service';
 import { Router } from '@angular/router';
 
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,9 +32,11 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(private fb: FormBuilder,
-              private _loginService: LoginService,
-              private router: Router,
-              private translate: TranslateService) {
+    private _loginService: LoginService,
+    private router: Router,
+    private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
     this.loginForm = fb.group({
       'userid': [null, Validators.required],
       'password': [null, Validators.required],
@@ -81,18 +85,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // login() {
-  //   this.loading = true;
-  //   this.authenticationService.login(this.model.username, this.model.password)
-  //     .subscribe(
-  //     data => {
-  //       this.router.navigate([this.returnUrl]);
-  //     },
-  //     error => {
-  //       this.alertService.error(error);
-  //       this.loading = false;
-  //     });
-  // }
+
 
 }
 

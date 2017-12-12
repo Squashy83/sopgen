@@ -1,151 +1,127 @@
-<div class="container-fluid">
+<div class="container-fluid mt-4">
 
-  <!-- <span style="text-align:center" class="navbar-text mx-3">
-      <img [src]="ASSETS_BASE + 'images/seminario-logo.png'" />
-    </span> -->
-
-
+  <div class="row">
+    <h6 translate>Insert the Responsible Person(s)</h6>
+  </div>
   <form [formGroup]="respsForm">
-    <div class="row">
-      <h6 translate>Responsible Person(s)</h6>
-    </div>
+
     <div *ngFor="let resp of resps;let i=index">
       <div class="row">
+        <label class="label label-default">Resp. Person #{{i+1}}</label>
+      </div>
 
-        <h1>
-          <span class="label label-default">RESP {{i+1}}</span>
-          <br>
-        </h1>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
           <div class="form-group" [class.has-danger]="formErrors.name">
-            <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
-            <label class="text-uppercase" for="name" translate>Name</label>
+            <label class="text-uppercase-bold" for="name" translate>Name</label>
             <input type="text" class="form-control" formControlName="name" [class.form-control-danger]="formErrors.name" id=name{{i}}
               placeholder="Name" value={{resp.name}}>
-            <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
-                placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
             <div class="form-control-feedback">{{formErrors.name}}</div>
           </div>
         </div>
+      </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
           <div class="form-group" [class.has-danger]="formErrors.position">
-            <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
-            <label class="text-uppercase" for="position" translate>Position</label>
+            <label class="text-uppercase-bold" for="position" translate>Position</label>
             <input type="text" class="form-control" formControlName="position" [class.form-control-danger]="formErrors.position" id=position{{i}}
               placeholder="Position" value={{resp.position}}>
-            <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
-                placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
             <div class="form-control-feedback">{{formErrors.position}}</div>
           </div>
         </div>
+      </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
           <div class="form-group" [class.has-danger]="formErrors.tel_code">
-            <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
-            <label class="text-uppercase" for="tel_code" translate>Tel Code</label>
+            <label class="text-uppercase-bold" for="tel_code" translate>Tel Code</label>
             <input type="text" class="form-control" formControlName="tel_code" [class.form-control-danger]="formErrors.tel_code" id=tel_code{{i}}
               placeholder="Tel Code" value={{resp.tel_code}}>
-            <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
-                placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
             <div class="form-control-feedback">{{formErrors.tel_code}}</div>
           </div>
         </div>
+      </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
           <div class="form-group" [class.has-danger]="formErrors.email_code">
-            <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
-            <label class="text-uppercase" for="email_code" translate>Email Code</label>
+            <label class="text-uppercase-bold" for="email_code" translate>Email Code</label>
             <input type="text" class="form-control" formControlName="email_code" [class.form-control-danger]="formErrors.email_code"
               id=email_code{{i}} placeholder="Email Code" value={{resp.email_code}}>
-            <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
-                placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
             <div class="form-control-feedback">{{formErrors.email_code}}</div>
           </div>
         </div>
-
-        <div class="dockbar-container-btn">
-          <button class="btn buttonRemove" (click)="onRemoveResp(i)" type="submit">
-            <i class="fa fa-times" aria-hidden="true"></i>
-          </button>
-        </div>
-
-
+        <button class="btn buttonRemove" (click)="onRemoveResp(i)" type="submit">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
+
+
     <div class="row">
       <button class="btn buttonAdd" (click)="onAddResp()" type="submit">
         <i class="fa fa-plus" aria-hidden="true"></i>
       </button>
     </div>
 
-    <br>
-    <h6 translate>Concerned Person(s)</h6>
-    <br>
+
+    <div class="row">
+      <h6 translate>Insert the Concerned Person(s)</h6>
+    </div>
     <div *ngFor="let conc of concs;let i=index">
+
       <div class="row">
+        <label class="label label-default">Conc. Person #{{i+1}}</label>
+      </div>
 
-        <h1>
-          <span class="label label-default">CONC {{i+1}}</span>
-          <br>
-        </h1>
-
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
           <div class="form-group" [class.has-danger]="formErrors.name">
-            <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
-            <label class="text-uppercase" for="name" translate>Name</label>
+            <label class="text-uppercase-bold" for="name" translate>Name</label>
             <input type="text" class="form-control" formControlName="name" [class.form-control-danger]="formErrors.name" id=name{{i}}
               placeholder="Name" value={{conc.name}}>
-            <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
-                  placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
             <div class="form-control-feedback">{{formErrors.name}}</div>
           </div>
         </div>
+      </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
           <div class="form-group" [class.has-danger]="formErrors.position">
-            <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
-            <label class="text-uppercase" for="position" translate>Position</label>
+            <label class="text-uppercase-bold" for="position" translate>Position</label>
             <input type="text" class="form-control" formControlName="position" [class.form-control-danger]="formErrors.position" id=position{{i}}
               placeholder="Position" value={{conc.position}}>
-            <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
-                  placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
             <div class="form-control-feedback">{{formErrors.position}}</div>
           </div>
         </div>
+      </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
           <div class="form-group" [class.has-danger]="formErrors.tel_code">
-            <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
-            <label class="text-uppercase" for="tel_code" translate>Tel Code</label>
+            <label class="text-uppercase-bold" for="tel_code" translate>Tel Code</label>
             <input type="text" class="form-control" formControlName="tel_code" [class.form-control-danger]="formErrors.tel_code" id=tel_code{{i}}
               placeholder="Tel Code" value={{conc.tel_code}}>
-            <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
-                  placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
             <div class="form-control-feedback">{{formErrors.tel_code}}</div>
           </div>
         </div>
+      </div>
 
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-3">
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
           <div class="form-group" [class.has-danger]="formErrors.email_code">
-            <!-- <label class="text-uppercase" for="title" translate>LABELS.STEPS.TITLE</label> -->
-            <label class="text-uppercase" for="email_code" translate>Email Code</label>
+            <label class="text-uppercase-bold" for="email_code" translate>Email Code</label>
             <input type="text" class="form-control" formControlName="email_code" [class.form-control-danger]="formErrors.email_code"
               id=email_code{{i}} placeholder="Tel Code" value={{conc.email_code}}>
-            <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id="title"
-                  placeholder="{{'PLACEHOLDERS.TITLE' | translate}}" value={{step.title}}> -->
             <div class="form-control-feedback">{{formErrors.email_code}}</div>
           </div>
         </div>
 
-        <div class="dockbar-container-btn">
-          <button class="btn buttonRemove" (click)="onRemoveConc(i)" type="submit">
-            <i class="fa fa-times" aria-hidden="true"></i>
-          </button>
-        </div>
-
-
+        <button class="btn buttonRemove" (click)="onRemoveConc(i)" type="submit">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
     <div class="row">
@@ -162,14 +138,9 @@
         </button>
 
         <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextFooter()">
-          <!-- [disabled]="!respsForm.valid" -->
           <span translate>NEXT</span>
         </button>
       </div>
     </div>
   </form>
 </div>
-
-<!-- <div class="footer">
-  <p>ARISTOMED 2017 copyright</p>
-</div> -->

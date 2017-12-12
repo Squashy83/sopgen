@@ -23,6 +23,7 @@ import { LoginGuardService } from './_services/login_guard.service';
 import { SopStepsComponent } from './sop-steps/sop-steps.component';
 import { SopResponsiblesComponent } from './sop-responsibles/sop-responsibles.component';
 import { SopFooterComponent } from './sop-footer/sop-footer.component';
+import { SopGeneratepdfComponent } from './sop-generatepdf/sop-generatepdf.component';
 
 // import { Injectable } from '@angular/core';
 // import { CanActivate } from '@angular/router';
@@ -96,7 +97,8 @@ const appRoutes: Routes = [
     LoginComponent,
     SopStepsComponent,
     SopResponsiblesComponent,
-    SopFooterComponent
+    SopFooterComponent,
+    SopGeneratepdfComponent
 
   ],
   imports: [
