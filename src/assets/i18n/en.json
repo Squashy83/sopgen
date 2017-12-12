@@ -25,6 +25,33 @@
     },
     "STEPS-DESCRIPTION": {
       "TITLE": "DESCRIPTION"
+    },
+    "ACTION": {
+      "TITLE": "ACTION"
+    },
+    "START": {
+      "TITLE": "START"
+    },
+    "EXPCLO": {
+      "TITLE": "EXPECTED CLOSURE"
+    },
+    "CLOSURE": {
+      "TITLE": "CLOSURE"
+    },
+    "NOTES": {
+      "TITLE": "NOTES"
+    },
+    "TESTEDON": {
+      "TITLE": "TESTED ON"
+    },
+    "IMPLEMENTED": {
+      "TITLE": "IMPLEMENTED"
+    },
+    "REVIEWED": {
+      "TITLE": "REVIEWED"
+    },
+    "COMMENTS": {
+      "TITLE": "COMMENTS"
     }
   },
   "BUTTONS": {
