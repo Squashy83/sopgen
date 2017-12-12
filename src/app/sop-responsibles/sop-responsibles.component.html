@@ -66,7 +66,7 @@
     </div>
 
 
-    <div class="row">
+    <div class="row  small-title">
       <h6 translate>Insert the Concerned Person(s)</h6>
     </div>
     <div *ngFor="let conc of concs;let i=index">
@@ -137,7 +137,7 @@
           <span translate>BACK</span>
         </button>
 
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextFooter()">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" [disabled]="!respsForm.valid" (click)="onNextFooter()">
           <span translate>NEXT</span>
         </button>
       </div>

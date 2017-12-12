@@ -64,7 +64,7 @@
 
     <div class="row">
       <div class="col-12 d-flex justify-content-end">
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onSubmit()">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" [disabled]="!sopForm.valid" (click)="onSubmit()">
           <span translate>NEXT</span>
         </button>
       </div>

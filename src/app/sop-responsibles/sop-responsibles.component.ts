@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PdfManagerService } from './../_services/pdf-manager.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sop-responsibles',
@@ -26,7 +27,10 @@ export class SopResponsiblesComponent implements OnInit {
     'email_code': {}
   };
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(private fb: FormBuilder, private router: Router,
+    private pdfManager: PdfManagerService, private translate: TranslateService) {
+    this.translate.setDefaultLang('en');
+    this.translate.use('en');
 
   }
 
@@ -43,8 +47,8 @@ export class SopResponsiblesComponent implements OnInit {
     this.respsForm = this.fb.group({
       'name': [null, Validators.required],
       'position': [null, Validators.required],
-      'tel_code': [null, Validators.required],
-      'email_code': [null, Validators.required]
+      'tel_code': [''],
+      'email_code': ['']
     });
 
     this.respsForm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -75,14 +79,13 @@ export class SopResponsiblesComponent implements OnInit {
 
 
   setupValidationMessages() {
-    this.validationMessages.name = 'Please insert a name';
-    this.validationMessages.position = 'Please insert a position';
-    this.validationMessages.tel_code = 'Please insert a Tel Code';
-    this.validationMessages.email_code = 'Please insert an Email Code';
+    this.translate.get('VALIDATION_MESSAGES').subscribe((mes: string) => {
+      this.validationMessages.name['required'] = mes['NAME']['REQUIRED'];
+      this.validationMessages.position['required'] = mes['POSITION']['REQUIRED'];
+    });
   }
 
   onNextFooter() {
-    console.log('onNextFooteeer!');
     this.router.navigate(['/sop-footer']);
   }
 
@@ -92,10 +95,12 @@ export class SopResponsiblesComponent implements OnInit {
 
   onAddResp() {
     const dataToSave = this.respsForm.value;
-    this.resps.push({ 'name': dataToSave.name,
-                      'position': dataToSave.position,
-                      'telCode': dataToSave.tel_code,
-                      'emailCode': dataToSave.email_code });
+    this.resps.push({
+      'name': dataToSave.name,
+      'position': dataToSave.position,
+      'telCode': dataToSave.tel_code,
+      'emailCode': dataToSave.email_code
+    });
   }
 
   onRemoveResp(index) {

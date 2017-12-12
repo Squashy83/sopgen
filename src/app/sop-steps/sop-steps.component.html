@@ -2,8 +2,8 @@
   <div class="row">
     <h6 translate>Insert the Sop Steps</h6>
   </div>
-  <form>
-    <div>
+  <form [formGroup]="stepsForm">
+    <div *ngFor="let step of steps;let i=index">
       <div class="row">
         <label class="label label-default">STEP {{i+1}}</label>
       </div>
@@ -23,8 +23,8 @@
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
           <div class="form-group" [class.has-danger]="formErrors.description">
             <label class="text-uppercase-bold" for="description" translate>LABELS.STEPS-DESCRIPTION.TITLE</label>
-            <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title" id=title{{i}}
-              placeholder="Title" value={{step.title}}>
+            <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors.description" id=desc{{i}}
+              placeholder="Description" value={{step.description}}></textarea>
             <div class="form-control-feedback">
               {{formErrors.description}}
             </div>
@@ -45,7 +45,7 @@
         <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackInfo()">
           <span translate>BACK</span>
         </button>
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onNextResponsibles()">
+        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" [disabled]="!stepsForm.valid" (click)="onNextResponsibles()">
           <span translate>NEXT</span>
         </button>
       </div>

@@ -57,6 +57,12 @@
     "DESCRIPTION": {
       "REQUIRED": "Description is mandatory",
       "MIN_LENGTH": "Insert al least 20 characters"
+    },
+    "NAME": {
+      "REQUIRED": "Name is mandatory"
+    },
+    "POSITION": {
+      "REQUIRED": "Position is mandatory"
     }
   },
   "PLACEHOLDERS": {
