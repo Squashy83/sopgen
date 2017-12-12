@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sop-footer',
@@ -15,30 +16,36 @@ export class SopFooterComponent implements OnInit {
 
   sop = {};
 
-  sopForm: FormGroup;
+  footerForm: FormGroup;
 
   formErrors = {
-    'code': '',
-    'title': '',
-    'background': '',
-    'purpose': '',
-    'responsability': ''
+    'action': '',
+    'start': '',
+    'expclo': '',
+    'closure': '',
+    'notes': '',
+    'testedon': '',
+    'implemented': '',
+    'reviewed': ''
   };
 
   validationMessages = {
-    'code': {},
-    'title': {},
-    'background': {},
-    'purpose': {},
-    'responsability': {}
+    'action': {},
+    'start': {},
+    'expclo': {},
+    'closure': {},
+    'notes': {},
+    'testedon': {},
+    'implemented': {},
+    'reviewed': {}
   };
-
 
   constructor(private http: HttpClient,
     private router: Router,
     private fb: FormBuilder,
     private translate: TranslateService,
-    private pdfManager: PdfManagerService) {
+    private pdfManager: PdfManagerService,
+    private location: Location) {
     this.translate.setDefaultLang('en');
     this.translate.use('en');
   }
@@ -49,32 +56,36 @@ export class SopFooterComponent implements OnInit {
   }
 
   buildForm() {
-    this.sopForm = this.fb.group({
-      'code': [''],
-      'title': ['', [Validators.required]],
-      'background': ['', [Validators.required]],
-      // 'group': [{ value: '', disabled: true }, [Validators.required]],
-      'purpose': ['', [Validators.required, Validators.minLength(20)]],
-      'responsability': ['', [Validators.required]]
+    this.footerForm = this.fb.group({
+      'action': [''],
+      'start': ['', [Validators.required]],
+      'expclo': ['', [Validators.required]],
+      'closure': ['', [Validators.required, Validators.minLength(20)]],
+      'notes': [''],
+      'testedon': ['', [Validators.required]],
+      'implemented': ['', [Validators.required]],
+      'reviewed': ['', [Validators.required]]
     });
-    this.sopForm.valueChanges.subscribe(data => this.onValueChanged(data));
+    this.footerForm.valueChanges.subscribe(data => this.onValueChanged(data));
   }
 
   setupValidationMessages() {
     this.translate.get('VALIDATION_MESSAGES').subscribe((mes: string) => {
-      this.validationMessages.code['required'] = mes['CODE']['REQUIRED'];
-      this.validationMessages.title['required'] = mes['TITLE']['REQUIRED'];
-      this.validationMessages.background['required'] = mes['BACKGROUND']['REQUIRED'];
-      this.validationMessages.purpose['minlength'] = mes['PURPOSE']['MIN_LENGTH'];
-      this.validationMessages.purpose['required'] = mes['PURPOSE']['REQUIRED'];
-      this.validationMessages.responsability['required'] = mes['RESPONSABILITY']['REQUIRED'];
+      this.validationMessages.action['required'] = mes['CODE']['REQUIRED'];
+      this.validationMessages.start['required'] = mes['TITLE']['REQUIRED'];
+      this.validationMessages.expclo['required'] = mes['BACKGROUND']['REQUIRED'];
+      this.validationMessages.closure['minlength'] = mes['PURPOSE']['MIN_LENGTH'];
+      this.validationMessages.notes['required'] = mes['PURPOSE']['REQUIRED'];
+      this.validationMessages.testedon['required'] = mes['RESPONSABILITY']['REQUIRED'];
+      this.validationMessages.implemented['required'] = mes['RESPONSABILITY']['REQUIRED'];
+      this.validationMessages.reviewed['required'] = mes['RESPONSABILITY']['REQUIRED'];
     });
   }
 
   onValueChanged(data?: any) {
-    if (!this.sopForm) { return; }
+    if (!this.footerForm) { return; }
 
-    const form = this.sopForm;
+    const form = this.footerForm;
     for (const field in this.formErrors) {
       if (this.formErrors.hasOwnProperty(field)) {
         this.formErrors[field] = '';
@@ -94,9 +105,9 @@ export class SopFooterComponent implements OnInit {
 
   onCheckForm(): string {
     let fieldMessageErrors = null;
-    if (!this.sopForm) { return; }
+    if (!this.footerForm) { return; }
 
-    const form = this.sopForm;
+    const form = this.footerForm;
     for (const field in this.formErrors) {
       if (this.formErrors.hasOwnProperty(field)) {
         this.formErrors[field] = '';
@@ -121,29 +132,33 @@ export class SopFooterComponent implements OnInit {
 
   saveGeneralFooter() {
 
-    if (this.sopForm.valid) {
+    if (this.footerForm.valid) {
 
-      const dataToSave = this.sopForm.value;
+      const dataToSave = this.footerForm.value;
 
-      const pdf = {
-        'code': dataToSave.code,
-        'title': dataToSave.title,
-        'background': dataToSave.background,
-        'description': dataToSave.description,
-        'purpose': dataToSave.purpose,
-        'responsability': dataToSave.responsability
+      const footer = {
+        'action': dataToSave.action,
+        'start': dataToSave.start,
+        'expclo': dataToSave.expclo,
+        'closure': dataToSave.closure,
+        'notes': dataToSave.notes,
+        'testedon': dataToSave.testedon,
+        'implemented': dataToSave.implemented,
+        'reviewed': dataToSave.reviewed
       };
 
-      this.pdfManager.pdfStructure = pdf;
-
+      this.pdfManager.pdfStructure.footer = footer;
       this.router.navigate(['/sop-generatepdf']);
-
     } else {
       this.onCheckForm();
     }
   }
 
-  onSubmit() {
+  onBackResponsibles() {
+    this.location.back();
+  }
+
+  onNextPdfCreate() {
     this.saveGeneralFooter();
   }
 }

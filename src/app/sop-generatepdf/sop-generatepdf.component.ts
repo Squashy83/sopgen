@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PdfManagerService } from './../_services/pdf-manager.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-sop-generatepdf',
@@ -10,14 +11,23 @@ import { PdfManagerService } from './../_services/pdf-manager.service';
 })
 export class SopGeneratepdfComponent implements OnInit {
 
-  constructor(private pdfManager: PdfManagerService) { }
+  constructor(private pdfManager: PdfManagerService,
+              private router: Router,
+              private location: Location) { }
 
   ngOnInit() {
   }
 
+  onBack() {
+    // this.router.navigate(['/sop-footer']);
+    this.location.back();
+  }
+
   onCreatePdf() {
     // call service Node
-    console.log('pdfStructure: ', this.pdfManager.pdfStructure);
-    this.pdfManager.createPdf();
+    console.log('pdfStructure CREATED: ', this.pdfManager.pdfStructure);
+    this.pdfManager.createPdf().subscribe(response => {
+      console.log('response created pdf: ', response);
+    });
   }
 }

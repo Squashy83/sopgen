@@ -127,12 +127,6 @@ SOP_FLOW
   </tr>
   
   SOP_RESPONSIBLES
-  <!-- <tr>
-  	<td><p class="generalInfo">Dr. Mahmoud Kayed</p></td>
-    <td><p class="generalInfo">CMU director</p></td>
-    <td><p class="generalInfo">34343</p></td>
-    <td><p class="generalInfo">945353</p></td>
-  </tr> -->
 </table>
 
 
@@ -144,12 +138,7 @@ SOP_FLOW
     </tr> 
     <table>
         <!-- SOP_CONCERNED -->
-        <tr>
-            <td class="tdConcerned"><p class="generalInfo"> </td>
-            <td class="tdConcerned"><p class="generalInfo"> </td>
-            <td class="tdConcerned"><p class="generalInfo"> </td>
-            <td class="tdConcerned"><p class="generalInfo"> </td>
-        </tr>
+        SOP_CONCERN_PERSONS
     </table>  
 
 
@@ -164,13 +153,12 @@ SOP_FLOW
         </tr> 
         
             <tr>
-              <td class=\"tdConcerned\"><p class="generalInfo"> </td>
-              <td class=\"tdConcerned\"><p class="generalInfo"> </td>
-              <td class=\"tdConcerned\"><p class="generalInfo"> </td>
-              <td class=\"tdConcerned\"><p class="generalInfo"> </td>
+              <td class=\"tdConcerned\"><p class="generalInfo"> ACTION_VALUE </td>
+              <td class=\"tdConcerned\"><p class="generalInfo"> START_VALUE </td>
+              <td class=\"tdConcerned\"><p class="generalInfo"> EXPECTED_CLOSURE_VALUE </td>
+              <td class=\"tdConcerned\"><p class="generalInfo"> CLOSURE_VALUE </td>
             </tr>
       </table>
-
 
       <!-- Notes (pre-information) -->
     <table>
@@ -181,8 +169,6 @@ SOP_FLOW
           <td><p class="generalInfo">SOP_NOTES</p></td>
         </tr> 
       </table>
-
-
 
       <!-- SOP Monitoring -->
     <table>
@@ -198,9 +184,9 @@ SOP_FLOW
             <td><p class="generalInfo"><b>Reviewed</b></p></td>
             </tr> 
            <tr>
-            <td><p class="generalInfo"><b> </b></p></td>
-            <td><p class="generalInfo"><b> </b></p></td>
-            <td><p class="generalInfo"><b> </b></p></td>
+            <td><p class="generalInfo">TESTED_ON_VALUE</p></td>
+            <td><p class="generalInfo">IMPLEMENTED_VALUE</p></td>
+            <td><p class="generalInfo">REVIEWED_VALUE</p></td>
             </tr> 
       </table>
     </body>

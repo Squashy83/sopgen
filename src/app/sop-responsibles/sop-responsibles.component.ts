@@ -85,10 +85,6 @@ export class SopResponsiblesComponent implements OnInit {
     });
   }
 
-  onNextFooter() {
-    this.router.navigate(['/sop-footer']);
-  }
-
   onBackSteps() {
     this.router.navigate(['/sop-steps']);
   }
@@ -113,6 +109,12 @@ export class SopResponsiblesComponent implements OnInit {
 
   onRemoveConc(index) {
     this.concs.splice(index, 1);
+  }
+
+  onNextFooter() {
+    this.pdfManager.pdfStructure.responsables = this.resps;
+    this.pdfManager.pdfStructure.concernPersons = this.concs;
+    this.router.navigate(['/sop-footer']);
   }
 }
 

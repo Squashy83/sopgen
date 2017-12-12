@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PdfManagerService } from '../_services/pdf-manager.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class SopStepsComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private router: Router,
     private translate: TranslateService,
-    private pdfManager: PdfManagerService) {
+    private pdfManager: PdfManagerService,
+    private location: Location) {
     this.translate.setDefaultLang('en');
     this.translate.use('en');
   }
@@ -119,7 +121,8 @@ export class SopStepsComponent implements OnInit {
   }
 
   onBackInfo() {
-    this.router.navigate(['/sop-info']);
+    // this.router.navigate(['/sop-info']);
+    this.location.back();
   }
 
   onAddStep() {

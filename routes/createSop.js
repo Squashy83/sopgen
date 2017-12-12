@@ -12,7 +12,8 @@ router.post('/', function(req, res, next) {
     
     let steps = data.steps;
     let responsables = data.responsables;
-    let notes = data.notes;
+    let concernPersons = data.concernPersons;
+    let footer = data.footer;
 
     Sop.create(req.body, function(err, resCreate){
 
@@ -34,6 +35,12 @@ router.post('/', function(req, res, next) {
         dinamicResponsable = dinamicResponsable + row;
       }
 
+      var dinamicConcernPersons = '';
+      for(let z=0;z<concernPersons.length;z++){
+        let row =  '<tr><td class=\"trInfo\"><p class="generalInfo">' + concernPersons[z].name + '</p></td>' + '<td><p class="generalInfo">' + concernPersons[z].position + '</p></td>' + '<td><p class="generalInfo">' + concernPersons[z].telCode + '</p></td>' + '<td><p class="generalInfo">' + concernPersons[z].emailCode + '</p></td></tr>';
+        dinamicConcernPersons = dinamicConcernPersons + row;
+      }
+      
       //READ standard CSS
       fs.readFile(path.join(__dirname, '../assets/skeleton-pdf.html'), 'utf8', function (err,dataSkeleton) {
         if (err) {
@@ -51,11 +58,19 @@ router.post('/', function(req, res, next) {
         dataSkeleton = dataSkeleton.replace('SOP_RESPONSABILITY', data['responsability']);
 
         dataSkeleton = dataSkeleton.replace('SOP_RESPONSIBLES', dinamicResponsable);
-        dataSkeleton = dataSkeleton.replace('SOP_NOTES', notes);
+        dataSkeleton = dataSkeleton.replace('SOP_CONCERN_PERSONS', dinamicConcernPersons);
+        dataSkeleton = dataSkeleton.replace('SOP_NOTES', footer.notes);
+        
+        dataSkeleton = dataSkeleton.replace('TESTED_ON_VALUE', footer.testedon);
+        dataSkeleton = dataSkeleton.replace('IMPLEMENTED_VALUE', footer.implemented);
+        dataSkeleton = dataSkeleton.replace('REVIEWED_VALUE', footer.reviewed);
 
+        dataSkeleton = dataSkeleton.replace('ACTION_VALUE', footer.action);
+        dataSkeleton = dataSkeleton.replace('START_VALUE', footer.start);
+        dataSkeleton = dataSkeleton.replace('EXPECTED_CLOSURE_VALUE', footer.expclo);
+        dataSkeleton = dataSkeleton.replace('CLOSURE_VALUE', footer.closure);
+      
         var options = { format: 'A4' };
-
-        console.log('html created: ', dataSkeleton);
 
             pdf.create(dataSkeleton, options).toFile('./sop-flow.pdf', function(err, resultPdf) {
                 
@@ -64,8 +79,15 @@ router.post('/', function(req, res, next) {
                 res.status(500).json({success: false, message:'error in pdf creation: ' + err});
             } 
 
-            res.json({success: true, message:'S.O.P correctly created!'});
-            });
+            //res.json({success: true, message:'S.O.P correctly created!'});
+            
+            var file = __dirname + '/../sop-flow.pdf';
+
+            console.log('file to donwload: ', file);
+
+            res.download(file); // Set disposition and send it.
+      
+          });
       });
     })
 });

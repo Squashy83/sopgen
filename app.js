@@ -6,7 +6,6 @@ var bodyParser = require('body-parser');
 
 var sop = require('./routes/sop');
 var user = require('./routes/user');
-var createPdf = require('./routes/createPdf');
 var createSop = require('./routes/createSop');
 
 var app = express();
@@ -45,16 +44,12 @@ app.use(bodyParser.raw({
   type: 'application/json'
 }));
 
-
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/sops', express.static(path.join(__dirname, 'dist')));
 app.use('/sop', sop);
 
 app.use('/users', express.static(path.join(__dirname, 'dist')));
 app.use('/user', user);
-
-app.use('/createPdf', express.static(path.join(__dirname, 'dist')));
-app.use('/createPdf', createPdf);
 
 app.use('/createSop', express.static(path.join(__dirname, 'dist')));
 app.use('/createSop', createSop);
