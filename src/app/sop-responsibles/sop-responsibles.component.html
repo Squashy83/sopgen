@@ -4,142 +4,145 @@
     <h6 translate>Insert the Responsible Person(s)</h6>
   </div>
   <form [formGroup]="respsForm">
+    <div formArrayName="resps">
+      <div *ngFor="let resp of respsForm.controls.resps.controls;let i=index" [formGroupName]="i">
+        <div class="row">
+          <label class="label label-default">Resp. Person #{{i+1}}</label>
+        </div>
 
-    <div *ngFor="let resp of resps;let i=index">
-      <div class="row">
-        <label class="label label-default">Resp. Person #{{i+1}}</label>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-          <div class="form-group" [class.has-danger]="formErrors.name">
-            <label class="text-uppercase-bold" for="name" translate>Name</label>
-            <input type="text" class="form-control" formControlName="name" [class.form-control-danger]="formErrors.name" id=name{{i}}
-              placeholder="Name" value={{resp.name}}>
-            <div class="form-control-feedback">{{formErrors.name}}</div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+            <div class="form-group" [class.has-danger]="formErrors['name'+i]">
+              <label class="text-uppercase-bold" for="name" translate>Name</label>
+              <input type="text" class="form-control" formControlName="name" [class.form-control-danger]="formErrors['name'+i]" id=name{{i}}
+                placeholder="Name" value={{resp.name}}>
+              <div class="form-control-feedback">{{formErrors['name'+i]}}</div>
+            </div>
           </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+            <div class="form-group" [class.has-danger]="formErrors['position'+i]">
+              <label class="text-uppercase-bold" for="position" translate>Position</label>
+              <input type="text" class="form-control" formControlName="position" [class.form-control-danger]="formErrors['position'+i]"
+                id=position{{i}} placeholder="Position" value={{resp.position}}>
+              <div class="form-control-feedback">{{formErrors['position'+i]}}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+            <div class="form-group" [class.has-danger]="formErrors['tel_code'+i]">
+              <label class="text-uppercase-bold" for="tel_code" translate>Tel Code</label>
+              <input type="text" class="form-control" formControlName="tel_code" [class.form-control-danger]="formErrors['tel_code'+i]"
+                id=tel_code{{i}} placeholder="Tel Code" value={{resp.tel_code}}>
+              <div class="form-control-feedback">{{formErrors['tel_code'+i]}}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+            <div class="form-group" [class.has-danger]="formErrors['email_code'+i]">
+              <label class="text-uppercase-bold" for="email_code" translate>Email Code</label>
+              <input type="text" class="form-control" formControlName="email_code" [class.form-control-danger]="formErrors['email_code'+i]"
+                id=email_code{{i}} placeholder="Email Code" value={{resp.email_code}}>
+              <div class="form-control-feedback">{{formErrors['email_code'+i]}}</div>
+            </div>
+          </div>
+          <button class="btn buttonRemove" (click)="onRemoveResp(i)" type="submit">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </button>
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-          <div class="form-group" [class.has-danger]="formErrors.position">
-            <label class="text-uppercase-bold" for="position" translate>Position</label>
-            <input type="text" class="form-control" formControlName="position" [class.form-control-danger]="formErrors.position" id=position{{i}}
-              placeholder="Position" value={{resp.position}}>
-            <div class="form-control-feedback">{{formErrors.position}}</div>
-          </div>
-        </div>
-      </div>
 
       <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-          <div class="form-group" [class.has-danger]="formErrors.tel_code">
-            <label class="text-uppercase-bold" for="tel_code" translate>Tel Code</label>
-            <input type="text" class="form-control" formControlName="tel_code" [class.form-control-danger]="formErrors.tel_code" id=tel_code{{i}}
-              placeholder="Tel Code" value={{resp.tel_code}}>
-            <div class="form-control-feedback">{{formErrors.tel_code}}</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-          <div class="form-group" [class.has-danger]="formErrors.email_code">
-            <label class="text-uppercase-bold" for="email_code" translate>Email Code</label>
-            <input type="text" class="form-control" formControlName="email_code" [class.form-control-danger]="formErrors.email_code"
-              id=email_code{{i}} placeholder="Email Code" value={{resp.email_code}}>
-            <div class="form-control-feedback">{{formErrors.email_code}}</div>
-          </div>
-        </div>
-        <button class="btn buttonRemove" (click)="onRemoveResp(i)" type="submit">
-          <i class="fa fa-times" aria-hidden="true"></i>
+        <button class="btn buttonAdd" (click)="onAddResp()" type="submit">
+          <i class="fa fa-plus" aria-hidden="true"></i>
         </button>
       </div>
     </div>
-
-
-    <div class="row">
-      <button class="btn buttonAdd" (click)="onAddResp()" type="submit">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-      </button>
-    </div>
-
 
     <div class="row small-title">
       <h6 translate>Insert the Concerned Person(s)</h6>
     </div>
-    <div *ngFor="let conc of concs;let i=index">
+    <div formArrayName="concs">
+      <div *ngFor="let conc of respsForm.controls.concs.controls;let i=index" [formGroupName]="i">
 
-      <div class="row">
-        <label class="label label-default">Conc. Person #{{i+1}}</label>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-          <div class="form-group" [class.has-danger]="formErrors.name">
-            <label class="text-uppercase-bold" for="name" translate>Name</label>
-            <input type="text" class="form-control" formControlName="name" [class.form-control-danger]="formErrors.name" id=name{{i}}
-              placeholder="Name" value={{conc.name}}>
-            <div class="form-control-feedback">{{formErrors.name}}</div>
-          </div>
+        <div class="row">
+          <label class="label label-default">Conc. Person #{{i+1}}</label>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-          <div class="form-group" [class.has-danger]="formErrors.position">
-            <label class="text-uppercase-bold" for="position" translate>Position</label>
-            <input type="text" class="form-control" formControlName="position" [class.form-control-danger]="formErrors.position" id=position{{i}}
-              placeholder="Position" value={{conc.position}}>
-            <div class="form-control-feedback">{{formErrors.position}}</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-          <div class="form-group" [class.has-danger]="formErrors.tel_code">
-            <label class="text-uppercase-bold" for="tel_code" translate>Tel Code</label>
-            <input type="text" class="form-control" formControlName="tel_code" [class.form-control-danger]="formErrors.tel_code" id=tel_code{{i}}
-              placeholder="Tel Code" value={{conc.tel_code}}>
-            <div class="form-control-feedback">{{formErrors.tel_code}}</div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-          <div class="form-group" [class.has-danger]="formErrors.email_code">
-            <label class="text-uppercase-bold" for="email_code" translate>Email Code</label>
-            <input type="text" class="form-control" formControlName="email_code" [class.form-control-danger]="formErrors.email_code"
-              id=email_code{{i}} placeholder="Tel Code" value={{conc.email_code}}>
-            <div class="form-control-feedback">{{formErrors.email_code}}</div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+            <div class="form-group" [class.has-danger]="formErrors['nameC'+i]">
+              <label class="text-uppercase-bold" for="name" translate>Name</label>
+              <input type="text" class="form-control" formControlName="name" [class.form-control-danger]="formErrors['nameC'+i]" id=name{{i}}
+                placeholder="Name" value={{conc.name}}>
+              <div class="form-control-feedback">{{formErrors['nameC'+i]}}</div>
+            </div>
           </div>
         </div>
 
-        <button class="btn buttonRemove" (click)="onRemoveConc(i)" type="submit">
-          <i class="fa fa-times" aria-hidden="true"></i>
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+            <div class="form-group" [class.has-danger]="formErrors['positionC'+i]">
+              <label class="text-uppercase-bold" for="position" translate>Position</label>
+              <input type="text" class="form-control" formControlName="position" [class.form-control-danger]="formErrors['positionC'+i]"
+                id=position{{i}} placeholder="Position" value={{conc.position}}>
+              <div class="form-control-feedback">{{formErrors['positionC'+i]}}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+            <div class="form-group" [class.has-danger]="formErrors['tel_codeC'+i]">
+              <label class="text-uppercase-bold" for="tel_code" translate>Tel Code</label>
+              <input type="text" class="form-control" formControlName="tel_code" [class.form-control-danger]="formErrors['tel_codeC'+i]"
+                id=tel_code{{i}} placeholder=" Tel Code " value={{conc.tel_code}}>
+              <div class="form-control-feedback ">{{formErrors['tel_codeC'+i]}}</div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row ">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6 ">
+            <div class="form-group " [class.has-danger]="formErrors['email_codeC'+i]">
+              <label class="text-uppercase-bold " for="email_code" translate>Email Code</label>
+              <input type="text " class="form-control " formControlName="email_code" [class.form-control-danger]="formErrors['email_codeC'+i]"
+                id=email_code{{i}} placeholder="Email Code " value={{conc.email_code}}>
+              <div class="form-control-feedback ">{{formErrors['email_codeC'+i]}}</div>
+            </div>
+          </div>
+
+          <button class="btn buttonRemove " (click)="onRemoveConc(i) " type="submit ">
+            <i class="fa fa-times " aria-hidden="true "></i>
+          </button>
+        </div>
+      </div>
+      <div class="row ">
+        <button class="btn buttonAdd " (click)="onAddConc() " type="submit ">
+          <i class="fa fa-plus " aria-hidden="true "></i>
         </button>
       </div>
-    </div>
-    <div class="row">
-      <button class="btn buttonAdd" (click)="onAddConc()" type="submit">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-      </button>
-    </div>
 
 
-    <div class="row">
-      <div class="col-12 d-flex justify-content-end">
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackSteps()">
-          <span translate>BACK</span>
-        </button>
+      <div class="row ">
+        <div class="col-12 d-flex justify-content-end ">
+          <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width " (click)="onBackSteps() ">
+            <span translate>BACK</span>
+          </button>
 
-        <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" [disabled]="!respsForm.valid" (click)="onNextFooter()">
-          <span translate>NEXT</span>
-        </button>
+          <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width " [disabled]="!respsForm.valid
+              " (click)="onNextFooter() ">
+            <span translate>NEXT</span>
+          </button>
+        </div>
       </div>
     </div>
   </form>

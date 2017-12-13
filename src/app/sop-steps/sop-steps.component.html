@@ -10,47 +10,49 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-            <div class="form-group" [class.has-danger]="formErrors.title">
+            <div class="form-group" [class.has-danger]="formErrors['title'+i]">
               <label class="text-uppercase-bold" for="title" translate>LABELS.STEPS-TITLE.TITLE</label>
               <!-- <input [(ngModel)]="step.title" type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title"
               id=title{{i}} placeholder="Title" value={{step.title}}> -->
-              <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="!stepsForm.controls.steps.controls[i].controls.title.valid"
-                id=title{{i}} placeholder="Title" value={{step.title}}>
-              <div class="form-control-feedback" [hidden]="stepsForm.controls.steps.controls[i].controls.title.valid">
+              <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors['title'+i]" id=title{{i}}
+                placeholder="Title " value={{step.title}}>
+              <div class="form-control-feedback ">
                 {{formErrors['title'+i]}}
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-            <div class="form-group" [class.has-danger]="formErrors.description">
-              <label class="text-uppercase-bold" for="description" translate>LABELS.STEPS-DESCRIPTION.TITLE</label>
-              <!-- <textarea [(ngModel)]="step.description" class="form-control" formControlName="description" [class.form-control-danger]="formErrors.description"
-              id=desc{{i}} placeholder="Description" value={{step.description}}></textarea> -->
-              <textarea class="form-control" formControlName="description" [class.form-control-danger]="!stepsForm.controls.steps.controls[i].controls.description.valid"
-                id=description{{i}} placeholder="Description" value={{step.description}}></textarea>
-              <div class="form-control-feedback" [hidden]="stepsForm.controls.steps.controls[i].controls.description.valid">
+        <div class="row ">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6 ">
+            <div class="form-group " [class.has-danger]="formErrors['description'+i]">
+              <label class="text-uppercase-bold " for="description" translate>LABELS.STEPS-DESCRIPTION.TITLE</label>
+              <!-- <textarea [(ngModel)]="step.description " class="form-control " formControlName="description
+                " [class.form-control-danger]="formErrors.description "
+              id=desc{{i}} placeholder="Description " value={{step.description}}></textarea> -->
+              <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors['description'+i]" id=description{{i}}
+                placeholder="Description " value={{step.description}}></textarea>
+              <div class="form-control-feedback ">
                 {{formErrors['description'+i]}}
               </div>
             </div>
           </div>
-          <button class="btn buttonRemove" (click)="onRemoveStep(i)" type="submit">
-            <i class="fa fa-times" aria-hidden="true"></i>
+          <button class="btn buttonRemove " (click)="onRemoveStep(i) " type="submit ">
+            <i class="fa fa-times " aria-hidden="true "></i>
           </button>
         </div>
       </div>
-      <div class="row">
-        <button class="btn buttonAdd" (click)="onAddStep()" type="submit">
-          <i class="fa fa-plus" aria-hidden="true"></i>
+      <div class="row ">
+        <button class="btn buttonAdd " (click)="onAddStep() " type="submit ">
+          <i class="fa fa-plus " aria-hidden="true "></i>
         </button>
       </div>
-      <div class="row">
-        <div class="col-12 d-flex justify-content-end">
-          <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" (click)="onBackInfo()">
+      <div class="row ">
+        <div class="col-12 d-flex justify-content-end ">
+          <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width " (click)="onBackInfo() ">
             <span translate>BACK</span>
           </button>
-          <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width" [disabled]="!stepsForm.valid" (click)="onNextResponsibles()">
+          <button class="btn btn-darkblue btn-forms-appid rounded-0 mt-4 btn-width " [disabled]="!stepsForm.valid
+                " (click)="onNextResponsibles() ">
             <span translate>NEXT</span>
           </button>
         </div>
