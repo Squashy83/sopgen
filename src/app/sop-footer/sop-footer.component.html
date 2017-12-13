@@ -19,7 +19,7 @@
         <div class="form-group" [class.has-danger]="formErrors.start">
           <label class="text-uppercase-bold" for="start" translate>LABELS.START.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.TITLE.SUBTITLE</label> -->
-          <input type="text" class="form-control" formControlName="start" [class.form-control-danger]="formErrors.start" id="start"
+          <input type="date" class="form-control" formControlName="start" [class.form-control-danger]="formErrors.start" id="start"
             placeholder="Start">
           <div class="form-control-feedback">{{formErrors.start}}</div>
         </div>
@@ -32,7 +32,7 @@
         <div class="form-group" [class.has-danger]="formErrors.expclo">
           <label class="text-uppercase-bold" for="background" translate>LABELS.EXPCLO.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.BACKGROUND.SUBTITLE</label> -->
-          <input type="text" class="form-control" formControlName="expclo" [class.form-control-danger]="formErrors.expclo" id="background"
+          <input type="date" class="form-control" formControlName="expclo" [class.form-control-danger]="formErrors.expclo" id="background"
             placeholder="Expected Closure">
           <div class="form-control-feedback">{{formErrors.expclo}}</div>
         </div>
@@ -44,7 +44,7 @@
         <div class="form-group" [class.has-danger]="formErrors.closure">
           <label class="text-uppercase-bold" for="closure" translate>LABELS.CLOSURE.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.PURPOSE.SUBTITLE</label> -->
-          <input type="text" class="form-control" formControlName="closure" [class.form-control-danger]="formErrors.closure" id="closure"
+          <input type="date" class="form-control" formControlName="closure" [class.form-control-danger]="formErrors.closure" id="closure"
             placeholder="Closure">
           <div class="form-control-feedback">{{formErrors.closure}}</div>
         </div>

@@ -50,8 +50,13 @@ export class LoginComponent implements OnInit {
   }
 
   login(user) {
-    this._loginService.login(user.userid, user.password).subscribe(user => {
-      this.router.navigate(['/sop-info']);
+    this._loginService.login(user.userid, user.password).subscribe(userResponse => {
+      if (userResponse.success) {
+        this.router.navigate(['/sop-info']);
+      }else {
+        console.log('errMess: ', userResponse.message);
+        window.alert(userResponse.message);
+      }
     });
 
   }

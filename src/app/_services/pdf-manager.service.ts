@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { GenericResponse } from './../models/generic-response';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { PdfCreateResponse } from '../models/pdfCreate-response';
 
 @Injectable()
 export class PdfManagerService {
@@ -11,8 +11,8 @@ export class PdfManagerService {
 
   constructor(private http: HttpClient) { }
 
-  createPdf(): Observable<GenericResponse> {
-    return this.http.post<GenericResponse>(this.CREATE_SOP_URL, this.pdfStructure).map(data => {
+  createPdf(): Observable<PdfCreateResponse> {
+    return this.http.post<PdfCreateResponse>(this.CREATE_SOP_URL, this.pdfStructure).map(data => {
       return data;
     });
   }

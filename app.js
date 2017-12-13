@@ -54,6 +54,8 @@ app.use('/user', user);
 app.use('/createSop', express.static(path.join(__dirname, 'dist')));
 app.use('/createSop', createSop);
 
+app.use('/public', express.static('public'));
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   var err = new Error('Not Found');

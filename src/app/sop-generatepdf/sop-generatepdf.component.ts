@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -26,8 +27,10 @@ export class SopGeneratepdfComponent implements OnInit {
   onCreatePdf() {
     // call service Node
     console.log('pdfStructure CREATED: ', this.pdfManager.pdfStructure);
-    this.pdfManager.createPdf().subscribe(response => {
-      console.log('response created pdf: ', response);
+    this.pdfManager.createPdf().subscribe(pdfCreateResponse => {
+      console.log('response created pdf: ', pdfCreateResponse);
+
+      window.open(environment.BASE_URL + pdfCreateResponse.path, '_blank');
     });
   }
 }

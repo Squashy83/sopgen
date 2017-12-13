@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../_interfaces/user';
+import { UserResponse } from '../models/user-response';
 
 
 @Injectable()
@@ -13,11 +14,11 @@ export class LoginService {
     this.islogged = false;
   }
 
-  login(userid, password): Observable<User> {
+  login(userid, password): Observable<UserResponse> {
     // var result;
-    return this.http.get<User>('/user/' + userid + '/' + password).map(data => {
+    return this.http.get<UserResponse>('/user/' + userid + '/' + password).map(data => {
       if (data) {
-        this.loggedInUser = data;
+        this.loggedInUser = data.user;
         this.islogged = true;
       }
       return data;

@@ -60,7 +60,7 @@ export class SopFooterComponent implements OnInit {
       'action': [''],
       'start': ['', [Validators.required]],
       'expclo': ['', [Validators.required]],
-      'closure': ['', [Validators.required, Validators.minLength(20)]],
+      'closure': ['', [Validators.required]],  // Validators.minLength(20)
       'notes': [''],
       'testedon': ['', [Validators.required]],
       'implemented': ['', [Validators.required]],

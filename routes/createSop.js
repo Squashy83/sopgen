@@ -6,6 +6,8 @@ var path = require('path');
 var pdf = require('html-pdf');
 var Sop = require('../models/Sop');
 
+const uuidv4 = require('uuid/v4');
+
 router.post('/', function(req, res, next) {
 
     const data = JSON.parse(req.rawBody);
@@ -72,21 +74,23 @@ router.post('/', function(req, res, next) {
       
         var options = { format: 'A4' };
 
-            pdf.create(dataSkeleton, options).toFile('./sop-flow.pdf', function(err, resultPdf) {
+            const randomNamePdf = uuidv4() + '.pdf';
+
+            pdf.create(dataSkeleton, options).toFile('./public/' + randomNamePdf, function(err, resultPdf) {
                 
             if (err){
                 console.log('error creation PDF: ' + err);
                 res.status(500).json({success: false, message:'error in pdf creation: ' + err});
             } 
 
-            //res.json({success: true, message:'S.O.P correctly created!'});
+            res.json({success: true, message:'S.O.P correctly created!', path: 'public/' + randomNamePdf});
             
-            var file = __dirname + '/../sop-flow.pdf';
-
-            console.log('file to donwload: ', file);
-
+            /*var file = __dirname + '/../sop-flow.pdf';
             res.download(file); // Set disposition and send it.
-      
+            fs.readFile(file , function (err,data){
+              res.contentType("application/pdf");
+              res.send(data);
+            }); */
           });
       });
     })
