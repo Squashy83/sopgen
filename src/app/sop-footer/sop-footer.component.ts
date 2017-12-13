@@ -58,13 +58,13 @@ export class SopFooterComponent implements OnInit {
   buildForm() {
     this.footerForm = this.fb.group({
       'action': [''],
-      'start': ['', [Validators.required]],
-      'expclo': ['', [Validators.required]],
-      'closure': ['', [Validators.required]],  // Validators.minLength(20)
+      'start': [''],
+      'expclo': [''],
+      'closure': [''],
       'notes': [''],
-      'testedon': ['', [Validators.required]],
-      'implemented': ['', [Validators.required]],
-      'reviewed': ['', [Validators.required]]
+      'testedon': [''],
+      'implemented': [''],
+      'reviewed': ['']
     });
     this.footerForm.valueChanges.subscribe(data => this.onValueChanged(data));
   }

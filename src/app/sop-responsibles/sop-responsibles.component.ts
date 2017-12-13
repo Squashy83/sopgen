@@ -112,7 +112,7 @@ export class SopResponsiblesComponent implements OnInit {
   }
 
   onNextFooter() {
-    this.pdfManager.pdfStructure.responsables = this.resps;
+    this.pdfManager.pdfStructure.responsibles = this.resps;
     this.pdfManager.pdfStructure.concernPersons = this.concs;
     this.router.navigate(['/sop-footer']);
   }
