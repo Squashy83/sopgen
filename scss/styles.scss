@@ -152,8 +152,8 @@ body {
 .hintDiv {
   word-wrap: break-word;
   font-size:11px;
-  width: 170px;
-  height: 50px;
+  width: 60%; // 180px;
+  height: 60px;
   float: right;
   background: #E7AC26;
   font-weight: bold;
@@ -167,4 +167,13 @@ body {
   border-style: solid;
   border-color: #01634E;
   border-width: 1px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: 0px;
+  padding: 10px;
+}
+
+.genericDiv {
+  padding: 25px;
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

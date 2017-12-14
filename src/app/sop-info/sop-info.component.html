@@ -1,4 +1,4 @@
-<div class="container-fluid mt-4">
+<div class="container-fluid mt-4 genericDiv">
 
   <form [formGroup]="sopForm">
 
@@ -7,7 +7,7 @@
         <div class="form-group" [class.has-danger]="formErrors.code">
           <label class="text-uppercase-bold" for="code" translate>LABELS.CODE.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.CODE.SUBTITLE</label> -->
-          <input type="text" class="form-control" formControlName="code" [class.form-control-danger]="formErrors.code" id="code" placeholder="Insert code">
+          <input type="text" class="form-control" formControlName="code" [class.form-control-danger]="formErrors.code" id="code" placeholder="Insert code (please leave it blank)">
           <div class="form-control-feedback">{{formErrors.code}}</div>
         </div>
       </div>
@@ -36,8 +36,8 @@
         <div class="form-group" [class.has-danger]="formErrors.background">
           <label class="text-uppercase-bold" for="background" translate>LABELS.BACKGROUND.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.BACKGROUND.SUBTITLE</label> -->
-          <input type="text" class="form-control" formControlName="background" [class.form-control-danger]="formErrors.background"
-            id="background" placeholder="Insert background">
+          <textarea type="text" class="form-control" formControlName="background" [class.form-control-danger]="formErrors.background"
+            id="background" placeholder="Insert background"></textarea>
           <div class="form-control-feedback">{{formErrors.background}}</div>
         </div>
       </div>

@@ -1,4 +1,18 @@
-<div class="container-fluid mt-4">
+<div class="container-fluid mt-4 genericDiv">
+
+  <div class="row">
+    <div class="col-6 hintDiv" style="height: 190px;">
+      This is FREE SPACE for aggregating any SOURCE of INFORMATION which si relevant, <br>can be useful and is  strictly related to the matter.
+      Previous experiences can aslo be briefly recalled here. <br>
+      You can also add: <br>
+      <br>- LINKS to specific repositories 
+      <br>-LINKS to specific documents
+      <br>-LINKS to web pages.
+      <br>-HINTS – short sentences  with suggestions and short advice
+      <br>-CHARTS
+      <br>-other      
+    </div>
+  </div>
 
   <form [formGroup]="footerForm">
 
@@ -72,7 +86,7 @@
         <div class="form-group" [class.has-danger]="formErrors.testedon">
           <label class="text-uppercase-bold" for="testedon" translate>LABELS.TESTEDON.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.PURPOSE.SUBTITLE</label> -->
-          <input type="text" class="form-control" formControlName="testedon" [class.form-control-danger]="formErrors.testedon" id="testedon"
+          <input type="date" class="form-control" formControlName="testedon" [class.form-control-danger]="formErrors.testedon" id="testedon"
             placeholder="Tested On">
           <div class="form-control-feedback">{{formErrors.testedon}}</div>
         </div>

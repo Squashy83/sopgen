@@ -1,4 +1,4 @@
-<div class="container-fluid mt-4">
+<div class="container-fluid mt-4 genericDiv">
 
   <div class="row">
     <h6 translate>Insert the Responsible Person(s)</h6>
@@ -26,7 +26,7 @@
             <div class="form-group" [class.has-danger]="formErrors['position'+i]">
               <label class="text-uppercase-bold" for="position" translate>Position</label>
               <input type="text" class="form-control" formControlName="position" [class.form-control-danger]="formErrors['position'+i]"
-                id=position{{i}} placeholder="Position" value={{resp.position}}>
+                id=position{{i}} placeholder="Position (this is FUNDAMENTAL)" value={{resp.position}}>
               <div class="form-control-feedback">{{formErrors['position'+i]}}</div>
             </div>
           </div>
@@ -37,7 +37,7 @@
             <div class="form-group" [class.has-danger]="formErrors['telCode'+i]">
               <label class="text-uppercase-bold" for="telCode" translate>Tel Code</label>
               <input type="text" class="form-control" formControlName="telCode" [class.form-control-danger]="formErrors['telCode'+i]"
-                id=telCode{{i}} placeholder="Tel Code" value={{resp.telCode}}>
+                id=telCode{{i}} placeholder="Tel Code (please leave it blank)" value={{resp.telCode}}>
               <div class="form-control-feedback">{{formErrors['telCode'+i]}}</div>
             </div>
           </div>
@@ -48,7 +48,7 @@
             <div class="form-group" [class.has-danger]="formErrors['emailCode'+i]">
               <label class="text-uppercase-bold" for="emailCode" translate>Email Code</label>
               <input type="text" class="form-control" formControlName="emailCode" [class.form-control-danger]="formErrors['emailCode'+i]"
-                id=emailCode{{i}} placeholder="Email Code" value={{resp.emailCode}}>
+                id=emailCode{{i}} placeholder="Email Code (please leave it blank)" value={{resp.emailCode}}>
               <div class="form-control-feedback">{{formErrors['emailCode'+i]}}</div>
             </div>
           </div>
@@ -92,7 +92,7 @@
             <div class="form-group" [class.has-danger]="formErrors['positionC'+i]">
               <label class="text-uppercase-bold" for="position" translate>Position</label>
               <input type="text" class="form-control" formControlName="position" [class.form-control-danger]="formErrors['positionC'+i]"
-                id=position{{i}} placeholder="Position" value={{conc.position}}>
+                id=position{{i}} placeholder="Position (this is FUNDAMENTAL)" value={{conc.position}}>
               <div class="form-control-feedback">{{formErrors['positionC'+i]}}</div>
             </div>
           </div>
@@ -103,7 +103,7 @@
             <div class="form-group" [class.has-danger]="formErrors['tel_codeC'+i]">
               <label class="text-uppercase-bold" for="telCode" translate>Tel Code</label>
               <input type="text" class="form-control" formControlName="telCode" [class.form-control-danger]="formErrors['tel_codeC'+i]"
-                id=telCode{{i}} placeholder=" Tel Code " value={{conc.telCode}}>
+                id=telCode{{i}} placeholder=" Tel Code (please leave it blank)" value={{conc.telCode}}>
               <div class="form-control-feedback ">{{formErrors['tel_codeC'+i]}}</div>
             </div>
           </div>
@@ -114,7 +114,7 @@
             <div class="form-group " [class.has-danger]="formErrors['email_codeC'+i]">
               <label class="text-uppercase-bold " for="emailCode" translate>Email Code</label>
               <input type="text " class="form-control " formControlName="emailCode" [class.form-control-danger]="formErrors['email_codeC'+i]"
-                id=emailCode{{i}} placeholder="Email Code " value={{conc.emailCode}}>
+                id=emailCode{{i}} placeholder="Email Code (please leave it blank)" value={{conc.emailCode}}>
               <div class="form-control-feedback ">{{formErrors['email_codeC'+i]}}</div>
             </div>
           </div>

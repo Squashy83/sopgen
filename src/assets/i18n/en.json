@@ -69,14 +69,19 @@
       "REQUIRED": "Code is mandatory"
     },
     "TITLE": {
-      "REQUIRED": "Title is mandatory"
+      "REQUIRED": "Title is mandatory",
+      "MIN_LENGTH": "at least 5 characters",
+      "MAX_LENGTH": "max 50 characters"
     },
     "BACKGROUND": {
-      "REQUIRED": "Background is mandatory"
+      "REQUIRED": "Background is mandatory",
+      "MIN_LENGTH": "at least 100 characters",
+      "MAX_LENGTH": "max 500 characters"
     },
     "PURPOSE": {
       "REQUIRED": "Purpose is mandatory",
-      "MIN_LENGTH": "Insert al least 20 characters"
+      "MIN_LENGTH": "at least 50 characters",
+      "MAX_LENGTH": "max 500 characters"
     },
     "RESPONSABILITY": {
       "REQUIRED": "Responsability is mandatory"

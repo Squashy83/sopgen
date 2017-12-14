@@ -51,10 +51,9 @@ validationMessages = {
   buildForm() {
     this.sopForm = this.fb.group({
         'code': [''],
-        'title': ['', [Validators.required]],
-        'background': ['', [Validators.required]],
-        // 'group': [{ value: '', disabled: true }, [Validators.required]],
-        'purpose': ['', [Validators.required, Validators.minLength(20)]],
+        'title': ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
+        'background': ['', [Validators.required, Validators.minLength(20), Validators.maxLength(500)]],
+        'purpose': ['', [Validators.required, Validators.minLength(20), Validators.maxLength(300)]],
         'responsability': ['', [Validators.required]]
     });
     this.sopForm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -63,10 +62,19 @@ validationMessages = {
 setupValidationMessages() {
   this.translate.get('VALIDATION_MESSAGES').subscribe((mes: string) => {
       this.validationMessages.code['required'] = mes['CODE']['REQUIRED'];
+
       this.validationMessages.title['required'] = mes['TITLE']['REQUIRED'];
+      this.validationMessages.title['minlength'] = mes['TITLE']['MIN_LENGTH'];
+      this.validationMessages.title['maxlength'] = mes['TITLE']['MAX_LENGTH'];
+
       this.validationMessages.background['required'] = mes['BACKGROUND']['REQUIRED'];
-      this.validationMessages.purpose['minlength'] = mes['PURPOSE']['MIN_LENGTH'];
+      this.validationMessages.background['minlength'] = mes['BACKGROUND']['MIN_LENGTH'];
+      this.validationMessages.background['maxlength'] = mes['BACKGROUND']['MAX_LENGTH'];
+
       this.validationMessages.purpose['required'] = mes['PURPOSE']['REQUIRED'];
+      this.validationMessages.purpose['minlength'] = mes['PURPOSE']['MIN_LENGTH'];
+      this.validationMessages.purpose['maxlength'] = mes['PURPOSE']['MAX_LENGTH'];
+
       this.validationMessages.responsability['required'] = mes['RESPONSABILITY']['REQUIRED'];
   });
 }
