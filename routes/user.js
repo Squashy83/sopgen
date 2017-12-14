@@ -18,10 +18,19 @@ router.get('/:id/:passwd', function (req, res, next) {
     'password': req.params.passwd
   }, function (err, post) {
     //if (err) return next(err);
-    if (err || post === null) 
-      return res.json({success: false, message:'user not found', user:''});
+    if (err || post === null)
+      return res.json({
+        success: false,
+        message: 'user not found',
+        user: req.params.id,
+        password: req.params.passwd
+      });
     else
-      return res.json({success: true, message:'login OK', user: post});
+      return res.json({
+        success: true,
+        message: 'login OK',
+        user: post
+      });
     //res.json(post);
   });
 });
