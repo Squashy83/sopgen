@@ -16,11 +16,7 @@ router.post('/', function(req, res, next) {
     let responsibles = data.responsibles;
     let concernPersons = data.concernPersons;
     let footer = data.footer;
-
-    console.log('hello steps: ', steps);
-    console.log('hello responsibles: ', responsibles);
-    console.log('hello concernPersons: ', concernPersons);
-
+    
     Sop.create(req.body, function(err, resCreate){
 
       if(err) return res.status(500).json({success: false, message:'error creation SOP: ', err});

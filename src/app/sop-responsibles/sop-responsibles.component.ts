@@ -93,13 +93,14 @@ export class SopResponsiblesComponent implements OnInit {
           );
         }
         return resulInit;
-      } else
+      } else {
         return [this.fb.group({
           'name': [null, Validators.required],
           'position': [null, Validators.required],
           'telCode': [''],
           'emailCode': ['']
         })];
+      }
     }
   }
 

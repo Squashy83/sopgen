@@ -7,6 +7,20 @@ var StepSchema = new mongoose.Schema({
   balloon: String
 });
 
+var ResponsibleSchema = new mongoose.Schema({
+  name: String,
+  position: String,
+  telCode: String,
+  emailCode: String
+});
+
+var concernPersonsSchema = new mongoose.Schema({
+  name: String,
+  position: String,
+  telCode: String,
+  emailCode: String
+});
+
 var HtmlSchema = new mongoose.Schema({
   body: String
 });
@@ -16,6 +30,8 @@ var SopSchema = new mongoose.Schema({
   code: String,
   description: String,
   steps: [StepSchema],
+  responsibles: [ResponsibleSchema],
+  concernPersons: [concernPersonsSchema],
   action: {type: String, required: false},
   start: {type: String, required: false},
   expected_closure: {type: String, required: false},
