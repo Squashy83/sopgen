@@ -148,3 +148,23 @@ body {
   padding-left: 10px;
   font-weight: bolder;
 }
+
+.hintDiv {
+  word-wrap: break-word;
+  font-size:11px;
+  width: 170px;
+  height: 50px;
+  float: right;
+  background: #E7AC26;
+  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 100em 0 0 100em;
+  text-align: center;
+  vertical-align: middle;
+  justify-content: center;
+  align-content:center;
+  padding: 15px;
+  border-style: solid;
+  border-color: #01634E;
+  border-width: 1px;
+}

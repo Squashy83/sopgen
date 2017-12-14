@@ -1,8 +1,15 @@
 <div class="container-fluid mt-4">
+    
   <div class="row">
     <h6 translate>Insert the Sop Steps</h6>
   </div>
   <form [formGroup]="stepsForm">
+
+      <div class="col-6 hintDiv justify-content-end">
+          First step is needed to start the whole procedure. Remember that at this stage, information on the incident is generally incorrect, insufficient and approximate, with plenty of back rumours. 
+          This 1° step shall be linked (recall or refer to) with the  specific INCIDENT ACTION PLAN
+      </div>
+
     <div formArrayName="steps">
       <div *ngFor="let step of stepsForm.controls.steps.controls;let i=index" [formGroupName]="i">
         <div class="row">
