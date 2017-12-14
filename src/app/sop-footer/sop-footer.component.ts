@@ -52,20 +52,37 @@ export class SopFooterComponent implements OnInit {
 
   ngOnInit() {
     this.setupValidationMessages();
-    this.buildForm();
+    if (this.pdfManager.pdfStructure.footer)
+      this.buildForm(undefined);
+    else this.buildForm('reload');
   }
 
-  buildForm() {
-    this.footerForm = this.fb.group({
-      'action': [''],
-      'start': [''],
-      'expclo': [''],
-      'closure': [''],
-      'notes': [''],
-      'testedon': [''],
-      'implemented': [''],
-      'reviewed': ['']
-    });
+  buildForm(reload: any) {
+
+    if (reload) {
+      this.footerForm = this.fb.group({
+        'action': [''],
+        'start': [''],
+        'expclo': [''],
+        'closure': [''],
+        'notes': [''],
+        'testedon': [''],
+        'implemented': [''],
+        'reviewed': ['']
+      });
+    } else {
+      this.footerForm = this.fb.group({
+        'action': [this.pdfManager.pdfStructure.footer.action],
+        'start': [this.pdfManager.pdfStructure.footer.start],
+        'expclo': [this.pdfManager.pdfStructure.footer.expclo],
+        'closure': [this.pdfManager.pdfStructure.footer.closure],
+        'notes': [this.pdfManager.pdfStructure.footer.notes],
+        'testedon': [this.pdfManager.pdfStructure.footer.testedon],
+        'implemented': [this.pdfManager.pdfStructure.footer.implemented],
+        'reviewed': [this.pdfManager.pdfStructure.footer.reviewed]
+      });
+    }
+
     this.footerForm.valueChanges.subscribe(data => this.onValueChanged(data));
   }
 
@@ -103,32 +120,32 @@ export class SopFooterComponent implements OnInit {
     }
   }
 
-  onCheckForm(): string {
-    let fieldMessageErrors = null;
-    if (!this.footerForm) { return; }
+  // onCheckForm(): string {
+  //   let fieldMessageErrors = null;
+  //   if (!this.footerForm) { return; }
 
-    const form = this.footerForm;
-    for (const field in this.formErrors) {
-      if (this.formErrors.hasOwnProperty(field)) {
-        this.formErrors[field] = '';
-        const control = form.get(field);
+  //   const form = this.footerForm;
+  //   for (const field in this.formErrors) {
+  //     if (this.formErrors.hasOwnProperty(field)) {
+  //       this.formErrors[field] = '';
+  //       const control = form.get(field);
 
-        if (control && !control.valid) {
-          const messages = this.validationMessages[field];
-          for (const chiave in control.errors) {
-            if (control.errors.hasOwnProperty(chiave)) {
-              this.formErrors[field] += messages[chiave] + ' ';
-            }
-          }
-          // ASSIGN FIRST ERROR
-          if (!fieldMessageErrors) {
-            fieldMessageErrors = this.formErrors[field];
-          }
-        }
-      }
-    }
-    return fieldMessageErrors;
-  }
+  //       if (control && !control.valid) {
+  //         const messages = this.validationMessages[field];
+  //         for (const chiave in control.errors) {
+  //           if (control.errors.hasOwnProperty(chiave)) {
+  //             this.formErrors[field] += messages[chiave] + ' ';
+  //           }
+  //         }
+  //         // ASSIGN FIRST ERROR
+  //         if (!fieldMessageErrors) {
+  //           fieldMessageErrors = this.formErrors[field];
+  //         }
+  //       }
+  //     }
+  //   }
+  //   return fieldMessageErrors;
+  // }
 
   saveGeneralFooter() {
 
@@ -136,22 +153,37 @@ export class SopFooterComponent implements OnInit {
 
       const dataToSave = this.footerForm.value;
 
-      const footer = {
-        'action': dataToSave.action,
-        'start': dataToSave.start,
-        'expclo': dataToSave.expclo,
-        'closure': dataToSave.closure,
-        'notes': dataToSave.notes,
-        'testedon': dataToSave.testedon,
-        'implemented': dataToSave.implemented,
-        'reviewed': dataToSave.reviewed
-      };
+      if (this.pdfManager.pdfStructure.footer) {
+        this.pdfManager.pdfStructure.footer.action = dataToSave.action;
+        this.pdfManager.pdfStructure.footer.start = dataToSave.start;
+        this.pdfManager.pdfStructure.footer.expclo = dataToSave.expclo;
+        this.pdfManager.pdfStructure.footer.closure = dataToSave.closure;
+        this.pdfManager.pdfStructure.footer.notes = dataToSave.notes;
+        this.pdfManager.pdfStructure.footer.testedon = dataToSave.testedon;
+        this.pdfManager.pdfStructure.footer.implemented = dataToSave.implemented;
+        this.pdfManager.pdfStructure.footer.reviewed = dataToSave.reviewed;
+      } else {
+        const footer = {
+          'action': dataToSave.action,
+          'start': dataToSave.start,
+          'expclo': dataToSave.expclo,
+          'closure': dataToSave.closure,
+          'notes': dataToSave.notes,
+          'testedon': dataToSave.testedon,
+          'implemented': dataToSave.implemented,
+          'reviewed': dataToSave.reviewed
+        };
 
-      this.pdfManager.pdfStructure.footer = footer;
+        this.pdfManager.pdfStructure.footer = footer;
+      }
+
+
       this.router.navigate(['/sop-generatepdf']);
-    } else {
-      this.onCheckForm();
     }
+
+    // else {
+    //   this.onCheckForm();
+    // }
   }
 
   onBackResponsibles() {

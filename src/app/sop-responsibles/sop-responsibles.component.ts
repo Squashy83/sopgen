@@ -31,8 +31,8 @@ export class SopResponsiblesComponent implements OnInit {
   formErrorsH2 = {
     'nameC': '',
     'positionC': '',
-    'tel_codeC': '',
-    'email_codeC': ''
+    'telCodeC': '',
+    'emailCodeC': ''
   };
 
   validationMessages = {
@@ -65,41 +65,41 @@ export class SopResponsiblesComponent implements OnInit {
     var resulInit = [];
     if (data) {
       //CONCS
-      if (this.pdfManager.pdfStructure.concernPersons) {
+      if (this.pdfManager.pdfStructure.concernPersons && this.pdfManager.pdfStructure.concernPersons.length > 0) {
         console.log(this.pdfManager.pdfStructure.concernPersons);
         for (var i = 0; i < (this.pdfManager.pdfStructure.concernPersons).length; i++) {
           resulInit.push(
             this.fb.group({
               'name': [this.pdfManager.pdfStructure.concernPersons[i].name, Validators.required],
               'position': [this.pdfManager.pdfStructure.concernPersons[i].position, Validators.required],
-              'tel_code': [this.pdfManager.pdfStructure.concernPersons[i].tel_code],
-              'email_code': [this.pdfManager.pdfStructure.concernPersons[i].email_code]
+              'telCode': [this.pdfManager.pdfStructure.concernPersons[i].telCode],
+              'emailCode': [this.pdfManager.pdfStructure.concernPersons[i].emailCode]
             })
           );
         }
-        return resulInit;
-      } else return [];
+
+      } return resulInit;
     } else {
       //RESPS
-      if (this.pdfManager.pdfStructure.responsibles) {
+      if (this.pdfManager.pdfStructure.responsibles && this.pdfManager.pdfStructure.responsibles.length > 0) {
         for (var i = 0; i < (this.pdfManager.pdfStructure.responsibles).length; i++) {
           resulInit.push(
             this.fb.group({
               'name': [this.pdfManager.pdfStructure.responsibles[i].name, Validators.required],
               'position': [this.pdfManager.pdfStructure.responsibles[i].position, Validators.required],
-              'tel_code': [this.pdfManager.pdfStructure.responsibles[i].tel_code],
-              'email_code': [this.pdfManager.pdfStructure.responsibles[i].email_code]
+              'telCode': [this.pdfManager.pdfStructure.responsibles[i].telCode],
+              'emailCode': [this.pdfManager.pdfStructure.responsibles[i].emailCode]
             })
           );
         }
         return resulInit;
-      }
-      return [this.fb.group({
-        'name': [null, Validators.required],
-        'position': [null, Validators.required],
-        'tel_code': [''],
-        'email_code': ['']
-      })];
+      } else
+        return [this.fb.group({
+          'name': [null, Validators.required],
+          'position': [null, Validators.required],
+          'telCode': [''],
+          'emailCode': ['']
+        })];
     }
   }
 
@@ -184,8 +184,10 @@ export class SopResponsiblesComponent implements OnInit {
 
   onNextFooter() {
     if (this.respsForm.valid) {
-      this.pdfManager.pdfStructure.responsibles = this.data2Save.resps;
-      this.pdfManager.pdfStructure.concernPersons = this.data2Save.concs;
+      if (this.data2Save) {
+        this.pdfManager.pdfStructure.responsibles = this.data2Save.resps;
+        this.pdfManager.pdfStructure.concernPersons = this.data2Save.concs;
+      }
       this.router.navigate(['/sop-footer']);
     }
   }

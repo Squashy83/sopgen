@@ -43,10 +43,11 @@ export class SopStepsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.steps = [{ 'number': '', 'title': '', 'description': '', 'baloon': '' }];
+    // this.steps = [{ 'number': '', 'title': '', 'description': '', 'baloon': '' }];
+
     this.setupValidationMessages();
     this.stepsForm = this.fb.group({
-      steps: this.fb.array([this.initSteps()])
+      steps: this.fb.array(this.initSteps())
     });
 
 
@@ -57,11 +58,24 @@ export class SopStepsComponent implements OnInit {
 
 
   initSteps() {
-    return this.fb.group({
-      'title': ['', [Validators.required]],
-      'description': ['', [Validators.required, Validators.minLength(20)]],
-      'validate': ''
-    });
+    var resulInit = [];
+    if (this.pdfManager.pdfStructure.steps && this.pdfManager.pdfStructure.steps.length > 0) {
+      for (var i = 0; i < (this.pdfManager.pdfStructure.steps).length; i++) {
+        resulInit.push(
+          this.fb.group({
+            'title': [this.pdfManager.pdfStructure.steps[i].title, [Validators.required]],
+            'description': [this.pdfManager.pdfStructure.steps[i].description, [Validators.required, Validators.minLength(20)]],
+            'validate': ''
+          })
+        );
+      }
+      return resulInit;
+    } else
+      return [this.fb.group({
+        'title': ['', [Validators.required]],
+        'description': ['', [Validators.required, Validators.minLength(20)]],
+        'validate': ''
+      })];
   }
 
   onValueChanged(data?: any) {
@@ -85,6 +99,14 @@ export class SopStepsComponent implements OnInit {
     }
   }
 
+  initNewStep() {
+    return this.fb.group({
+      'title': ['', [Validators.required]],
+      'description': ['', [Validators.required, Validators.minLength(20)]],
+      'validate': ''
+    });
+  }
+
   setupValidationMessages() {
     this.translate.get('VALIDATION_MESSAGES').subscribe((mes: string) => {
       this.validationMessages.title['required'] = mes['TITLE']['REQUIRED'];
@@ -100,7 +122,7 @@ export class SopStepsComponent implements OnInit {
 
   onAddStep() {
     const control = <FormArray>this.stepsForm.controls['steps'];
-    control.push(this.initSteps());
+    control.push(this.initNewStep());
 
   }
 
@@ -112,7 +134,8 @@ export class SopStepsComponent implements OnInit {
 
   onNextResponsibles() {
     if (this.stepsForm.valid) {
-      this.pdfManager.pdfStructure.steps = this.data2Save.steps;
+      if (this.data2Save)
+        this.pdfManager.pdfStructure.steps = this.data2Save.steps;
       this.router.navigate(['/sop-responsibles']);
 
     }

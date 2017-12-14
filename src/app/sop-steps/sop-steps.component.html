@@ -1,24 +1,25 @@
 <div class="container-fluid mt-4 genericDiv">
-    
+
   <div class="row">
     <div class="col-6 hintDiv">
-      First step is needed to start the whole procedure. Remember that at this stage, information on the incident is generally incorrect, insufficient and approximate, with plenty of back rumours. 
-      This 1° step shall be linked (recall or refer to) with the  specific INCIDENT ACTION PLAN
+      First step is needed to start the whole procedure. Remember that at this stage, information on the incident is generally
+      incorrect, insufficient and approximate, with plenty of back rumours. This 1° step shall be linked (recall or refer
+      to) with the specific INCIDENT ACTION PLAN
     </div>
   </div>
 
   <div class="row">
     <div class="col-6 hintDiv">
-      Each step aims to an objective, it should have  the reason, time and space for starting and for ending.
-      At the end of each step, you can SPECIFY the EXPECTED OUTCOMES. According to the OUTCOME you can suggest to move to ANY OF THE FOLLOWING  STEPS
+      Each step aims to an objective, it should have the reason, time and space for starting and for ending. At the end of each
+      step, you can SPECIFY the EXPECTED OUTCOMES. According to the OUTCOME you can suggest to move to ANY OF THE FOLLOWING
+      STEPS
     </div>
   </div>
 
   <div class="row">
     <div class="col-6 hintDiv">
-      Last step shall be consistent with the PURPOSE of the SOP.
-      It is the last action that enables the achievement of the overall purpose  and  the deisired results, according to the objectives of the 
-      INCIDENT ACTION PLAN 
+      Last step shall be consistent with the PURPOSE of the SOP. It is the last action that enables the achievement of the overall
+      purpose and the deisired results, according to the objectives of the INCIDENT ACTION PLAN
     </div>
   </div>
 
@@ -39,7 +40,9 @@
               <!-- <input [(ngModel)]="step.title" type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title"
               id=title{{i}} placeholder="Title" value={{step.title}}> -->
               <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors['title'+i]" id=title{{i}}
-                placeholder="Title " value={{step.title}}>
+                placeholder="Title ">
+              <!-- <input type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors['title'+i]" id=title{{i}}
+                placeholder="Title " value={{step.title}}> -->
               <div class="form-control-feedback ">
                 {{formErrors['title'+i]}}
               </div>
@@ -53,8 +56,10 @@
               <!-- <textarea [(ngModel)]="step.description " class="form-control " formControlName="description
                 " [class.form-control-danger]="formErrors.description "
               id=desc{{i}} placeholder="Description " value={{step.description}}></textarea> -->
+              <!-- <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors['description'+i]" id=description{{i}}
+                placeholder="Description " value={{step.description}}></textarea> -->
               <textarea class="form-control" formControlName="description" [class.form-control-danger]="formErrors['description'+i]" id=description{{i}}
-                placeholder="Description " value={{step.description}}></textarea>
+                placeholder="Description "></textarea>
               <div class="form-control-feedback ">
                 {{formErrors['description'+i]}}
               </div>

@@ -44,7 +44,7 @@
 
       <div class="col-6 hintDiv">
         INFO on CONTEXT – PAST EXPERIENCES – IMPLICATIONS & INTERACTIONS with OTHER ACTORS.
-        <br>This section likely provides all info  data for initiating the SOP.          
+        <br>This section likely provides all info data for initiating the SOP.
       </div>
     </div>
 
@@ -53,14 +53,13 @@
         <div class="form-group" [class.has-danger]="formErrors.purpose">
           <label class="text-uppercase-bold" for="purpose" translate>LABELS.PURPOSE.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.PURPOSE.SUBTITLE</label> -->
-          <input type="text" class="form-control" formControlName="purpose" [class.form-control-danger]="formErrors.purpose" id="purpose"
-            placeholder="Insert purpose">
+          <textarea class="form-control" formControlName="purpose" [class.form-control-danger]="formErrors.purpose" id="purpose" placeholder="Insert purpose"></textarea>
           <div class="form-control-feedback">{{formErrors.purpose}}</div>
         </div>
       </div>
 
       <div class="col-6 hintDiv">
-        The need for taking action and initiate the SOP. General  and specific  OBJECTIVES can also be included.          
+        The need for taking action and initiate the SOP. General and specific OBJECTIVES can also be included.
       </div>
     </div>
 
