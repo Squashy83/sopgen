@@ -53,8 +53,8 @@ export class SopResponsiblesComponent implements OnInit {
     this.setupValidationMessages();
 
     this.respsForm = this.fb.group({
-      resps: this.fb.array([this.initRespsConcs(undefined)]),
-      concs: this.fb.array([this.initRespsConcs('concs')]),
+      resps: this.fb.array(this.initRespsConcs(undefined)),
+      concs: this.fb.array(this.initRespsConcs('concs')),
     });
 
     this.respsForm.valueChanges.subscribe(data => this.onValueChanged(data));
@@ -62,47 +62,45 @@ export class SopResponsiblesComponent implements OnInit {
   }
 
   initRespsConcs(data: any) {
-    // var resulInit = [{}];
-    // if (data) {
-    //   //CONCS
-    //   if (this.pdfManager.pdfStructure.concernPersons) {
-    //     console.log(this.pdfManager.pdfStructure.concernPersons);
-    //     for (var i = 0; i < (this.pdfManager.pdfStructure.concernPersons).length; i++) {
-    //       resulInit.push(
-    //         {
-    //           'name': [this.pdfManager.pdfStructure.concernPersons[i].name, Validators.required],
-    //           'position': [this.pdfManager.pdfStructure.concernPersons[i].position, Validators.required],
-    //           'tel_code': [this.pdfManager.pdfStructure.concernPersons[i].tel_code],
-    //           'email_code': [this.pdfManager.pdfStructure.concernPersons[i].email_code]
-    //         }
-    //       );
-    //     }
-    //     return this.fb.group(resulInit);
-    //   }
-    // } else {
-    //   //RESPS
-    //   if (this.pdfManager.pdfStructure.responsibles) {
-    //     for (var i = 0; i < (this.pdfManager.pdfStructure.responsibles).length; i++) {
-    //       resulInit.push(
-    //         {
-    //           'name': [this.pdfManager.pdfStructure.responsibles[i].name, Validators.required],
-    //           'position': [this.pdfManager.pdfStructure.responsibles[i].position, Validators.required],
-    //           'tel_code': [this.pdfManager.pdfStructure.responsibles[i].tel_code],
-    //           'email_code': [this.pdfManager.pdfStructure.responsibles[i].email_code]
-    //         }
-    //       );
-    //     }
-    //     return this.fb.group(resulInit);
-    //   }
-    return this.fb.group({
-      'name': [null, Validators.required],
-      'position': [null, Validators.required],
-      'telCode': [''],
-      'emailCode': ['']
-    });
-    // }
-
-
+    var resulInit = [];
+    if (data) {
+      //CONCS
+      if (this.pdfManager.pdfStructure.concernPersons) {
+        console.log(this.pdfManager.pdfStructure.concernPersons);
+        for (var i = 0; i < (this.pdfManager.pdfStructure.concernPersons).length; i++) {
+          resulInit.push(
+            this.fb.group({
+              'name': [this.pdfManager.pdfStructure.concernPersons[i].name, Validators.required],
+              'position': [this.pdfManager.pdfStructure.concernPersons[i].position, Validators.required],
+              'tel_code': [this.pdfManager.pdfStructure.concernPersons[i].tel_code],
+              'email_code': [this.pdfManager.pdfStructure.concernPersons[i].email_code]
+            })
+          );
+        }
+        return resulInit;
+      } else return [];
+    } else {
+      //RESPS
+      if (this.pdfManager.pdfStructure.responsibles) {
+        for (var i = 0; i < (this.pdfManager.pdfStructure.responsibles).length; i++) {
+          resulInit.push(
+            this.fb.group({
+              'name': [this.pdfManager.pdfStructure.responsibles[i].name, Validators.required],
+              'position': [this.pdfManager.pdfStructure.responsibles[i].position, Validators.required],
+              'tel_code': [this.pdfManager.pdfStructure.responsibles[i].tel_code],
+              'email_code': [this.pdfManager.pdfStructure.responsibles[i].email_code]
+            })
+          );
+        }
+        return resulInit;
+      }
+      return [this.fb.group({
+        'name': [null, Validators.required],
+        'position': [null, Validators.required],
+        'tel_code': [''],
+        'email_code': ['']
+      })];
+    }
   }
 
   onValueChanged(data?: any) {
