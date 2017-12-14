@@ -88,13 +88,6 @@ router.post('/', function(req, res, next) {
             } 
 
             res.json({success: true, message:'S.O.P correctly created!', path: 'public/' + randomNamePdf});
-            
-            /*var file = __dirname + '/../sop-flow.pdf';
-            res.download(file); // Set disposition and send it.
-            fs.readFile(file , function (err,data){
-              res.contentType("application/pdf");
-              res.send(data);
-            }); */
           });
       });
     })

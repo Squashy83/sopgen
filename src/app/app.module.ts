@@ -23,6 +23,8 @@ import { SopStepsComponent } from './sop-steps/sop-steps.component';
 import { SopResponsiblesComponent } from './sop-responsibles/sop-responsibles.component';
 import { SopFooterComponent } from './sop-footer/sop-footer.component';
 import { SopGeneratepdfComponent } from './sop-generatepdf/sop-generatepdf.component';
+import { LoaderComponent } from './ui-components/loader/loader.component';
+import { LoaderService } from './_services/loader.service';
 
 // import { Injectable } from '@angular/core';
 // import { CanActivate } from '@angular/router';
@@ -101,7 +103,8 @@ const appRoutes: Routes = [
     SopStepsComponent,
     SopResponsiblesComponent,
     SopFooterComponent,
-    SopGeneratepdfComponent
+    SopGeneratepdfComponent,
+    LoaderComponent
 
   ],
   imports: [
@@ -125,7 +128,7 @@ const appRoutes: Routes = [
     ),
     ButtonsModule.forRoot()
   ],
-  providers: [LoginService, LoginGuardService, PdfManagerService],
+  providers: [LoginService, LoginGuardService, PdfManagerService, LoaderService],
   bootstrap: [AppComponent]
 })
 

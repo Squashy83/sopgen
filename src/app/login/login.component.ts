@@ -1,10 +1,9 @@
+import { LoaderService } from './../_services/loader.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../_services/login.service';
 import { Router } from '@angular/router';
-
-
 
 
 @Component({
@@ -34,7 +33,8 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private _loginService: LoginService,
     private router: Router,
-    private translate: TranslateService) {
+    private translate: TranslateService,
+    private myLoader: LoaderService) {
     this.translate.setDefaultLang('en');
     this.translate.use('en');
     this.loginForm = fb.group({
@@ -50,6 +50,9 @@ export class LoginComponent implements OnInit {
   }
 
   login(user) {
+
+    this.myLoader.start();
+
     this._loginService.login(user.userid, user.password).subscribe(userResponse => {
       if (userResponse.success) {
         this.router.navigate(['/sop-info']);
@@ -57,6 +60,7 @@ export class LoginComponent implements OnInit {
         console.log('errMess: ', userResponse.message);
         window.alert(userResponse.message);
       }
+      this.myLoader.stop();
     });
 
   }
@@ -88,9 +92,6 @@ export class LoginComponent implements OnInit {
       this.validationMessages.password['required'] = mes['PASSWORD']['REQUIRED'];
     });
   }
-
-
-
 }
 
 
