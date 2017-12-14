@@ -1,0 +1,8 @@
+.hint {
+    word-wrap: break-word;
+    font-size:12px;
+    width:350px;
+    float: right;
+    background: #E7AC26;
+    font-weight: bold;
+}

@@ -17,15 +17,15 @@ export class SopResponsiblesComponent implements OnInit {
   formErrors = {
     'name': '',
     'position': '',
-    'tel_code': '',
-    'email_code': ''
+    'telCode': '',
+    'emailCode': ''
   };
 
   formErrorsH = {
     'name': '',
     'position': '',
-    'tel_code': '',
-    'email_code': ''
+    'telCode': '',
+    'emailCode': ''
   };
 
   formErrorsH2 = {
@@ -38,8 +38,8 @@ export class SopResponsiblesComponent implements OnInit {
   validationMessages = {
     'name': {},
     'position': {},
-    'tel_code': {},
-    'email_code': {}
+    'telCode': {},
+    'emailCode': {}
   };
 
   constructor(private fb: FormBuilder, private router: Router,
@@ -101,8 +101,6 @@ export class SopResponsiblesComponent implements OnInit {
         'email_code': ['']
       })];
     }
-
-
   }
 
   onValueChanged(data?: any) {
@@ -148,8 +146,8 @@ export class SopResponsiblesComponent implements OnInit {
     return this.fb.group({
       'name': [null, Validators.required],
       'position': [null, Validators.required],
-      'tel_code': [''],
-      'email_code': ['']
+      'telCode': [''],
+      'emailCode': ['']
     });
   }
 

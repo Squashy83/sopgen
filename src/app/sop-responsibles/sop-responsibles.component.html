@@ -34,22 +34,22 @@
 
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-            <div class="form-group" [class.has-danger]="formErrors['tel_code'+i]">
-              <label class="text-uppercase-bold" for="tel_code" translate>Tel Code</label>
-              <input type="text" class="form-control" formControlName="tel_code" [class.form-control-danger]="formErrors['tel_code'+i]"
-                id=tel_code{{i}} placeholder="Tel Code" value={{resp.tel_code}}>
-              <div class="form-control-feedback">{{formErrors['tel_code'+i]}}</div>
+            <div class="form-group" [class.has-danger]="formErrors['telCode'+i]">
+              <label class="text-uppercase-bold" for="telCode" translate>Tel Code</label>
+              <input type="text" class="form-control" formControlName="telCode" [class.form-control-danger]="formErrors['telCode'+i]"
+                id=telCode{{i}} placeholder="Tel Code" value={{resp.telCode}}>
+              <div class="form-control-feedback">{{formErrors['telCode'+i]}}</div>
             </div>
           </div>
         </div>
 
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
-            <div class="form-group" [class.has-danger]="formErrors['email_code'+i]">
-              <label class="text-uppercase-bold" for="email_code" translate>Email Code</label>
-              <input type="text" class="form-control" formControlName="email_code" [class.form-control-danger]="formErrors['email_code'+i]"
-                id=email_code{{i}} placeholder="Email Code" value={{resp.email_code}}>
-              <div class="form-control-feedback">{{formErrors['email_code'+i]}}</div>
+            <div class="form-group" [class.has-danger]="formErrors['emailCode'+i]">
+              <label class="text-uppercase-bold" for="emailCode" translate>Email Code</label>
+              <input type="text" class="form-control" formControlName="emailCode" [class.form-control-danger]="formErrors['emailCode'+i]"
+                id=emailCode{{i}} placeholder="Email Code" value={{resp.emailCode}}>
+              <div class="form-control-feedback">{{formErrors['emailCode'+i]}}</div>
             </div>
           </div>
           <button class="btn buttonRemove" (click)="onRemoveResp(i)" type="submit">
@@ -101,21 +101,20 @@
         <div class="row">
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
             <div class="form-group" [class.has-danger]="formErrors['tel_codeC'+i]">
-              <label class="text-uppercase-bold" for="tel_code" translate>Tel Code</label>
-              <input type="text" class="form-control" formControlName="tel_code" [class.form-control-danger]="formErrors['tel_codeC'+i]"
-                id=tel_code{{i}} placeholder=" Tel Code " value={{conc.tel_code}}>
+              <label class="text-uppercase-bold" for="telCode" translate>Tel Code</label>
+              <input type="text" class="form-control" formControlName="telCode" [class.form-control-danger]="formErrors['tel_codeC'+i]"
+                id=telCode{{i}} placeholder=" Tel Code " value={{conc.telCode}}>
               <div class="form-control-feedback ">{{formErrors['tel_codeC'+i]}}</div>
             </div>
           </div>
         </div>
 
-
         <div class="row ">
           <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6 ">
             <div class="form-group " [class.has-danger]="formErrors['email_codeC'+i]">
-              <label class="text-uppercase-bold " for="email_code" translate>Email Code</label>
-              <input type="text " class="form-control " formControlName="email_code" [class.form-control-danger]="formErrors['email_codeC'+i]"
-                id=email_code{{i}} placeholder="Email Code " value={{conc.email_code}}>
+              <label class="text-uppercase-bold " for="emailCode" translate>Email Code</label>
+              <input type="text " class="form-control " formControlName="emailCode" [class.form-control-danger]="formErrors['email_codeC'+i]"
+                id=emailCode{{i}} placeholder="Email Code " value={{conc.emailCode}}>
               <div class="form-control-feedback ">{{formErrors['email_codeC'+i]}}</div>
             </div>
           </div>

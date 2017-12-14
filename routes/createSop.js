@@ -13,13 +13,17 @@ router.post('/', function(req, res, next) {
     const data = JSON.parse(req.rawBody);
     
     let steps = data.steps;
-    let responsables = data.responsables;
+    let responsibles = data.responsibles;
     let concernPersons = data.concernPersons;
     let footer = data.footer;
 
+    console.log('hello steps: ', steps);
+    console.log('hello responsibles: ', responsibles);
+    console.log('hello concernPersons: ', concernPersons);
+
     Sop.create(req.body, function(err, resCreate){
 
-      if(err) return res.status(500).json({success: false, message:'error creation sop: ', err});
+      if(err) return res.status(500).json({success: false, message:'error creation SOP: ', err});
       
       //read SOAP and generate HTML
       var dynamicBody = '<table>';
@@ -31,10 +35,10 @@ router.post('/', function(req, res, next) {
 
       dynamicBody = dynamicBody + '</table>';
 
-      var dinamicResponsable = '';
-      for(let j=0;j<responsables.length;j++){
-        let row =  '<tr><td class=\"trInfo\"><p class="generalInfo">' + responsables[j].name + '</p></td>' + '<td><p class="generalInfo">' + responsables[j].position + '</p></td>' + '<td><p class="generalInfo">' + responsables[j].telCode + '</p></td>' + '<td><p class="generalInfo">' + responsables[j].emailCode + '</p></td></tr>';
-        dinamicResponsable = dinamicResponsable + row;
+      var dinamicResponsible = '';
+      for(let j=0;j<responsibles.length;j++){
+        let row =  '<tr><td class=\"trInfo\"><p class="generalInfo">' + responsibles[j].name + '</p></td>' + '<td><p class="generalInfo">' + responsibles[j].position + '</p></td>' + '<td><p class="generalInfo">' + responsibles[j].telCode + '</p></td>' + '<td><p class="generalInfo">' + responsibles[j].emailCode + '</p></td></tr>';
+        dinamicResponsible = dinamicResponsible + row;
       }
 
       var dinamicConcernPersons = '';
@@ -57,9 +61,9 @@ router.post('/', function(req, res, next) {
         dataSkeleton = dataSkeleton.replace('SOP_CODE', data['code']);
         dataSkeleton = dataSkeleton.replace('SOP_BACKGROUND', data['background']);
         dataSkeleton = dataSkeleton.replace('SOP_PURPOSE', data['purpose']);
-        dataSkeleton = dataSkeleton.replace('SOP_RESPONSABILITY', data['responsability']);
+        dataSkeleton = dataSkeleton.replace('SOP_RESPONSIBILITY', data['responsability']);
 
-        dataSkeleton = dataSkeleton.replace('SOP_RESPONSIBLES', dinamicResponsable);
+        dataSkeleton = dataSkeleton.replace('SOP_RESPONSIBLES', dinamicResponsible);
         dataSkeleton = dataSkeleton.replace('SOP_CONCERN_PERSONS', dinamicConcernPersons);
         dataSkeleton = dataSkeleton.replace('SOP_NOTES', footer.notes);
         
