@@ -18,8 +18,6 @@ router.get('/:id/:passwd', function (req, res, next) {
     'password': req.params.passwd
   }, function (err, post) {
     //if (err) return next(err);
-    console.log(err);
-    console.log(post);
     if (err || post === null)
       return res.json({
         success: false,

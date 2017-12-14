@@ -12,8 +12,7 @@ var app = express();
 
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-console.log(process.env);
-console.log("CONNECTING TO... " + (process.env.PATH_TO_MONGO || 'mongodb://localhost/sopgen'));
+
 mongoose.connect(process.env.PATH_TO_MONGO || 'mongodb://localhost/sopgen', {
     useMongoClient: true,
     promiseLibrary: require('bluebird')
