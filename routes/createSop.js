@@ -25,7 +25,7 @@ router.post('/', function(req, res, next) {
       var dynamicBody = '<table>';
 
       for(let i=0;i<steps.length;i++){
-        let row = '<tr><td class=\"tdBallon\"><div class=\"hero\"><p>'+ steps[i].title +'<p></div></td>' + '<td><p class=\"descriptionStep\">' + steps[i].description +'</p></td></tr>';
+        let row = '<tr><td class=\"tdBallon\"><div class=\"hero\"><p>'+ steps[i].title +'</p></div></td>' + '<td><p class=\"descriptionStep\">' + steps[i].description +'</p></td></tr>';
         dynamicBody = dynamicBody + row;
       }
 
@@ -33,13 +33,13 @@ router.post('/', function(req, res, next) {
 
       var dinamicResponsible = '';
       for(let j=0;j<responsibles.length;j++){
-        let row =  '<tr><td class=\"trInfo\"><p class="generalInfo">' + responsibles[j].name + '</p></td>' + '<td><p class="generalInfo">' + responsibles[j].position + '</p></td>' + '<td><p class="generalInfo">' + responsibles[j].telCode + '</p></td>' + '<td><p class="generalInfo">' + responsibles[j].emailCode + '</p></td></tr>';
+        let row =  '<tr><td><p class="generalInfo">' + responsibles[j].name + '</p></td>' + '<td><p class="generalInfo">' + responsibles[j].position + '</p></td>' + '<td><p class="generalInfo">' + responsibles[j].telCode + '</p></td>' + '<td><p class="generalInfo">' + responsibles[j].emailCode + '</p></td></tr>';
         dinamicResponsible = dinamicResponsible + row;
       }
 
       var dinamicConcernPersons = '';
       for(let z=0;z<concernPersons.length;z++){
-        let row =  '<tr><td class=\"trInfo\"><p class="generalInfo">' + concernPersons[z].name + '</p></td>' + '<td><p class="generalInfo">' + concernPersons[z].position + '</p></td>' + '<td><p class="generalInfo">' + concernPersons[z].telCode + '</p></td>' + '<td><p class="generalInfo">' + concernPersons[z].emailCode + '</p></td></tr>';
+        let row =  '<tr><td><p class="generalInfo">' + concernPersons[z].name + '</p></td>' + '<td><p class="generalInfo">' + concernPersons[z].position + '</p></td>' + '<td><p class="generalInfo">' + concernPersons[z].telCode + '</p></td>' + '<td><p class="generalInfo">' + concernPersons[z].emailCode + '</p></td></tr>';
         dinamicConcernPersons = dinamicConcernPersons + row;
       }
       

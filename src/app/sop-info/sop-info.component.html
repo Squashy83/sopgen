@@ -3,7 +3,7 @@
   <form [formGroup]="sopForm">
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="form-group" [class.has-danger]="formErrors.code">
           <label class="text-uppercase-bold" for="code" translate>LABELS.CODE.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.CODE.SUBTITLE</label> -->
@@ -14,7 +14,7 @@
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="form-group" [class.has-danger]="formErrors.title">
           <label class="text-uppercase-bold" for="title" translate>LABELS.TITLE.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.TITLE.SUBTITLE</label> -->
@@ -25,14 +25,15 @@
       </div>
 
 
-      <div class="col-6 hintDiv">
+      <div class="col-6 hintDiv" style="width: 40%;">
+        <b><u>TITLE</u></b><br>
         Title should be very explicit on the content and purpose of the procedure. DO NOT USE ACRONYMS ALONE.
       </div>
     </div>
 
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="form-group" [class.has-danger]="formErrors.background">
           <label class="text-uppercase-bold" for="background" translate>LABELS.BACKGROUND.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.BACKGROUND.SUBTITLE</label> -->
@@ -42,14 +43,15 @@
         </div>
       </div>
 
-      <div class="col-6 hintDiv">
+      <div class="col-6 hintDiv" style="width: 40%;">
+          <b><u>BACKGROUND</u></b><br>
         INFO on CONTEXT – PAST EXPERIENCES – IMPLICATIONS & INTERACTIONS with OTHER ACTORS.
         <br>This section likely provides all info data for initiating the SOP.
       </div>
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="form-group" [class.has-danger]="formErrors.purpose">
           <label class="text-uppercase-bold" for="purpose" translate>LABELS.PURPOSE.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.PURPOSE.SUBTITLE</label> -->
@@ -58,13 +60,14 @@
         </div>
       </div>
 
-      <div class="col-6 hintDiv">
+      <div class="col-6 hintDiv" style="width: 40%;">
+          <b><u>PURPOSE</u></b><br>
         The need for taking action and initiate the SOP. General and specific OBJECTIVES can also be included.
       </div>
     </div>
 
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
         <div class="form-group" [class.has-danger]="formErrors.responsability">
           <label class="text-uppercase-bold" for="responsability" translate>LABELS.RESPONSIBILITY.TITLE</label>
           <!-- <label class="font-weight-subtitle" translate>LABELS.RESPONSIBILITY.SUBTITLE</label> -->

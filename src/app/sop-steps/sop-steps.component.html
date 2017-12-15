@@ -1,26 +1,31 @@
 <div class="container-fluid mt-4 genericDiv">
 
-  <div class="row">
-    <div class="col-6 hintDiv">
-      First step is needed to start the whole procedure. Remember that at this stage, information on the incident is generally
-      incorrect, insufficient and approximate, with plenty of back rumours. This 1° step shall be linked (recall or refer
-      to) with the specific INCIDENT ACTION PLAN
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-6 hintDiv">
-      Each step aims to an objective, it should have the reason, time and space for starting and for ending. At the end of each
-      step, you can SPECIFY the EXPECTED OUTCOMES. According to the OUTCOME you can suggest to move to ANY OF THE FOLLOWING
-      STEPS
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-6 hintDiv">
-      Last step shall be consistent with the PURPOSE of the SOP. It is the last action that enables the achievement of the overall
-      purpose and the deisired results, according to the objectives of the INCIDENT ACTION PLAN
-    </div>
+  <div class="row fixedElement">
+      <div class="row">
+          <div class="col-6 hintDiv">
+            <b><u>FIRST STEP</u></b><br>
+            is needed to start the whole procedure. Remember that at this stage, information on the incident is generally
+            incorrect, insufficient and approximate, with plenty of back rumours. This 1° step shall be linked (recall or refer
+            to) with the specific INCIDENT ACTION PLAN
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="col-6 hintDiv">
+              <b><u>EACH STEP</u></b><br>
+              aims to an objective, it should have the reason, time and space for starting and for ending. At the end of each
+            step, you can SPECIFY the EXPECTED OUTCOMES. According to the OUTCOME you can suggest to move to ANY OF THE FOLLOWING
+            STEPS
+          </div>
+        </div>
+      
+        <div class="row">
+          <div class="col-6 hintDiv">
+              <b><u>LAST STEP</u></b><br>
+              shall be consistent with the PURPOSE of the SOP. It is the last action that enables the achievement of the overall
+            purpose and the deisired results, according to the objectives of the INCIDENT ACTION PLAN
+          </div>
+        </div>
   </div>
 
   <div class="row" style="padding:10px;">
@@ -31,10 +36,10 @@
     <div formArrayName="steps">
       <div *ngFor="let step of stepsForm.controls.steps.controls;let i=index" [formGroupName]="i">
         <div class="row" style="padding:10px;">
-          <label class="label label-default">STEP {{i+1}}</label>
+          <label class="label label-default"><b><u>STEP {{i+1}}</u></b></label>
         </div>
         <div class="row">
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 col-xl-6">
             <div class="form-group" [class.has-danger]="formErrors['title'+i]">
               <label class="text-uppercase-bold" for="title" translate>LABELS.STEPS-TITLE.TITLE</label>
               <!-- <input [(ngModel)]="step.title" type="text" class="form-control" formControlName="title" [class.form-control-danger]="formErrors.title"
@@ -50,7 +55,7 @@
           </div>
         </div>
         <div class="row ">
-          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-6 ">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8 col-xl-6">
             <div class="form-group " [class.has-danger]="formErrors['description'+i]">
               <label class="text-uppercase-bold " for="description" translate>LABELS.STEPS-DESCRIPTION.TITLE</label>
               <!-- <textarea [(ngModel)]="step.description " class="form-control " formControlName="description
