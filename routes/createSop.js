@@ -25,7 +25,7 @@ router.post('/', function(req, res, next) {
       var dynamicBody = '<table>';
 
       for(let i=0;i<steps.length;i++){
-        let row = '<tr><td class=\"tdBallon\"><div class=\"hero\"><p>'+ steps[i].title +'</p></div></td>' + '<td><p class=\"descriptionStep\">' + steps[i].description +'</p></td></tr>';
+        let row = '<tr><td class=\"tdBallon\"><div class=\"hero\">'+ steps[i].title +'</div></td>' + '<td><p class=\"descriptionStep\">' + steps[i].description +'</p></td></tr>';
         dynamicBody = dynamicBody + row;
       }
 
@@ -72,6 +72,8 @@ router.post('/', function(req, res, next) {
         dataSkeleton = dataSkeleton.replace('EXPECTED_CLOSURE_VALUE', footer.expclo);
         dataSkeleton = dataSkeleton.replace('CLOSURE_VALUE', footer.closure);
       
+        console.log('dataSkeleton: ', dataSkeleton);
+
         var options = { format: 'A4' };
 
             const randomNamePdf = uuidv4() + '.pdf';
