@@ -72,7 +72,7 @@ router.post('/', function(req, res, next) {
         dataSkeleton = dataSkeleton.replace('EXPECTED_CLOSURE_VALUE', footer.expclo);
         dataSkeleton = dataSkeleton.replace('CLOSURE_VALUE', footer.closure);
       
-        console.log('dataSkeleton: ', dataSkeleton);
+        // console.log('dataSkeleton: ', dataSkeleton);
 
         var options = { format: 'A4' };
 

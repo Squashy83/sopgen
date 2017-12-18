@@ -45,9 +45,12 @@ export class SopInfoComponent implements OnInit {
 
     ngOnInit() {
         this.setupValidationMessages();
-        if (this.pdfManager.pdfStructure)
+        if (this.pdfManager.pdfStructure) {
             this.buildForm(undefined);
-        else this.buildForm('reload');
+        }
+        else {
+            this.buildForm('reload');
+        } 
     }
 
     buildForm(reload: any) {

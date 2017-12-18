@@ -63,19 +63,20 @@ export class SopStepsComponent implements OnInit {
       for (var i = 0; i < (this.pdfManager.pdfStructure.steps).length; i++) {
         resulInit.push(
           this.fb.group({
-            'title': [this.pdfManager.pdfStructure.steps[i].title, [Validators.required]],
+            'title': [this.pdfManager.pdfStructure.steps[i].title, [Validators.required, Validators.maxLength(63)]],
             'description': [this.pdfManager.pdfStructure.steps[i].description, [Validators.required, Validators.minLength(20)]],
             'validate': ''
           })
         );
       }
       return resulInit;
-    } else
+    } else {
       return [this.fb.group({
-        'title': ['', [Validators.required]],
+        'title': ['', [Validators.required, Validators.maxLength(63)]],
         'description': ['', [Validators.required, Validators.minLength(20)]],
         'validate': ''
       })];
+    }
   }
 
   onValueChanged(data?: any) {
@@ -110,6 +111,7 @@ export class SopStepsComponent implements OnInit {
   setupValidationMessages() {
     this.translate.get('VALIDATION_MESSAGES').subscribe((mes: string) => {
       this.validationMessages.title['required'] = mes['TITLE']['REQUIRED'];
+      this.validationMessages.title['maxlength'] = mes['STEPS-TITLE']['MAX_LENGTH'];
       this.validationMessages.description['required'] = mes['DESCRIPTION']['REQUIRED'];
       this.validationMessages.description['minlength'] = mes['DESCRIPTION']['MIN_LENGTH'];
     });

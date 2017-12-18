@@ -95,6 +95,9 @@
     },
     "POSITION": {
       "REQUIRED": "Position is mandatory"
+    },
+    "STEPS-TITLE": {
+      "MAX_LENGTH": "max 63 characters"
     }
   },
   "PLACEHOLDERS": {
