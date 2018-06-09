@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Sop = require('../models/Sop.js');
 
 /* GET ALL SopS */
-router.get('/', function (req, res, next) {
+router.get('/sopgen', function (req, res, next) {
   Sop.find(function (err, products) {
     if (err) return next(err);
     res.json(products);
@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
 });
 
 /* GET SINGLE Sop BY ID */
-router.get('/:id', function (req, res, next) {
+router.get('/sopgen/:id', function (req, res, next) {
   Sop.findById(req.params.id, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -20,7 +20,7 @@ router.get('/:id', function (req, res, next) {
 });
 
 /* SAVE Sop */
-router.post('/', function (req, res, next) {
+router.post('/sopgen', function (req, res, next) {
   Sop.create(req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -28,7 +28,7 @@ router.post('/', function (req, res, next) {
 });
 
 /* UPDATE Sop */
-router.put('/:id', function (req, res, next) {
+router.put('/sopgen/:id', function (req, res, next) {
   Sop.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
@@ -36,7 +36,7 @@ router.put('/:id', function (req, res, next) {
 });
 
 /* DELETE Sop */
-router.delete('/:id', function (req, res, next) {
+router.delete('/sopgen/:id', function (req, res, next) {
   Sop.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
