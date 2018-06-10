@@ -7,5 +7,5 @@ export const environment = {
   production: false,
   ASSETS: '/assets/',
   TRANSLATE_FILE: './assets/i18n/',
-  BASE_URL: 'http://localhost:3000/sopgen'
+  BASE_URL: 'http://localhost:3000/'
 };
