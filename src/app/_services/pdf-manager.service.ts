@@ -7,7 +7,7 @@ import { PdfCreateResponse } from '../models/pdfCreate-response';
 export class PdfManagerService {
 
   pdfStructure: any;
-  private readonly CREATE_SOP_URL = '/createSop';
+  private readonly CREATE_SOP_URL = '/sopgen/createSop';
 
   constructor(private http: HttpClient) { }
 

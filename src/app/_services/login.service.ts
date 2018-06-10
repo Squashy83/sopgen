@@ -16,7 +16,7 @@ export class LoginService {
 
   login(userid, password): Observable<UserResponse> {
     // var result;
-    return this.http.get<UserResponse>('/user/' + userid + '/' + password).map(data => {
+    return this.http.get<UserResponse>('/sopgen/user/' + userid + '/' + password).map(data => {
       if (data) {
         this.loggedInUser = data.user;
         this.islogged = true;

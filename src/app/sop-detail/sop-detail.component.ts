@@ -19,13 +19,13 @@ export class SopDetailComponent implements OnInit {
   }
 
   getSopDetail(id) {
-    this.http.get('/sop/' + id).subscribe(data => {
+    this.http.get('/sopgen/sop/' + id).subscribe(data => {
       this.sop = data;
     });
   }
 
   deleteSop(id) {
-    this.http.delete('/sop/' + id)
+    this.http.delete('/sopgen/sop/' + id)
       .subscribe(res => {
         this.router.navigate(['/sops']);
       }, (err) => {

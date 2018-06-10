@@ -11,7 +11,7 @@ export class SopComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.http.get('/sop').subscribe(data => {
+    this.http.get('/sopgen/sop').subscribe(data => {
       this.sops = data;
     });
   }

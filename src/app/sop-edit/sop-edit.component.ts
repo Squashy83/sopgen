@@ -19,13 +19,13 @@ export class SopEditComponent implements OnInit {
   }
 
   getSop(id) {
-    this.http.get('/sop/' + id).subscribe(data => {
+    this.http.get('/sopgen/sop/' + id).subscribe(data => {
       this.sop = data;
     });
   }
 
   updateSop(id, data) {
-    this.http.put('/sop/' + id, data)
+    this.http.put('/sopgen/sop/' + id, data)
       .subscribe(res => {
         let id = res['_id'];
         this.router.navigate(['/sop-details', id]);
