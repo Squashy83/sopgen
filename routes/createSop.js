@@ -8,7 +8,7 @@ var Sop = require('../models/Sop');
 
 const uuidv4 = require('uuid/v4');
 
-router.post('/sopgen', function (req, res, next) {
+router.post('/', function (req, res, next) {
 
   const data = JSON.parse(req.rawBody);
 

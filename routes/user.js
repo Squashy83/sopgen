@@ -12,7 +12,7 @@ var User = require('../models/User.js');
 // });
 
 /* GET SINGLE User BY ID */
-router.get('/sopgen/:id/:passwd', function (req, res, next) {
+router.get('/:id/:passwd', function (req, res, next) {
   User.findOne({
     'userid': req.params.id,
     'password': req.params.passwd
