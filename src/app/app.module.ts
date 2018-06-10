@@ -50,42 +50,42 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 const appRoutes: Routes = [
   {
-    path: 'sopgen/sop-generatepdf',
+    path: 'sop-generatepdf',
     component: SopGeneratepdfComponent,
     canActivate: [LoginGuardService],
     data: { title: 'Sop Create PDF' }
   }, {
-    path: 'sopgen/sop-info',
+    path: 'sop-info',
     component: SopInfoComponent,
     canActivate: [LoginGuardService],
     data: { title: 'Sop Generic Info' }
   },
   {
-    path: 'sopgen/sop-steps',
+    path: 'sop-steps',
     component: SopStepsComponent,
     canActivate: [LoginGuardService],
     data: { title: 'Sop Steps' }
   },
   {
-    path: 'sopgen/sop-responsibles',
+    path: 'sop-responsibles',
     component: SopResponsiblesComponent,
     canActivate: [LoginGuardService],
     data: { title: 'Sop Responsibles Info' }
   },
   {
-    path: 'sopgen/sop-footer',
+    path: 'sop-footer',
     component: SopFooterComponent,
     canActivate: [LoginGuardService],
     data: { title: 'Sop Footer' }
   },
   {
-    path: 'sopgen/login',
+    path: 'login',
     component: LoginComponent,
     data: { title: 'Please Login' }
   },
   {
-    path: 'sopgen',
-    redirectTo: '/sopgen/login',
+    path: '',
+    redirectTo: '/login',
     pathMatch: 'full'
   }
 ];
