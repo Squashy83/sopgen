@@ -46,16 +46,16 @@ app.use(bodyParser.raw({
 }));
 
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use('/sopgen/sops', express.static(path.join(__dirname, 'dist')));
-app.use('/sopgen/sop', sop);
+app.use('/sops', express.static(path.join(__dirname, 'dist')));
+app.use('/sop', sop);
 
-app.use('/sopgen/users', express.static(path.join(__dirname, 'dist')));
-app.use('/sopgen/user', user);
+app.use('/users', express.static(path.join(__dirname, 'dist')));
+app.use('/user', user);
 
-app.use('/sopgen/createSop', express.static(path.join(__dirname, 'dist')));
-app.use('/sopgen/createSop', createSop);
+app.use('/createSop', express.static(path.join(__dirname, 'dist')));
+app.use('/createSop', createSop);
 
-app.use('/sopgen/public', express.static('public'));
+app.use('/public', express.static('public'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
