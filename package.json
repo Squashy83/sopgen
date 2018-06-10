@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng build && node ./bin/www",
-    "runprod": "ng build --env=prod && pm2 start ./bin/www --update-env",
+    "runprod": "ng build --base-href sopgen --env=prod && pm2 start ./bin/www --update-env",
     "start-node": "node ./bin/www",
     "build": "ng build",
     "test": "ng test",
